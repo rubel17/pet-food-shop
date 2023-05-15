@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Link } from "react-router-dom";
-import img from "../../assets/image/45184974.jpg";
+import img from "../../assets/image/Brand-Icon.png";
 // import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
@@ -67,9 +67,9 @@ const Header = () => {
         <img
           alt=""
           src={img}
-          width="110px"
-          height="110px"
-          className="bg-current align-top"
+          width="100px"
+          height="100px"
+          className=" align-top"
         />
         <ul className="text-black menu menu-horizontal ml-32 p-0">
           <li className="m-2">
@@ -112,7 +112,7 @@ const Header = () => {
             </svg>
           </p>
         </div>
-        <button className="ml-12">
+        <Link className="ml-12">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -127,8 +127,10 @@ const Header = () => {
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
             />
           </svg>
-        </button>
-        <FontAwesomeIcon className="ml-4" icon={faHeart} />
+        </Link>
+        <Link>
+          <FontAwesomeIcon className="ml-4" icon={faHeart} />
+        </Link>
       </div>
 
       <div className="lg:mr-12 text-base-100 navbar-end">

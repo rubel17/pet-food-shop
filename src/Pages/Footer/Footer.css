@@ -1,0 +1,45 @@
+.footerLeft{
+    margin-left: 312px;
+}
+.footer-img{
+    width: 110px;
+    height: 110px;
+}
+.footerLeft-p{
+    margin-top: 15px;
+   margin-bottom: 30px;
+}
+.facebook{
+    border-radius: 10%;
+    background-color:#E2FAEF ;
+}
+.linkedin{
+    border-radius: 10%;
+    background-color:#E2FAEF ;
+}
+.twitter{
+    border-radius: 10%;
+    background-color:#84B59F ;
+}
+.instagram{
+    border-radius: 10%;
+    background-color:#E2FAEF ;
+}
+.footerR-Quick{
+    font-size:large;
+    font-weight: 700;
+}
+.footer-input{
+    background-color: #F5F5F5;
+    margin-bottom: 20px;
+}
+.footer-input2{
+    background-color: #F5F5F5;
+    margin-bottom: 40px;
+}
+
+.btn-SM{
+    background-color:#84B59F ;
+    color: white;
+    margin-top: 20px;
+}

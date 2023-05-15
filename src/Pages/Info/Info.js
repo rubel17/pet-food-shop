@@ -46,9 +46,12 @@ const Info = () => {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-3">
+        <div className="mt-10 md:mt-7">
           <Link to="/register">Sign Up</Link>
-          <Link to="/login" className="btn bg-white text-black w-32 ml-5">
+          <Link
+            to="/login"
+            className="py-2 px-9 text-xl font-semibold bg-white text-emerald-600 w-32 ml-5"
+          >
             Login
           </Link>
         </div>

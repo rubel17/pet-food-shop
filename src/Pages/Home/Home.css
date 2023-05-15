@@ -1,0 +1,327 @@
+.category{
+    margin-top: 26px;
+    height: 603px;
+}
+.Product{
+    width: 380px;
+}
+
+.Items1 img{
+    margin-left: 42px;
+    margin-right: 18px;
+}
+
+.arrow{
+    margin-top:7px;
+}
+.Items2{
+    background-color: #F4FBF8;
+}
+.Items2 img{
+    margin-left: 42px;
+    margin-right: 18px;
+}
+.banner{
+   width: 1103px;
+   height: 595px; 
+   margin-top: 26px;
+   margin-left: 20px;
+}
+.banner-text{
+    margin-left: 60px;
+}
+.new{
+    margin-top: 62px;
+    
+}
+.banner-h{
+    margin-top: 79px;
+}
+.banner-p{
+    font-family: 'Shantell Sans', cursive;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    margin-top: 17px;
+}
+.btn-shop{
+    background-color: #84B59F;
+    color: white;
+    width: 175px;
+    height: 52px;
+    margin-top: 46px;
+}
+.btn-arrow{
+    margin-top: 14px;
+    margin-left: 43px;
+}
+.finger{
+    width: 74px;
+    height: 74px;
+    margin-top: 85px;
+    margin-left: 169px;
+}
+.finger-a{
+    width: 58px;
+    height: 58px;
+    margin-top: 58px;
+    margin-left: 170px;
+}
+.bone{
+    width: 80px;
+    height: 80px;
+    margin-left: 322px;
+    margin-top: 78px;
+
+
+}
+.color-b1{
+width: 350px;
+height: 277px;
+margin-top:-30px;
+margin-left: -120px;
+}
+.color-b2{
+    width: 350px;
+    height: 277px;
+    margin-top:-100px;
+    margin-left: -250px;
+    }
+    .color-b3{
+        width: 350px;
+        height: 277px;
+        margin-top:-120px;
+        margin-left: -120px;
+        }
+    .color-b4{
+        width: 250px;
+        height: 227px;
+        margin-top:-190px;
+        margin-right: -60px;
+        }
+        .arrow-l{
+            margin-bottom: 65px;
+            margin-right: -10px;
+        }
+        .arrow-r{
+            margin-top: 213px;
+           margin-left: 455px;
+        }
+        .shed{
+            margin-left: 60px;
+            margin-top: -40px;
+        }
+        .pack-a{
+            width: 293px;
+            height: 382px;
+            margin-top:-390px;
+            margin-left: 70px;
+        }
+        .pack-b{
+            width: 377px;
+            height: 430px;
+            margin-top:-430px;
+            margin-left: -110px;
+        }
+        .pack-c{
+            width: 273px;
+            height: 258px;
+            margin-top:-260px;
+            margin-left: 110px;
+        }
+        .pack-d{
+            width: 228px;
+            height: 215px;
+            margin-top:-210px;
+            margin-left: -110px;
+        }
+        .pack-e{
+            width: 172px;
+            height: 216px;
+            margin-top:-208px;
+            margin-left: -95px;
+        }
+        /* cat foods  */
+        .cat-food-text{
+            color:#ADC178 ;
+        }
+        .Cat-Foods{
+            margin-top: 120px;
+        }
+        .cat-product{
+            margin-top: 60px;
+        }
+        .cat-p{
+            font-family: 'Shantell Sans', cursive;
+            margin-top: 8px;
+        }
+        .cat-finger{
+            padding: 0;
+            margin: 0;
+            width: 311px;
+        }
+        .cat-finger-img{
+            width: 145px;
+            height: 145px;
+            margin-left: 30px;
+            margin-top: 220px;
+        }
+        .cat-category{
+            padding: 0;
+            margin: 0;
+            width: 1577px;
+            padding-left: 100px;
+            padding-right: 120px;
+            
+
+        }
+        .slick-next{
+            background-color: #C4E6D6!important;
+            /* background-color: white!important; */
+
+            width: 30px !important;
+            height: 30px !important;
+            right: -1px !important;
+            border-radius: 10px;
+            
+        }
+        .slick-prev{
+            background-color: #C4E6D6!important;
+            /* background-color: white!important; */
+            width: 30px !important;
+            height: 30px !important;
+            border-radius: 10px;
+            left: -38px !important;
+         
+        }
+        .slick-dots li.slick-active button:before{
+
+         color:#C4E6D6 !important;
+         font-size: 20px !important;
+        
+        
+        }
+        .slick-dots li button:before{
+
+            font-size: 10px !important;
+            top:2rem !important;
+            color: grey !important;
+           
+           }
+           .single-product{
+            width: 298px;
+            height: 457px;
+           }
+           .single-product-body{
+            width: 298px;
+            height: 297px;
+            background-color: #F9FCEA;
+            /* margin: 0;
+            padding: 0; */
+           }
+           .single-product-body-img{
+           padding: 37px;
+           }
+           .star{
+            color:orange ;
+           }
+           .btn-cart{
+            background-color:#ADC178 ;
+            color: white;
+           
+           }
+        .star1{
+            color: grey;
+        }
+         .cat-bone{
+            padding: 0;
+            margin: 0;
+            width: 312px;
+           }
+        .cat-bone-img{
+            width: 183px;
+            height: 183px;
+            padding-right: 15px ;
+        }
+        .cat-see-all{
+            color:#ADC178  ;
+        }
+
+        /* dog food */
+        .dog-food-text{
+            color: #EF476F;
+        }
+        .dog-product{
+            margin-left: 271px;
+            margin-right: 312px;
+            margin-top: 60px;
+        }
+        .dog-category{
+            padding: 0;
+            margin: 0;
+            width: 1357px;
+        
+            /* padding-left: 100px;
+            padding-right: 120px; */
+            
+
+        }
+        .dog-Foods{
+            margin-top: 120px;
+        }
+        .dog-p{
+            font-family: 'Shantell Sans', cursive;
+            margin-top: 8px;
+        }
+        .btn-dog{
+            background-color: #EF476F;
+            color: white;
+        }
+        .single-product-dog{
+            width: 298px;
+            height: 297px;
+            background: #FFF6F9;
+            /* margin: 0;
+            padding: 0; */
+           }
+           .dog-see-all{
+            color:#EF476F  ;
+        }
+
+        /* banner */
+        .cat-banner{
+            margin-left: 147px;
+            margin-right: 38px; 
+            margin-bottom: 119px;
+        }
+        .cat-offer{
+            font-size:xx-large;
+            font-weight: 800;
+        }
+        .cat15{
+            color: #73997C;
+        }
+        .cat-banner-p{
+            font-family: 'Shantell Sans', cursive;
+            font-size:larger;
+            font-weight: 500;
+            margin-bottom: 20px;
+            
+        }
+        .btn-banner-shop{
+            background-color: #73997C;
+            color: white;
+        }
+        .dog-offer{
+            font-size:xx-large;
+            font-weight: 800;
+        }
+        .dog-offer2{
+            font-size:x-large;
+            font-weight: 700;
+        }
+        .btn-banner-shop2{
+            background-color:#4088AC;
+            color: white;
+        }
