@@ -95,7 +95,10 @@ const Home = () => {
       <section className="flex justify-center">
         <div className="category">
           <div className="Product grid grid-cols-1 divide-y">
-            <Link className="Items1 bg-emerald-100 py-5 flex justify-between">
+            <Link
+              to="/catFood"
+              className="Items1 bg-emerald-100 py-5 flex justify-between"
+            >
               <div className="flex">
                 <img src={imgC} alt="" />
                 <p>Cat Food</p>
@@ -227,240 +230,258 @@ const Home = () => {
           <div className="cat-category">
             <Slider {...settings}>
               {/* product-1 */}
-              <div className="single-product">
-                <div className=" single-product-body">
-                  <div className=" single-product-body-img relative">
-                    <img src={imgPcckC} alt="" />
-                    <Link>
-                      <img
-                        className="absolute top-0 right-0 p-5"
-                        src={Heart}
-                        alt=""
-                      />
+              <Link to="/foodDetails">
+                <div className="single-product">
+                  <div className=" single-product-body">
+                    <div className=" single-product-body-img relative">
+                      <img src={imgPcckC} alt="" />
+                      <Link to="/wishList">
+                        <img
+                          className="absolute top-0 right-0 p-5"
+                          src={Heart}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="single-product-text">
+                    <h1 className="text-xl font-semibold py-1">
+                      Royal Canin Kitten Food
+                    </h1>
+                    <h2 className="text-medium pb-1">Chicken ( 1 Kg)</h2>
+                    <h3 className="text-medium font-semibold">500 Tk.</h3>
+                    <div className="flex mb-4">
+                      <div className="flex mr-3 mt-1">
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                      </div>
+                      <h2>(50+ views)</h2>
+                    </div>
+                    <Link to="/addCart" className="btn-cart px-3 py-3">
+                      Add To Cart{" "}
                     </Link>
                   </div>
                 </div>
-                <div className="single-product-text">
-                  <h1 className="text-xl font-semibold py-1">
-                    Royal Canin Kitten Food
-                  </h1>
-                  <h2 className="text-medium pb-1">Chicken ( 1 Kg)</h2>
-                  <h3 className="text-medium font-semibold">500 Tk.</h3>
-                  <div className="flex mb-4">
-                    <div className="flex mr-3 mt-1">
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                    </div>
-                    <h2>(50+ views)</h2>
-                  </div>
-                  <Link className="btn-cart px-3 py-3">Add To Cart </Link>
-                </div>
-              </div>
+              </Link>
               {/* product-2 */}
-              <div className="single-product">
-                <div className=" single-product-body">
-                  <div className=" single-product-body-img relative">
-                    <img src={imgPcckB} alt="" />
-                    <Link>
-                      <img
-                        className="absolute top-0 right-0 p-5"
-                        src={Heart}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                </div>
-                <div className="single-product-text">
-                  <h1 className="text-xl font-semibold py-1">
-                    Brit Premium Senior Food
-                  </h1>
-                  <h2 className="text-medium pb-1">Chicken (1.5 Kg)</h2>
-                  <h3 className="text-medium font-semibold">650 Tk.</h3>
-                  <div className="flex mb-4">
-                    <div className="flex mr-3 mt-1">
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon
-                        className="star pr-1"
-                        icon={faStarHalfAlt}
-                      />
+              <Link to="/foodDetails">
+                <div className="single-product">
+                  <div className=" single-product-body">
+                    <div className=" single-product-body-img relative">
+                      <img src={imgPcckB} alt="" />
+                      <Link>
+                        <img
+                          className="absolute top-0 right-0 p-5"
+                          src={Heart}
+                          alt=""
+                        />
+                      </Link>
                     </div>
-                    <h2>(40+ views)</h2>
                   </div>
-                  <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  <div className="single-product-text">
+                    <h1 className="text-xl font-semibold py-1">
+                      Brit Premium Senior Food
+                    </h1>
+                    <h2 className="text-medium pb-1">Chicken (1.5 Kg)</h2>
+                    <h3 className="text-medium font-semibold">650 Tk.</h3>
+                    <div className="flex mb-4">
+                      <div className="flex mr-3 mt-1">
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon
+                          className="star pr-1"
+                          icon={faStarHalfAlt}
+                        />
+                      </div>
+                      <h2>(40+ views)</h2>
+                    </div>
+                    <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               {/* product-3 */}
-              <div className="single-product">
-                <div className=" single-product-body">
-                  <div className=" single-product-body-img relative">
-                    <img src={imgPcckD} alt="" />
-                    <Link>
-                      <img
-                        className="absolute top-0 right-0 p-5"
-                        src={Heart}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                </div>
-                <div className="single-product-text">
-                  <h1 className="text-xl font-semibold py-1">Kit Cat Food</h1>
-                  <h2 className="text-medium pb-1">Mini Fish Medley (2 Kg)</h2>
-                  <h3 className="text-medium font-semibold">1100 Tk.</h3>
-                  <div className="flex mb-4">
-                    <div className="flex mr-3 mt-1">
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star1 pr-1" icon={faStar} />
+              <Link to="/foodDetails">
+                <div className="single-product">
+                  <div className=" single-product-body">
+                    <div className=" single-product-body-img relative">
+                      <img src={imgPcckD} alt="" />
+                      <Link>
+                        <img
+                          className="absolute top-0 right-0 p-5"
+                          src={Heart}
+                          alt=""
+                        />
+                      </Link>
                     </div>
-                    <h2>(30+ views)</h2>
                   </div>
-                  <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  <div className="single-product-text">
+                    <h1 className="text-xl font-semibold py-1">Kit Cat Food</h1>
+                    <h2 className="text-medium pb-1">
+                      Mini Fish Medley (2 Kg)
+                    </h2>
+                    <h3 className="text-medium font-semibold">1100 Tk.</h3>
+                    <div className="flex mb-4">
+                      <div className="flex mr-3 mt-1">
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star1 pr-1" icon={faStar} />
+                      </div>
+                      <h2>(30+ views)</h2>
+                    </div>
+                    <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               {/* product-4 */}
-              <div className="single-product">
-                <div className=" single-product-body">
-                  <div className=" single-product-body-img relative">
-                    <img src={imgPcckE} alt="" />
-                    <Link>
-                      <img
-                        className="absolute top-0 right-0 p-5"
-                        src={Heart}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                </div>
-                <div className="single-product-text">
-                  <h1 className="text-xl font-semibold py-1">
-                    Magnus Adult Kitten Food
-                  </h1>
-                  <h2 className="text-medium pb-1">Chicken ( 2 Kg)</h2>
-                  <h3 className="text-medium font-semibold">1000 Tk.</h3>
-                  <div className="flex mb-4">
-                    <div className="flex mr-3 mt-1">
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon
-                        className="star pr-1"
-                        icon={faStarHalfAlt}
-                      />
+              <Link to="/foodDetails">
+                <div className="single-product">
+                  <div className=" single-product-body">
+                    <div className=" single-product-body-img relative">
+                      <img src={imgPcckE} alt="" />
+                      <Link>
+                        <img
+                          className="absolute top-0 right-0 p-5"
+                          src={Heart}
+                          alt=""
+                        />
+                      </Link>
                     </div>
-                    <h2>(45+ views)</h2>
                   </div>
-                  <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  <div className="single-product-text">
+                    <h1 className="text-xl font-semibold py-1">
+                      Magnus Adult Kitten Food
+                    </h1>
+                    <h2 className="text-medium pb-1">Chicken ( 2 Kg)</h2>
+                    <h3 className="text-medium font-semibold">1000 Tk.</h3>
+                    <div className="flex mb-4">
+                      <div className="flex mr-3 mt-1">
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon
+                          className="star pr-1"
+                          icon={faStarHalfAlt}
+                        />
+                      </div>
+                      <h2>(45+ views)</h2>
+                    </div>
+                    <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               {/* product-5 */}
-              <div className="single-product">
-                <div className=" single-product-body">
-                  <div className=" single-product-body-img relative">
-                    <img src={imgPcckA} alt="" />
-                    <Link>
-                      <img
-                        className="absolute top-0 right-0 p-5"
-                        src={Heart}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                </div>
-                <div className="single-product-text">
-                  <h1 className="text-xl font-semibold py-1">
-                    Pro Plan Natural Food
-                  </h1>
-                  <h2 className="text-medium pb-1">Chicken ( 1.5 Kg)</h2>
-                  <h3 className="text-medium font-semibold">800 Tk.</h3>
-                  <div className="flex mb-4">
-                    <div className="flex mr-3 mt-1">
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
+              <Link to="/foodDetails">
+                <div className="single-product">
+                  <div className=" single-product-body">
+                    <div className=" single-product-body-img relative">
+                      <img src={imgPcckA} alt="" />
+                      <Link>
+                        <img
+                          className="absolute top-0 right-0 p-5"
+                          src={Heart}
+                          alt=""
+                        />
+                      </Link>
                     </div>
-                    <h2>(55+ views)</h2>
                   </div>
-                  <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  <div className="single-product-text">
+                    <h1 className="text-xl font-semibold py-1">
+                      Pro Plan Natural Food
+                    </h1>
+                    <h2 className="text-medium pb-1">Chicken ( 1.5 Kg)</h2>
+                    <h3 className="text-medium font-semibold">800 Tk.</h3>
+                    <div className="flex mb-4">
+                      <div className="flex mr-3 mt-1">
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                      </div>
+                      <h2>(55+ views)</h2>
+                    </div>
+                    <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               {/* product-6 */}
-              <div className="single-product">
-                <div className=" single-product-body">
-                  <div className=" single-product-body-img relative">
-                    <img src={imgPcckD} alt="" />
-                    <Link>
-                      <img
-                        className="absolute top-0 right-0 p-5"
-                        src={Heart}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                </div>
-                <div className="single-product-text">
-                  <h1 className="text-xl font-semibold py-1">
-                    Royal Canin Kitten Food
-                  </h1>
-                  <h2 className="text-medium pb-1">Chicken ( 1 Kg)</h2>
-                  <h3 className="text-medium font-semibold">500 Tk.</h3>
-                  <div className="flex mb-4">
-                    <div className="flex mr-3 mt-1">
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
+              <Link to="/foodDetails">
+                <div className="single-product">
+                  <div className=" single-product-body">
+                    <div className=" single-product-body-img relative">
+                      <img src={imgPcckD} alt="" />
+                      <Link>
+                        <img
+                          className="absolute top-0 right-0 p-5"
+                          src={Heart}
+                          alt=""
+                        />
+                      </Link>
                     </div>
-                    <h2>(50+ views)</h2>
                   </div>
-                  <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  <div className="single-product-text">
+                    <h1 className="text-xl font-semibold py-1">
+                      Royal Canin Kitten Food
+                    </h1>
+                    <h2 className="text-medium pb-1">Chicken ( 1 Kg)</h2>
+                    <h3 className="text-medium font-semibold">500 Tk.</h3>
+                    <div className="flex mb-4">
+                      <div className="flex mr-3 mt-1">
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                      </div>
+                      <h2>(50+ views)</h2>
+                    </div>
+                    <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               {/* product-7 */}
-              <div className="single-product">
-                <div className=" single-product-body">
-                  <div className=" single-product-body-img relative">
-                    <img src={imgPcckC} alt="" />
-                    <Link>
-                      <img
-                        className="absolute top-0 right-0 p-5"
-                        src={Heart}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                </div>
-                <div className="single-product-text">
-                  <h1 className="text-xl font-semibold py-1">
-                    Royal Canin Kitten Food
-                  </h1>
-                  <h2 className="text-medium pb-1">Chicken ( 1 Kg)</h2>
-                  <h3 className="text-medium font-semibold">500 Tk.</h3>
-                  <div className="flex mb-4">
-                    <div className="flex mr-3 mt-1">
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                      <FontAwesomeIcon className="star pr-1" icon={faStar} />
+              <Link to="/foodDetails">
+                <div className="single-product">
+                  <div className=" single-product-body">
+                    <div className=" single-product-body-img relative">
+                      <img src={imgPcckC} alt="" />
+                      <Link>
+                        <img
+                          className="absolute top-0 right-0 p-5"
+                          src={Heart}
+                          alt=""
+                        />
+                      </Link>
                     </div>
-                    <h2>(50+ views)</h2>
                   </div>
-                  <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  <div className="single-product-text">
+                    <h1 className="text-xl font-semibold py-1">
+                      Royal Canin Kitten Food
+                    </h1>
+                    <h2 className="text-medium pb-1">Chicken ( 1 Kg)</h2>
+                    <h3 className="text-medium font-semibold">500 Tk.</h3>
+                    <div className="flex mb-4">
+                      <div className="flex mr-3 mt-1">
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                        <FontAwesomeIcon className="star pr-1" icon={faStar} />
+                      </div>
+                      <h2>(50+ views)</h2>
+                    </div>
+                    <Link className="btn-cart px-3 py-3">Add To Cart </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
               {/* product-end */}
             </Slider>
             <Link>

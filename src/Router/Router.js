@@ -1,11 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
-import ClearanceSale from "../Pages/ClearanceSale/ClearanceSale";
+import CatFood from "../Pages/CatFood/CatFood";
+import ClearancSale from "../Pages/ClearancSale/ClearancSale";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import Home from "../Pages/Home/Home";
+// import Login from "../Pages/Login/Login";
 import Offer from "../Pages/Offer/Offer";
+// import Register from "../Pages/Register/Register";
 import Shop from "../Pages/Shop/Shop";
+import Reviews from "../Pages/FoodDetails/Reviews/Reviews";
+import AdditionalInfo from "../Pages/FoodDetails/AdditionalInfo/AdditionalInfo";
+import Shipping from "../Pages/FoodDetails/Shipping/Shipping";
 
 export const router = createBrowserRouter([
   {
@@ -26,20 +33,42 @@ export const router = createBrowserRouter([
       },
       {
         path: "/ClearanceSale",
-        element: <ClearanceSale></ClearanceSale>,
+        element: <ClearancSale></ClearancSale>,
       },
       {
         path: "/offer",
         element: <Offer></Offer>,
       },
+      {
+        path: "/catFood",
+        element: <CatFood></CatFood>,
+      },
+      {
+        path: "/foodDetails",
+        element: <FoodDetails></FoodDetails>,
+        children: [
+          {
+            path: "/foodDetails/reviews",
+            element: <Reviews></Reviews>,
+          },
+          {
+            path: "/foodDetails/shipping",
+            element: <Shipping></Shipping>,
+          },
+          {
+            path: "/foodDetails/additionalInfo",
+            element: <AdditionalInfo></AdditionalInfo>,
+          },
+        ],
+      },
       // {
       //   path: "/login",
       //   element: <Login></Login>,
       // },
-      //       {
-      //         path: "/register",
-      //         element: <Register></Register>,
-      //       },
+      // {
+      //   path: "/register",
+      //   element: <Register></Register>,
+      // },
       //       {
       //         path: "/allProduct",
       //         element: <AllProduct></AllProduct>,

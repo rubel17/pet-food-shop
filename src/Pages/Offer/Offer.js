@@ -1,9 +1,10 @@
 import React from "react";
+import CatAndDog from "../Home/CatAndDog/CatAndDog";
 
 const Offer = () => {
   return (
-    <div>
-      <h1>this is offer</h1>
+    <div className="mt-40">
+      <CatAndDog></CatAndDog>
     </div>
   );
 };

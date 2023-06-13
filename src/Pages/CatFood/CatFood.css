@@ -1,0 +1,33 @@
+
+.catFood-Banner img{
+    width: 100%;
+    height: 448px;
+}
+.catFood-Banner{
+    position: relative;
+}
+.catFood-Banner:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: rgba(29, 29, 29, 0.7);
+    height: 100%;
+    width: 100%;
+}
+.catFood-banner-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    margin-top: 149px;
+    margin-left:824px ;
+}
+.catFood-banner-text h1{
+    font-size: xxx-large;
+    font-weight: 600;
+}
+.catFood-banner-text p{
+    margin-left: 70px;
+    margin-top: 10px;
+}

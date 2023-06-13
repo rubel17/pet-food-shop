@@ -1,0 +1,33 @@
+.wish-shadow{
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
+
+}
+.wish-product{
+    margin-left: 11px;
+    display: flex;
+}
+.wish-product-body{
+    margin-right:16px ;
+    width: 115px;
+    height: 122px;
+    background-color: #E6F9FA;
+}
+.wish-product-body-img{
+   width:75px ;
+   height:92px ;
+   padding-top: 10px;
+   padding-left: 20px;
+   margin-left: 10px;
+   margin-top: 10px;
+   
+}
+.wish-upAndDown{
+    background: #F4FBF8;
+    color: #84B59F;
+}
+.wish-order-btn{
+    color: white;
+    background: #84B59F;
+    border-radius: 2px;
+}
+

@@ -1,0 +1,21 @@
+.e-oops{
+margin-left: 312px;
+margin-top:201px;
+font-family: 'Roboto';
+font-weight: 700;
+font-size: 64px;
+}
+.e-p{
+    margin-left: 312px; 
+    margin-top:20px;
+    margin-bottom: 60px;
+}
+.e-goBack{
+    margin-left: 312px; 
+    background-color:#84B59F ;
+    color: white;
+}
+.e-img{
+    width: 593px;
+    height: 593px;
+}

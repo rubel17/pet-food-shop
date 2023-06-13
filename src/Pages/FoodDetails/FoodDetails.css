@@ -1,0 +1,103 @@
+.catFood-Banner img{
+    width: 100%;
+    height: 448px;
+}
+.catFood-Banner{
+    position: relative;
+}
+.catFood-Banner:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: rgba(29, 29, 29, 0.7);
+    height: 100%;
+    width: 100%;
+}
+.catFood-banner-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    margin-top: 149px;
+    margin-left:824px ;
+}
+.catFood-banner-text h1{
+    font-size: xxx-large;
+    font-weight: 600;
+}
+.catFood-banner-text p{
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.product-details{
+    /* width: 995px; */
+    /* height: 532px; */
+   }
+   .product-details-body{
+    margin-left: 312px;
+    margin-right: 70px;
+    width: 496px;
+    height: 532px;
+   }
+   .product-body-img img{
+    width:342px;
+    height: 417px;
+   }
+   .product-body-img{
+    padding-top: 58px;
+    padding-bottom: 57px;
+    padding-left: 77px;
+    padding-right: 77px;
+   }
+   .star{
+    color:orange ;
+   }
+   .upAndDown{
+    background: #F4FBF8;
+    color: #84B59F;
+   }
+   .btn-cart{
+    background-color:#84B59F ;
+    color: white;
+    margin-right: 45px;
+   }
+   .btn-wishList{
+    border: 1px solid #84B59F;
+    color: #84B59F;
+   }
+   .btn-wishList:hover{
+    border: 1px solid #84B59F;
+    color: #84B59F;
+   }
+   .btn-wishList img{
+    margin-top: 12px;
+    margin-right: 5px;
+    width: 10px;
+    height: 8px;
+       }
+   .btn-wishList p{
+    font-size: 10px;
+    margin-top:9px;
+    color: #84B59F;
+       }
+       .foodDetails-border{
+        margin-left: 312px;
+        margin-right: 312px;
+        height: 420px;
+       }
+       .food-btn:hover{
+       color: red;
+       border-color: #84B59F;
+       }
+.RelatedProduct{
+    margin-bottom: -70px;
+margin-left: 312px;
+font-family: 'Roboto';
+font-weight: 600;
+font-size: 36px;
+}
+.relatedProFood{
+    margin-left: 212px;
+}

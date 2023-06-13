@@ -21,7 +21,7 @@ const Footer = () => {
             standard dummy text
           </p>
           <div className="flex">
-            <Link>
+            <Link to="www.facebook.com" target="_blank">
               <img className="facebook px-3 py-2 mr-4" src={fb} alt="" />
             </Link>
             <Link>

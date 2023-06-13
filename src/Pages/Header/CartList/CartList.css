@@ -1,0 +1,27 @@
+.cart-shadow{
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
+
+}
+.cart-product{
+    margin-left: 11px;
+    display: flex;
+}
+.cart-product-body-img{
+    margin-right:16px ;
+    width: 115px;
+    height: 122px;
+    background-color: #E6F9FA;
+}
+.cart-product-body-img img{
+    padding: 20px;
+}
+.cart-upAndDown{
+    background: #F4FBF8;
+    color: #84B59F;
+}
+.cart-order-btn{
+    color: white;
+    background: #84B59F;
+    border-radius: 2px;
+}
+

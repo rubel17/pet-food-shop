@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-import brandLogo from "../../../assets/image/BrandLogo.png";
+import brandLogo from "../../../assets/image/Brand Logo Img.png";
+import brandLogo2 from "../../../assets/image/BrandLogo.png";
 import Logo1 from "../../../assets/image/logo1.png";
 import Logo2 from "../../../assets/image/logo2.png";
 import Logo3 from "../../../assets/image/logo3.png";
@@ -56,6 +57,7 @@ const BrandLogo = () => {
         {/* logo */}
         <div className="relative">
           <img src={brandLogo} alt="" />
+          <img className="brandLogo2" src={brandLogo2} alt="" />
           <div>
             <Slider className="-mt-48 ml-16 mr-6" {...settings}>
               <div>

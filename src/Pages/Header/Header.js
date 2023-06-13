@@ -1,11 +1,14 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/image/Brand-Icon.png";
+import CartList from "./CartList/CartList";
+import WishList from "./WishList/WishList";
+import love from "../../assets/image/w-love.png";
 // import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const [cartModal, setCartModal] = useState(false);
+  const [wishModal, setWishModal] = useState(false);
   // const { user, logOut } = useContext(AuthContext);
 
   // const handleSignOut = () => {
@@ -112,25 +115,47 @@ const Header = () => {
             </svg>
           </p>
         </div>
-        <Link className="ml-12">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        {/* cart list modal */}
+        <div className="relative">
+          <button
+            className="ml-12"
+            type="button"
+            onClick={() => setCartModal(true)}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
-        </Link>
-        <Link>
-          <FontAwesomeIcon className="ml-4" icon={faHeart} />
-        </Link>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+          </button>
+          <p className="absolute -top-3 -right-1">
+            <span className="text-white bg-lime-800 rounded-full">3</span>
+          </p>
+        </div>
+        <CartList cartModal={cartModal} setCartModal={setCartModal}></CartList>
+        {/* wish list modal */}
+        <div className="relative">
+          <button
+            className="ml-4"
+            type="button"
+            onClick={() => setWishModal(true)}
+          >
+            <img className="w-5 h-4" src={love} alt="" />
+          </button>
+          <p className="absolute -top-3 -right-1">
+            <span className="text-white bg-lime-800 rounded-full">0</span>
+          </p>
+        </div>
+        <WishList wishModal={wishModal} setWishModal={setWishModal}></WishList>
       </div>
 
       <div className="lg:mr-12 text-base-100 navbar-end">

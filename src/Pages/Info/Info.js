@@ -7,11 +7,14 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import React from "react";
+import React, { useState } from "react";
 import "./Info.css";
-import { Link } from "react-router-dom";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
 
 const Info = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [showModalR, setShowModalR] = useState(false);
   return (
     <div className="flex justify-center bg-col md:h-20">
       <div className="md:flex md:justify-between t-width">
@@ -46,16 +49,30 @@ const Info = () => {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-7">
-          <Link to="/register">Sign Up</Link>
-          <Link
-            to="/login"
-            className="py-2 px-9 text-xl font-semibold bg-white text-emerald-600 w-32 ml-5"
+        <div className="mt-10 md:mt-5">
+          <button type="button" onClick={() => setShowModalR(true)}>
+            Sign Up
+          </button>
+          <button
+            className="py-2 px-9 text-xl font-semibold active:bg-blue-500 active:text-white  outline-none focus:outline-none  bg-white text-emerald-600 w-32 ml-5"
+            type="button"
+            onClick={() => setShowModal(true)}
           >
             Login
-          </Link>
+          </button>
         </div>
       </div>
+      <Login
+        showModal={showModal}
+        setShowModal={setShowModal}
+        setShowModalR={setShowModalR}
+        showModalR={showModalR}
+      ></Login>
+      <Register
+        showModalR={showModalR}
+        setShowModalR={setShowModalR}
+        setShowModal={setShowModal}
+      ></Register>
     </div>
   );
 };
