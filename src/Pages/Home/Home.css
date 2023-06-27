@@ -182,7 +182,7 @@ margin-left: -120px;
 
             width: 30px !important;
             height: 30px !important;
-            right: -1px !important;
+            right: -40px !important;
             border-radius: 10px;
             
         }
@@ -209,31 +209,7 @@ margin-left: -120px;
             color: grey !important;
            
            }
-           .single-product{
-            width: 298px;
-            height: 457px;
-           }
-           .single-product-body{
-            width: 298px;
-            height: 297px;
-            background-color: #F9FCEA;
-            /* margin: 0;
-            padding: 0; */
-           }
-           .single-product-body-img{
-           padding: 37px;
-           }
-           .star{
-            color:orange ;
-           }
-           .btn-cart{
-            background-color:#ADC178 ;
-            color: white;
-           
-           }
-        .star1{
-            color: grey;
-        }
+       
          .cat-bone{
             padding: 0;
             margin: 0;
@@ -248,46 +224,7 @@ margin-left: -120px;
             color:#ADC178  ;
         }
 
-        /* dog food */
-        .dog-food-text{
-            color: #EF476F;
-        }
-        .dog-product{
-            margin-left: 271px;
-            margin-right: 312px;
-            margin-top: 60px;
-        }
-        .dog-category{
-            padding: 0;
-            margin: 0;
-            width: 1357px;
         
-            /* padding-left: 100px;
-            padding-right: 120px; */
-            
-
-        }
-        .dog-Foods{
-            margin-top: 120px;
-        }
-        .dog-p{
-            font-family: 'Shantell Sans', cursive;
-            margin-top: 8px;
-        }
-        .btn-dog{
-            background-color: #EF476F;
-            color: white;
-        }
-        .single-product-dog{
-            width: 298px;
-            height: 297px;
-            background: #FFF6F9;
-            /* margin: 0;
-            padding: 0; */
-           }
-           .dog-see-all{
-            color:#EF476F  ;
-        }
 
         /* banner */
         .cat-banner{

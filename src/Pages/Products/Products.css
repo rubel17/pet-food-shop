@@ -1,0 +1,45 @@
+.product-banner-text{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    color: white;
+}
+.product-banner-text h1{
+    font-size: 60px;
+    font-weight: 600;
+}
+.product-banner-text p{
+    font-size: 20px;
+    font-weight: 400;
+}
+.dog-food-text{
+    color: #EF476F;
+}
+.dog-product{
+    margin-left: 271px;
+    margin-right: 312px;
+    margin-top: 60px;
+}
+.dog-category{
+    padding: 0;
+    margin: 0;
+    width: 1357px;
+}
+.dog-Foods{
+    margin-top: 120px;
+}
+.dog-p{
+    font-family: 'Shantell Sans', cursive;
+    margin-top: 8px;
+}
+
+.single-product-dog{
+    width: 298px;
+    height: 297px;
+    background: #FFF6F9;
+    /* margin: 0;
+    padding: 0; */
+   }
+   .dog-see-all{
+    color:#EF476F  ;
+}

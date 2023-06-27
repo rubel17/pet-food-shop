@@ -1,0 +1,27 @@
+.single-product{
+    width: 298px;
+    height: 457px;
+   }
+.single-product-body-clearance{
+    width: 298px;
+    height: 297px;
+    background-color: #ECFFFE;
+    /* margin: 0;
+    padding: 0; */
+   }
+   .single-product-body-img{
+   padding: 37px;
+   }
+
+
+   .btn-cart{
+    background-color:#ADC178 ;
+    color: white;
+   
+   }
+   .star{
+    color:orange ;
+   }
+.star1{
+    color: grey;
+}

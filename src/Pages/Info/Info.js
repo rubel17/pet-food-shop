@@ -7,14 +7,22 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Info.css";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Info = () => {
   const [showModal, setShowModal] = useState(false);
   const [showModalR, setShowModalR] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="flex justify-center bg-col md:h-20">
       <div className="md:flex md:justify-between t-width">
@@ -50,16 +58,31 @@ const Info = () => {
         </div>
 
         <div className="mt-10 md:mt-5">
-          <button type="button" onClick={() => setShowModalR(true)}>
-            Sign Up
-          </button>
-          <button
-            className="py-2 px-9 text-xl font-semibold active:bg-blue-500 active:text-white  outline-none focus:outline-none  bg-white text-emerald-600 w-32 ml-5"
-            type="button"
-            onClick={() => setShowModal(true)}
-          >
-            Login
-          </button>
+          {user ? (
+            <span className="pe-3 text-teal-300">{user.displayName}</span>
+          ) : (
+            <button type="button" onClick={() => setShowModalR(true)}>
+              Sign Up
+            </button>
+          )}
+
+          {user ? (
+            <Link
+              onClick={handleSignOut}
+              className="normal-case btn btn-ghost"
+              to="/register"
+            >
+              SignOut
+            </Link>
+          ) : (
+            <button
+              className="py-2 px-9 text-xl font-semibold active:bg-blue-500 active:text-white  outline-none focus:outline-none  bg-white text-emerald-600 w-32 ml-5"
+              type="button"
+              onClick={() => setShowModal(true)}
+            >
+              Login
+            </button>
+          )}
         </div>
       </div>
       <Login

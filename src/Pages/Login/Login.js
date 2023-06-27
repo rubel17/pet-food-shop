@@ -1,24 +1,60 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import fb from "../../assets/image/fb.png";
 import googleIcon from "../../assets/image/google.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = ({ showModal, showModalR, setShowModal, setShowModalR }) => {
-  // const { loading, setLoading, logInUser, googleSignIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const { loading, setLoading, logInUser, googleSignIn } =
+    useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  // if (loading) {
+  //   return (
+  //     <div className="text-center m-56">
+  //       <button className="btn btn-square loading"></button>
+  //     </div>
+  //   );
+  // }
+  // login user
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    logInUser(email, password)
+      .then((result) => {
+        const newUser = result.user;
+        console.log(newUser);
+        setError("");
+        form.reset();
+        // handleUpdateUserProfile(name, photoURL);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(`${err.message} Input Valid Email And Password`);
+      });
+  };
+
   const handleGoogleSignIn = () => {
     console.log("Google hi");
-    // googleSignIn()
-    //   .then((res) => {
-    //     const user = res.user;
-    //     const { displayName, email } = user;
-    //     saveUser(displayName, email);
-    //   })
-    //   .catch((err) => {
-    //     setLoading(false);
-    //     console.error(err);
-    //   });
+    googleSignIn()
+      .then((res) => {
+        // const user = res.user;
+        // const { displayName, email } = user;
+        // saveUser(displayName, email);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.error(err);
+      });
   };
   const handleFacebookSignIn = () => {
     console.log("Facebook hi");
@@ -41,7 +77,10 @@ const Login = ({ showModal, showModalR, setShowModal, setShowModalR }) => {
             <div className="relative max-w-3xl">
               <div className="border-0 login-page shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="relative p-6 login-body">
-                  <form className=" px-8 pt-6 pb-8 w-full">
+                  <form
+                    onSubmit={handleSubmit}
+                    className=" px-8 pt-6 pb-8 w-full"
+                  >
                     <div className="flex mb-4  justify-between">
                       <h3 className="login-text text-4xl text-black font-semibold">
                         Login
@@ -112,7 +151,7 @@ const Login = ({ showModal, showModalR, setShowModal, setShowModalR }) => {
                         Forgot password?
                       </Link>
                     </div>
-
+                    <div className="text-error mb-4">{error}</div>
                     <button
                       type="submit"
                       className="btn-login w-full text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

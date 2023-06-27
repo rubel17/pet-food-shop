@@ -1,24 +1,14 @@
 import React, { useState } from "react";
-import "./CatFood.css";
-import catFoods from "../../assets/image/cat food.png";
+import "./Products.css";
 import Slider from "react-slick";
 import imgFin from "../../assets/image/pawprint (1) 1.png";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import imgBon from "../../assets/image/bone 3.png";
 import CatAndDog from "../Home/CatAndDog/CatAndDog";
-import { useQuery } from "@tanstack/react-query";
-import CatFoodDetail from "../CatFoodDetail/CatFoodDetail";
+import ProductsDetails from "./ProductsDetails/ProductsDetails";
 import FoodDetails from "../FoodDetails/FoodDetails";
-import AllProductDetail from "../AllProductDetail/AllProductDetail";
-
-const CatFood = () => {
-  const { data: catFood = [] } = useQuery({
-    queryKey: [`allProduct/catFood`],
-    queryFn: () =>
-      fetch(`http://localhost:4000/allProduct/catFood`).then((res) =>
-        res.json()
-      ),
-  });
+const Products = () => {
+  const allProductDetails = useLoaderData({});
   const [productDetail, setProductDetail] = useState();
   console.log(productDetail);
   var settings = {
@@ -61,17 +51,19 @@ const CatFood = () => {
       {/* banner */}
       <div className="relative">
         <div className="catFood-Banner">
-          <img src={catFoods} alt="" />
+          <img src={allProductDetails[0]?.img} alt="" />
         </div>
-        <div className="catFood-banner-text">
-          <h1>Cat Foods</h1>
-          <p>Home/Cat Foods</p>
+        <div className="product-banner-text">
+          <h1>{allProductDetails[0]?.category}</h1>
+          <p>Home/{allProductDetails[0]?.category}</p>
         </div>
       </div>
-      {/* cat foods */}
+      {/* foods */}
       <section className="Cat-Foods mb-40">
         <div className="md:text-center">
-          <h1 className="text-3xl font-semibold cat-food-text">Cat Foods</h1>
+          <h1 className="text-3xl font-semibold cat-food-text">
+            {allProductDetails[0]?.category}
+          </h1>
           <p className="text-2xl font-medium cat-p">Our Trending Products</p>
         </div>
         <div className="flex cat-product">
@@ -81,13 +73,13 @@ const CatFood = () => {
           {/* slider start */}
           <div className="cat-category">
             <Slider {...settings}>
-              {/* product-1 */}
-              {catFood.map((FoodList) => (
-                <CatFoodDetail
+              {allProductDetails?.map((FoodList) => (
+                <ProductsDetails
                   key={FoodList._id}
                   FoodList={FoodList}
+                  productDetail={productDetail}
                   setProductDetail={setProductDetail}
-                ></CatFoodDetail>
+                ></ProductsDetails>
               ))}
             </Slider>
             <Link>
@@ -95,15 +87,6 @@ const CatFood = () => {
                 <p className="lg:text-end cat-see-all mt-8 pr-11">See all</p>
               </u>
             </Link>
-
-            <div className="hidden">
-              <FoodDetails
-                productDetail={productDetail}
-                setProductDetail={setProductDetail}
-              />
-            </div>
-
-            <AllProductDetail productDetail={productDetail}></AllProductDetail>
           </div>
           {/* slider end */}
           <div className="cat-bone">
@@ -112,8 +95,12 @@ const CatFood = () => {
         </div>
       </section>
       <CatAndDog></CatAndDog>
+      <FoodDetails
+        productDetail={productDetail}
+        setProductDetail={setProductDetail}
+      ></FoodDetails>
     </>
   );
 };
 
-export default CatFood;
+export default Products;
