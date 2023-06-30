@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CatFood.css";
 import catFoods from "../../assets/image/cat food.png";
 import Slider from "react-slick";
@@ -8,19 +8,21 @@ import imgBon from "../../assets/image/bone 3.png";
 import CatAndDog from "../Home/CatAndDog/CatAndDog";
 import { useQuery } from "@tanstack/react-query";
 import CatFoodDetail from "../CatFoodDetail/CatFoodDetail";
-import FoodDetails from "../FoodDetails/FoodDetails";
-import AllProductDetail from "../AllProductDetail/AllProductDetail";
 
 const CatFood = () => {
   const { data: catFood = [] } = useQuery({
-    queryKey: [`allProduct/catFood`],
+    queryKey: ["catFood"],
     queryFn: () =>
-      fetch(`http://localhost:4000/allProduct/catFood`).then((res) =>
+      fetch("http://localhost:4000/allProduct/catFood").then((res) =>
         res.json()
       ),
+    // .then((data) => {
+    //   if (data.modifiedCount > 0) {
+    //     refetch();
+    //   }
+    // }),
   });
-  const [productDetail, setProductDetail] = useState();
-  console.log(productDetail);
+
   var settings = {
     dots: true,
     infinite: true,
@@ -86,7 +88,6 @@ const CatFood = () => {
                 <CatFoodDetail
                   key={FoodList._id}
                   FoodList={FoodList}
-                  setProductDetail={setProductDetail}
                 ></CatFoodDetail>
               ))}
             </Slider>
@@ -95,15 +96,6 @@ const CatFood = () => {
                 <p className="lg:text-end cat-see-all mt-8 pr-11">See all</p>
               </u>
             </Link>
-
-            <div className="hidden">
-              <FoodDetails
-                productDetail={productDetail}
-                setProductDetail={setProductDetail}
-              />
-            </div>
-
-            <AllProductDetail productDetail={productDetail}></AllProductDetail>
           </div>
           {/* slider end */}
           <div className="cat-bone">

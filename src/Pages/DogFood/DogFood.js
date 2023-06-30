@@ -83,7 +83,7 @@ const DogFood = () => {
                 ></DogFoodDetail>
               ))}
             </Slider>
-            <Link>
+            <Link to="/allProduct/dogFood">
               <u>
                 <p className="lg:text-end cat-see-all mt-8 pr-11">See all</p>
               </u>

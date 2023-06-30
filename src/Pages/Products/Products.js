@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Products.css";
 import Slider from "react-slick";
 import imgFin from "../../assets/image/pawprint (1) 1.png";
@@ -6,11 +6,10 @@ import { Link, useLoaderData } from "react-router-dom";
 import imgBon from "../../assets/image/bone 3.png";
 import CatAndDog from "../Home/CatAndDog/CatAndDog";
 import ProductsDetails from "./ProductsDetails/ProductsDetails";
-import FoodDetails from "../FoodDetails/FoodDetails";
+
 const Products = () => {
   const allProductDetails = useLoaderData({});
-  const [productDetail, setProductDetail] = useState();
-  console.log(productDetail);
+
   var settings = {
     dots: true,
     infinite: true,
@@ -77,8 +76,6 @@ const Products = () => {
                 <ProductsDetails
                   key={FoodList._id}
                   FoodList={FoodList}
-                  productDetail={productDetail}
-                  setProductDetail={setProductDetail}
                 ></ProductsDetails>
               ))}
             </Slider>
@@ -95,10 +92,6 @@ const Products = () => {
         </div>
       </section>
       <CatAndDog></CatAndDog>
-      <FoodDetails
-        productDetail={productDetail}
-        setProductDetail={setProductDetail}
-      ></FoodDetails>
     </>
   );
 };

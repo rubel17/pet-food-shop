@@ -57,21 +57,23 @@ export const router = createBrowserRouter([
         path: "/foodDetails/:id",
         element: <FoodDetails></FoodDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/foodDetails/${params.id}`),
-        // children: [
-        //   {
-        //     path: "/foodDetail",
-        //     element: <Reviews></Reviews>,
-        //   },
-        //   {
-        //     path: "/foodDetails/shipping",
-        //     element: <Shipping></Shipping>,
-        //   },
-        //   {
-        //     path: "/foodDetails/additionalInfo",
-        //     element: <AdditionalInfo></AdditionalInfo>,
-        //   },
-        // ],
+          fetch(`http://localhost:4000/productDetails/${params.id}`),
+        children: [
+          {
+            path: "/foodDetails/:id",
+            element: <Reviews></Reviews>,
+          },
+          {
+            path: "/foodDetails/:id/shipping",
+            element: <Shipping></Shipping>,
+          },
+          {
+            path: "/foodDetails/:id/additionalInfo",
+            element: <AdditionalInfo></AdditionalInfo>,
+            loader: ({ params }) =>
+              fetch(`http://localhost:4000/productDetails/${params.id}`),
+          },
+        ],
       },
       // {
       //   path: "/login",

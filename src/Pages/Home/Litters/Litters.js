@@ -64,7 +64,7 @@ const Litters = () => {
                 ></LittersDetail>
               ))}
             </Slider>
-            <Link>
+            <Link to="/allProduct/litters">
               <u>
                 <p className="lg:text-end litter-see-all mt-8 pr-11">See all</p>
               </u>

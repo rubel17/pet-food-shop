@@ -1,20 +1,22 @@
 import React from "react";
 import "./AdditionalInfo.css";
+import { useLoaderData } from "react-router-dom";
 
 const AdditionalInfo = () => {
+  const productDetail = useLoaderData({});
   return (
     <div>
       <div className="flex justify-around additional">
         <p className="brand">Brand : </p>
-        <p>Brit</p>
+        <p> {productDetail?.category}</p>
       </div>
       <div className="flex justify-around additional">
         <p className="brand">Weight :</p>
-        <p>1.5 kg</p>
+        <p>{productDetail?.weight}</p>
       </div>
       <div className="flex justify-around additional">
         <p className="brand">Flavour :</p>
-        <p>Chicken</p>
+        <p> {productDetail?.name}</p>
       </div>
     </div>
   );

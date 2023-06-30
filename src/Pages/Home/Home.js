@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./Home.css";
 import CatAndDog from "./CatAndDog/CatAndDog";
 import "slick-carousel/slick/slick.css";
@@ -40,20 +40,16 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import CatFoodDetail from "../CatFoodDetail/CatFoodDetail";
 import { useQuery } from "@tanstack/react-query";
 import DogFoodDetail from "../DogFoodDetail/DogFoodDetail";
-import FoodDetails from "../FoodDetails/FoodDetails";
-import AllProductDetail from "../AllProductDetail/AllProductDetail";
 // import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
   const { data: catFood = [] } = useQuery({
-    queryKey: ["allProduct/catFood"],
+    queryKey: ["catFood"],
     queryFn: () =>
       fetch("http://localhost:4000/allProduct/catFood").then((res) =>
         res.json()
       ),
   });
-  const [productDetail, setProductDetail] = useState();
-  console.log(productDetail);
 
   const { data: dogFood = [] } = useQuery({
     queryKey: ["allProduct/dogFood"],
@@ -274,7 +270,6 @@ const Home = () => {
                 <CatFoodDetail
                   key={FoodList._id}
                   FoodList={FoodList}
-                  setProductDetail={setProductDetail}
                 ></CatFoodDetail>
               ))}
             </Slider>
@@ -288,18 +283,6 @@ const Home = () => {
           <div className="cat-bone">
             <img className="cat-bone-img" src={imgBon} alt="" />
           </div>
-        </div>
-        {/* {productDetail && (
-          <FoodDetails
-            productDetail={productDetail}
-            setProductDetail={setProductDetail}
-          ></FoodDetails>
-        )} */}
-        <div className="hidden">
-          <FoodDetails productDetail={productDetail}></FoodDetails>
-        </div>
-        <div>
-          <AllProductDetail productDetail={productDetail}></AllProductDetail>
         </div>
       </section>
 
@@ -320,7 +303,7 @@ const Home = () => {
                 ></DogFoodDetail>
               ))}
             </Slider>
-            <Link to="/allProduct/catFood">
+            <Link to="/allProduct/dogFood">
               <u>
                 <p className="lg:text-end dog-see-all mt-8 pr-11">See all</p>
               </u>
@@ -329,14 +312,18 @@ const Home = () => {
           {/* slider end */}
         </div>
       </section>
+
       {/* bannar */}
       <section>
         <CatAndDog></CatAndDog>
       </section>
+
       {/* clearance Sale */}
       <ClearanceSale></ClearanceSale>
+
       {/* Litters */}
       <Litters></Litters>
+
       {/* Logo */}
       <BrandLogo></BrandLogo>
     </>

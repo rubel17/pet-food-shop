@@ -3,20 +3,23 @@ import "./FoodDetails.css";
 import foodDetails from "../../assets/image/Food Details.png";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import imgPcckC from "../../assets/image/pack-c.png";
 import HeartFD from "../../assets/image/Heart-FD.png";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
-import Heart from "../../assets/image/Heart.png";
-import imgPcckA from "../../assets/image/pack-a.png";
-import imgPcckB from "../../assets/image/pack-b.png";
-import imgPcckD from "../../assets/image/pack-d.png";
-import imgPcckE from "../../assets/image/pack-e.png";
-import { faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
+import ProductsDetails from "../Products/ProductsDetails/ProductsDetails";
 
 const FoodDetails = () => {
   const productDetail = useLoaderData({});
+  const { data: relatedProducts = [] } = useQuery({
+    queryKey: [`allProduct/category`],
+    queryFn: () =>
+      fetch(`http://localhost:4000/allProduct/${productDetail?.category}`).then(
+        (res) => res.json()
+      ),
+  });
+
   const { loading } = useContext(AuthContext);
   if (loading) {
     return (
@@ -68,7 +71,7 @@ const FoodDetails = () => {
             <img src={foodDetails} alt="" />
           </div>
           <div className="catFood-banner-text">
-            <h1>Food Details{productDetail?._id}</h1>
+            <h1>Food Details</h1>
             <p>Home/{productDetail?.category}</p>
           </div>
         </div>
@@ -125,25 +128,26 @@ const FoodDetails = () => {
         <div className="foodDetails-border border-t-2">
           <div className="pb-10 relative border-b-2 ">
             <Link
-              to="/foodDetails"
+              to={`/foodDetails/${productDetail?._id}`}
               className="food-btn hover:pb-3    hover:border-b-2 hover:border-b-indigo-500 absolute top-1 left-10 px-32 border-r-2"
             >
               Reviews
             </Link>
 
             <Link
-              to="/foodDetails/shipping"
+              to={`/foodDetails/${productDetail?._id}/shipping`}
               className="food-btn hover:pb-3    hover:border-b-2 hover:border-b-indigo-500 absolute top-1 left-96 px-32 border-r-2"
             >
               Shipping and Delivery
             </Link>
             <Link
-              to="/foodDetails/additionalInfo"
+              to={`/foodDetails/${productDetail?._id}/additionalInfo`}
               className="food-btn hover:pb-3    hover:border-b-2 hover:border-b-indigo-500 absolute top-1 right-10 px-32"
             >
               Additional Information
             </Link>
           </div>
+
           <Outlet></Outlet>
         </div>
         {/* related product */}
@@ -152,294 +156,17 @@ const FoodDetails = () => {
           {/* product */}
           <section className="Cat-Foods relatedProFood">
             <div className="flex cat-product">
-              {/* <div className="cat-finger">
-                <img className="cat-finger-img" src={imgFin} alt="" />
-              </div> */}
               {/* slider start */}
               <div className="cat-category">
                 <Slider {...settings}>
-                  {/* product-1 */}
-                  <Link to="/foodDetails">
-                    <object>
-                      <div className="single-product">
-                        <div className=" single-product-body">
-                          <div className=" single-product-body-img relative">
-                            <img src={imgPcckC} alt="" />
-                            <Link to="/wishList">
-                              <img
-                                className="absolute top-0 right-0 p-5"
-                                src={Heart}
-                                alt=""
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="single-product-text">
-                          <h1 className="text-xl font-semibold py-1">
-                            Royal Canin Kitten Food
-                          </h1>
-                          <h2 className="text-medium pb-1">Chicken ( 1 Kg)</h2>
-                          <h3 className="text-medium font-semibold">500 Tk.</h3>
-                          <div className="flex mb-4">
-                            <div className="flex mr-3 mt-1">
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                            </div>
-                            <h2>(50+ views)</h2>
-                          </div>
-                          <Link to="/addCart" className="btn-cart px-3 py-3">
-                            Add To Cart{" "}
-                          </Link>
-                        </div>
-                      </div>
-                    </object>
-                  </Link>
-                  {/* product-2 */}
-                  <Link to="/foodDetails">
-                    <object>
-                      <div className="single-product">
-                        <div className=" single-product-body">
-                          <div className=" single-product-body-img relative">
-                            <img src={imgPcckB} alt="" />
-                            <Link>
-                              <img
-                                className="absolute top-0 right-0 p-5"
-                                src={Heart}
-                                alt=""
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="single-product-text">
-                          <h1 className="text-xl font-semibold py-1">
-                            Brit Premium Senior Food
-                          </h1>
-                          <h2 className="text-medium pb-1">Chicken (1.5 Kg)</h2>
-                          <h3 className="text-medium font-semibold">650 Tk.</h3>
-                          <div className="flex mb-4">
-                            <div className="flex mr-3 mt-1">
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStarHalfAlt}
-                              />
-                            </div>
-                            <h2>(40+ views)</h2>
-                          </div>
-                          <Link className="btn-cart px-3 py-3">
-                            Add To Cart{" "}
-                          </Link>
-                        </div>
-                      </div>
-                    </object>
-                  </Link>
-                  {/* product-3 */}
-                  <Link to="/foodDetails">
-                    <object>
-                      <div className="single-product">
-                        <div className=" single-product-body">
-                          <div className=" single-product-body-img relative">
-                            <img src={imgPcckD} alt="" />
-                            <Link>
-                              <img
-                                className="absolute top-0 right-0 p-5"
-                                src={Heart}
-                                alt=""
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="single-product-text">
-                          <h1 className="text-xl font-semibold py-1">
-                            Kit Cat Food
-                          </h1>
-                          <h2 className="text-medium pb-1">
-                            Mini Fish Medley (2 Kg)
-                          </h2>
-                          <h3 className="text-medium font-semibold">
-                            1100 Tk.
-                          </h3>
-                          <div className="flex mb-4">
-                            <div className="flex mr-3 mt-1">
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star1 pr-1"
-                                icon={faStar}
-                              />
-                            </div>
-                            <h2>(30+ views)</h2>
-                          </div>
-                          <Link className="btn-cart px-3 py-3">
-                            Add To Cart{" "}
-                          </Link>
-                        </div>
-                      </div>
-                    </object>
-                  </Link>
-                  {/* product-4 */}
-                  <Link to="/foodDetails">
-                    <object>
-                      <div className="single-product">
-                        <div className=" single-product-body">
-                          <div className=" single-product-body-img relative">
-                            <img src={imgPcckE} alt="" />
-                            <Link>
-                              <img
-                                className="absolute top-0 right-0 p-5"
-                                src={Heart}
-                                alt=""
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="single-product-text">
-                          <h1 className="text-xl font-semibold py-1">
-                            Magnus Adult Kitten Food
-                          </h1>
-                          <h2 className="text-medium pb-1">Chicken ( 2 Kg)</h2>
-                          <h3 className="text-medium font-semibold">
-                            1000 Tk.
-                          </h3>
-                          <div className="flex mb-4">
-                            <div className="flex mr-3 mt-1">
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStarHalfAlt}
-                              />
-                            </div>
-                            <h2>(45+ views)</h2>
-                          </div>
-                          <Link className="btn-cart px-3 py-3">
-                            Add To Cart{" "}
-                          </Link>
-                        </div>
-                      </div>
-                    </object>
-                  </Link>
-                  {/* product-5 */}
-                  <Link to="/foodDetails">
-                    <object>
-                      <div className="single-product">
-                        <div className=" single-product-body">
-                          <div className=" single-product-body-img relative">
-                            <img src={imgPcckA} alt="" />
-                            <Link>
-                              <img
-                                className="absolute top-0 right-0 p-5"
-                                src={Heart}
-                                alt=""
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="single-product-text">
-                          <h1 className="text-xl font-semibold py-1">
-                            Pro Plan Natural Food
-                          </h1>
-                          <h2 className="text-medium pb-1">
-                            Chicken ( 1.5 Kg)
-                          </h2>
-                          <h3 className="text-medium font-semibold">800 Tk.</h3>
-                          <div className="flex mb-4">
-                            <div className="flex mr-3 mt-1">
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                              <FontAwesomeIcon
-                                className="star pr-1"
-                                icon={faStar}
-                              />
-                            </div>
-                            <h2>(55+ views)</h2>
-                          </div>
-                          <Link className="btn-cart px-3 py-3">
-                            Add To Cart{" "}
-                          </Link>
-                        </div>
-                      </div>
-                    </object>
-                  </Link>
-
-                  {/* product-end */}
+                  {relatedProducts?.map((FoodList) => (
+                    <ProductsDetails
+                      key={FoodList._id}
+                      FoodList={FoodList}
+                    ></ProductsDetails>
+                  ))}
                 </Slider>
-                <Link>
+                <Link to={`/allProduct/${productDetail?.category}`}>
                   <u>
                     <p className="lg:text-end cat-see-all mt-8 pr-11">
                       See all
@@ -447,10 +174,6 @@ const FoodDetails = () => {
                   </u>
                 </Link>
               </div>
-              {/* slider end */}
-              {/* <div className="cat-bone">
-                <img className="cat-bone-img" src={imgBon} alt="" />
-              </div> */}
             </div>
           </section>
         </div>

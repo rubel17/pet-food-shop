@@ -82,7 +82,7 @@ const ClearanceSale = () => {
                 ></ClearanceSaleDetail>
               ))}
             </Slider>
-            <Link>
+            <Link to="/allProduct/clearanceSale">
               <u>
                 <p className="lg:text-end clear-see-all mt-8 pr-11">See all</p>
               </u>

@@ -1,28 +1,71 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProductsDetails.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Heart from "../../../assets/image/Heart.png";
-// import FoodDetails from "../../FoodDetails/FoodDetails";
+import { Toaster, toast } from "react-hot-toast";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import Love from "../../../assets/image/red-love.png";
 
-const ProductsDetails = ({ FoodList, setProductDetail }) => {
-  const { name, img, views, weight, Amount } = FoodList;
+const ProductsDetails = ({ FoodList }) => {
+  const { name, img, views, weight, Amount, _id } = FoodList;
+  const { user } = useContext(AuthContext);
+
+  //product add to wishList
+  const handleAddToWishList = (event) => {
+    event.preventDefault();
+    const email = user?.email;
+    const productId = _id;
+    const Amounts = parseInt(Amount);
+    const AddToWishList = {
+      name,
+      email,
+      Amounts,
+      weight,
+      img,
+      productId,
+    };
+
+    fetch(`http://localhost:4000/addToWishList`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(AddToWishList),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Add To WishList Success", {
+            position: "top-center",
+          });
+        }
+      });
+  };
 
   return (
     <div>
-      <Link onClick={() => setProductDetail(FoodList)}>
+      <Link to={`/foodDetails/${_id}`}>
         <object>
           <div className="single-product mb-10">
             <div className=" single-product-body-dog">
               <div className=" single-product-body-img relative">
                 <img src={img} alt="" />
-                <Link to="/wishList">
-                  <img
-                    className="absolute top-0 right-0 p-3"
-                    src={Heart}
-                    alt=""
-                  />
+                <Link onClick={handleAddToWishList}>
+                  {FoodList?.addProduct !== "Done" ? (
+                    <img
+                      className="absolute top-0 right-0 p-3"
+                      src={Heart}
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      className="absolute top-0 right-0 p-3"
+                      src={Love}
+                      alt=""
+                    />
+                  )}
                 </Link>
               </div>
             </div>
@@ -48,6 +91,7 @@ const ProductsDetails = ({ FoodList, setProductDetail }) => {
           </div>
         </object>
       </Link>
+      <Toaster></Toaster>
     </div>
   );
 };
