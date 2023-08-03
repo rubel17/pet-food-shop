@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <div className="flex">
-        <div className="w-1/2 footerLeft">
+      <div className="lg:flex">
+        <div className="w-1/2 ml-5 lg:ml-80">
           <img className="footer-img" src={footers} alt="" />
           <p className="footerLeft-p">
             Lorem Ipsum is simply dummy text of the printing and
@@ -39,10 +39,10 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="w-1/2">
-          <div className="flex">
+        <div className="lg:w-1/2">
+          <div className="lg:flex ml-5 md:ml-0">
             <div className="w-1/2">
-              <p className="footerR-Quick mb-2">Quick Link</p>
+              <p className="footerR-Quick mb-2 mt-10 md:mt-0">Quick Link</p>
               <p className="mb-3">
                 <Link to="/">Home</Link>
               </p>
@@ -59,8 +59,8 @@ const Footer = () => {
                 <Link to="/offer">Offer</Link>
               </p>
             </div>
-            <div className="w-1/2">
-              <p className="footerR-Quick mb-4">Contact Us</p>
+            <div className="lg:w-1/2">
+              <p className="footerR-Quick mb-4 mt-10 md:mt-0">Contact Us</p>
               <input
                 className="footer-input py-2 px-16"
                 type="text"
@@ -77,7 +77,9 @@ const Footer = () => {
                 placeholder="Write message..."
               />
               <br />
-              <Link className="btn-SM px-7 py-3">Send Message</Link>
+              <Link className="btn-SM px-3 py-2 lg:px-7 lg:py-3">
+                Send Message
+              </Link>
             </div>
           </div>
         </div>
