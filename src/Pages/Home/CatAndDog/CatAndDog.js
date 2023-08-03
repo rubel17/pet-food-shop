@@ -21,8 +21,7 @@ import { Link } from "react-router-dom";
 const CatAndDog = () => {
   return (
     <div>
-      <div className="Banner md:flex">
-        {/* cat banner */}
+      <div className="hidden md:flex">
         <div className="cat-banner">
           <div className="cat-bg relative">
             <img src={catBg} alt="" />
@@ -51,7 +50,7 @@ const CatAndDog = () => {
             </div>
           </div>
         </div>
-        {/* dog banner */}
+
         <div className="dog-banner">
           <div className="dog-bg relative">
             <img src={dogBg} alt="" />

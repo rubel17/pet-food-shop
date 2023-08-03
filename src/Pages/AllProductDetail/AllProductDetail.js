@@ -10,7 +10,7 @@ const AllProductDetail = ({ productDetail = {} }) => {
       </div>
     );
   }
-  //   console.log(productDetail);
+
   const { name, Amount } = productDetail;
   console.log(name);
   return <div className="text-black">Amount:{Amount}</div>;

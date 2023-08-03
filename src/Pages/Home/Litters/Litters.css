@@ -1,6 +1,9 @@
 .litters-text{
     color:#EAA367 ;
 }
+.litters-paragraph{
+    margin-top: 8px;
+}
 .btn-litter{
     background-color: #EAA367;
     color: white;

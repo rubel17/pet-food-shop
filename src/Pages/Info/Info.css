@@ -1,7 +1,30 @@
-.bg-col{
-    background-color: #84B59F;
+.bg-colors{
+    background-color:#7209B7;;
     color: white;
 }
-.t-width{
-    width: 1180px;
+
+.login-btn{
+    color: #7209B7;
 }
+
+
+@media only screen and (max-width: 767px) {
+    .info-responsive{
+        margin-left: 10px;
+    }
+  }
+  @media only screen and (max-width: 1080px) and (min-width: 768px) {
+    .info-responsive{
+        margin-left: 5px;
+    }
+  }
+@media only screen and (max-width: 1440px) and (min-width: 1081px) {
+    .info-responsive{
+        margin-left: 45px;
+    }
+  }
+@media only screen and (max-width: 1920px) and (min-width: 1441px) {
+    .info-responsive{
+        margin-left: 205px;
+    }
+  }

@@ -6,10 +6,7 @@ import Header from "../Header/Header";
 import Info from "../Info/Info";
 import Error from "../../assets/image/404-sleep-cat 1.png";
 
-// import useTitle from "../../hooks/useTitle";
-
 const ErrorPage = () => {
-  // useTitle("ErrorPage");
   return (
     <>
       <Header></Header>

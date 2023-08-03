@@ -24,59 +24,59 @@ const Info = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <div className="flex justify-center bg-col md:h-20">
-      <div className="md:flex md:justify-between t-width">
+    <div className="md:flex md:justify-center bg-colors md:h-20">
+      <div className="info-responsive md:flex md:justify-around w-screen">
         <div className="md:flex">
-          <div className="flex mt-3">
+          <div className="flex md:ml-5 pt-3">
             <FontAwesomeIcon className="mt-5" icon={faPhoneVolume} />
             <div className="ml-3">
               <p>Contact Us</p>
               <p>+880123456789</p>
             </div>
           </div>
-          <div className="md:ml-6 h-10 mt-5 md:border border-t"></div>
-          <div className="flex mt-3 ml-5">
+          <div className="mr-5 md:ml-6 md:h-8 mt-5 md:border border-t"></div>
+          <div className="flex mt-2  md:mt-3 md:ml-5">
             <FontAwesomeIcon className="mt-5" icon={faEnvelope} />
             <div className="ml-3">
               <p>Email</p>
               <p>xyz@gmail.com</p>
             </div>
           </div>
-          <div className="md:ml-6 h-10 mt-5 md:border border-t"></div>
-          <div className="flex mt-7 ml-5">
-            <div className="ml-3">
+          <div className="mr-5 md:ml-6 md:h-8 mt-5 md:border border-t"></div>
+          <div className="flex mt-3 lg:mt-6 ml-6">
+            <div className="ml-1">
               <p>Time: 9AM - 10PM</p>
             </div>
           </div>
-          <div className="md:ml-6 h-10 mt-5 md:border border-t"></div>
-          <div className="flex mt-3 ml-5">
-            <FontAwesomeIcon className="mt-5" icon={faFacebookF} />
-            <FontAwesomeIcon className="mt-5 ml-5" icon={faLinkedinIn} />
-            <FontAwesomeIcon className="mt-5 ml-5" icon={faTwitter} />
-            <FontAwesomeIcon className="mt-5 ml-5" icon={faInstagram} />
+          <div className="mr-5 md:mr-0 md:ml-6 h-8 mt-5 md:border border-t"></div>
+          <div className="flex md:mt-3 ml-8">
+            <FontAwesomeIcon className="md:mt-5" icon={faFacebookF} />
+            <FontAwesomeIcon className="md:mt-5 ml-5" icon={faLinkedinIn} />
+            <FontAwesomeIcon className="md:mt-5 ml-5" icon={faTwitter} />
+            <FontAwesomeIcon className="md:mt-5 ml-5" icon={faInstagram} />
           </div>
         </div>
 
         <div className="mt-10 md:mt-5">
           {user ? (
-            <span className="pe-3 text-teal-300">{user.displayName}</span>
+            <span className="ml-5 pe-3 text-teal-300">{user.displayName}</span>
           ) : (
-            <button type="button" onClick={() => setShowModalR(true)}>
-              Sign Up
+            <button
+              className="sm:ml-8"
+              type="button"
+              onClick={() => setShowModalR(true)}
+            >
+              Signup
             </button>
           )}
 
           {user ? (
-            <Link
-              onClick={handleSignOut}
-              className="normal-case btn btn-ghost"
-              to="/register"
-            >
-              SignOut
+            <Link onClick={handleSignOut} className="normal-case btn btn-ghost">
+              Logout
             </Link>
           ) : (
             <button
-              className="py-2 px-9 text-xl font-semibold active:bg-blue-500 active:text-white  outline-none focus:outline-none  bg-white text-emerald-600 w-32 ml-5"
+              className="login-btn mb-10 py-1.5 px-4 rounded-md text-xl font-semibold active:bg-blue-500 active:text-white  outline-none focus:outline-none  bg-white ml-5"
               type="button"
               onClick={() => setShowModal(true)}
             >

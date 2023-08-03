@@ -1,9 +1,15 @@
 .category{
+    padding-left: 10px;
     margin-top: 26px;
     height: 603px;
 }
 .Product{
     width: 380px;
+}
+
+.Items1{
+    border-radius: 8px 8px 0px 0px;
+    background-color: var(--theme-colors-primary, #7209B730);
 }
 
 .Items1 img{
@@ -15,17 +21,38 @@
     margin-top:7px;
 }
 .Items2{
+    border-radius: 8px;
     background-color: #F4FBF8;
 }
 .Items2 img{
     margin-left: 42px;
     margin-right: 18px;
 }
+.Items3{
+    border-radius: 8px;
+    background-color: var(--theme-colors-primary, #7209B730);
+}
+.Items3 img{
+    margin-left: 42px;
+    margin-right: 18px;
+}
+.Items4{
+    border-radius: 0px 0px 8px 8px;
+    background-color: var(--theme-colors-primary, #7209B730);
+}
+.Items4 img{
+    margin-left: 42px;
+    margin-right: 18px;
+}
 .banner{
+   border-radius: 8px;
+   background: linear-gradient(90deg, #FD746C 0%, #FF9068 100%);
    width: 1103px;
    height: 595px; 
    margin-top: 26px;
    margin-left: 20px;
+   margin-right: 5px;
+   padding-right: 80px;
 }
 .banner-text{
     margin-left: 60px;
@@ -38,7 +65,6 @@
     margin-top: 79px;
 }
 .banner-p{
-    font-family: 'Shantell Sans', cursive;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -46,10 +72,11 @@
     margin-top: 17px;
 }
 .btn-shop{
-    background-color: #84B59F;
+    border-radius: 8px;
+    background: var(--theme-colors-primary, #7209B7);
     color: white;
-    width: 175px;
-    height: 52px;
+    width: 145px;
+    height: 64px;
     margin-top: 46px;
 }
 .btn-arrow{
@@ -71,7 +98,7 @@
 .bone{
     width: 80px;
     height: 80px;
-    margin-left: 322px;
+    margin-left: 252px;
     margin-top: 78px;
 
 
@@ -99,14 +126,6 @@ margin-left: -120px;
         height: 227px;
         margin-top:-190px;
         margin-right: -60px;
-        }
-        .arrow-l{
-            margin-bottom: 65px;
-            margin-right: -10px;
-        }
-        .arrow-r{
-            margin-top: 213px;
-           margin-left: 455px;
         }
         .shed{
             margin-left: 60px;
@@ -142,53 +161,42 @@ margin-left: -120px;
             margin-top:-208px;
             margin-left: -95px;
         }
-        /* cat foods  */
+
+
+
+       /* cat food */
         .cat-food-text{
             color:#ADC178 ;
+        }    
+        .cat-paragraph{
+            margin-top: 8px;
         }
-        .Cat-Foods{
-            margin-top: 120px;
-        }
+
         .cat-product{
             margin-top: 60px;
-        }
-        .cat-p{
-            font-family: 'Shantell Sans', cursive;
-            margin-top: 8px;
         }
         .cat-finger{
             padding: 0;
             margin: 0;
             width: 311px;
+            color: black;
         }
         .cat-finger-img{
             width: 145px;
             height: 145px;
             margin-left: 30px;
             margin-top: 220px;
-        }
-        .cat-category{
-            padding: 0;
-            margin: 0;
-            width: 1577px;
-            padding-left: 100px;
-            padding-right: 120px;
-            
-
+            color: black;
         }
         .slick-next{
-            background-color: #C4E6D6!important;
-            /* background-color: white!important; */
-
+            background-color: #7209B7!important;
             width: 30px !important;
             height: 30px !important;
-            right: -40px !important;
             border-radius: 10px;
             
         }
         .slick-prev{
-            background-color: #C4E6D6!important;
-            /* background-color: white!important; */
+            background-color: #7209B7!important;
             width: 30px !important;
             height: 30px !important;
             border-radius: 10px;
@@ -221,12 +229,51 @@ margin-left: -120px;
             padding-right: 15px ;
         }
         .cat-see-all{
-            color:#ADC178  ;
+            color:#7209B7  ;
         }
 
-        
 
-        /* banner */
+        /* dog food */
+        .dog-food-text{
+            color:#ADC178 ;
+        }    
+        .dog-paragraph{
+            margin-top: 8px;
+        }
+
+        .dog-product{
+            margin-top: 60px;
+        }
+        .dog-finger{
+            padding: 0;
+            margin: 0;
+            width: 311px;
+            color: black;
+        }
+        .dog-finger-img{
+            width: 145px;
+            height: 145px;
+            margin-left: 30px;
+            margin-top: 220px;
+            color: black;
+        }
+         .dog-bone{
+            padding: 0;
+            margin: 0;
+            width: 312px;
+           }
+        .dog-bone-img{
+            width: 183px;
+            height: 183px;
+            padding-right: 15px ;
+        }
+        .dog-see-all{
+            color:#ADC178  ;
+        }
+        /* dog end */
+
+
+        /* banner cat and dog */
         .cat-banner{
             margin-left: 147px;
             margin-right: 38px; 
@@ -240,7 +287,7 @@ margin-left: -120px;
             color: #73997C;
         }
         .cat-banner-p{
-            font-family: 'Shantell Sans', cursive;
+            
             font-size:larger;
             font-weight: 500;
             margin-bottom: 20px;

@@ -1,27 +1,12 @@
-.single-product{
-    width: 298px;
-    height: 457px;
+.single-products-cat{
+    height: 460px;
    }
-.single-product-body{
-    width: 298px;
-    height: 297px;
+.single-product-body-cat{
     background-color: #F9FCEA;
-    /* margin: 0;
-    padding: 0; */
    }
-   .single-product-body-img{
-   padding: 37px;
-   }
-
-
-   .btn-cart{
-    background-color:#ADC178 ;
+   .btn-cart-cat{
+    border-radius: 8px;
+    background: var(--theme-colors-primary, #7209B7);
     color: white;
    
    }
-   .star{
-    color:orange ;
-   }
-.star1{
-    color: grey;
-}

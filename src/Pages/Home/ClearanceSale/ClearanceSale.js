@@ -11,29 +11,33 @@ const ClearanceSale = () => {
   const { data: clearanceSale = [] } = useQuery({
     queryKey: ["clearanceSale"],
     queryFn: () =>
-      fetch("http://localhost:4000/allProduct/clearanceSale").then((res) =>
-        res.json()
+      fetch("https://y-livid-three.vercel.app/allProduct/clearanceSale").then(
+        (res) => res.json()
       ),
   });
-  const settings = {
+  var settings = {
     dots: true,
-    appendDots: (dots) => (
-      <div
-        style={{
-          borderRadius: "10px",
-          padding: "10px",
-        }}
-      >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>
-    ),
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
     initialSlide: 0,
+    rows: 2,
     responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -42,55 +46,52 @@ const ClearanceSale = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 0,
+          infinite: true,
         },
       },
     ],
-    infinite: true,
-    slidesToShow: 4,
-    speed: 500,
-    rows: 2,
   };
   return (
     <div>
-      <section>
-        <div className="md:text-center">
-          <h1 className="text-3xl font-semibold Clearance-text">
+      <section className="mb-40">
+        <div className="text-center">
+          <h1 className="text-3xl font-semibold clearance-food-text">
             Clearance Sale
           </h1>
-          <p className="text-2xl font-medium dog-p">Our Trending Products</p>
+          <p className="text-2xl font-medium clearance-paragraph">
+            Our Trending Products
+          </p>
         </div>
-        <div className="flex cat-product">
-          <div className="cat-finger">
-            <img className="cat-bon1-img" src={imgBon} alt="" />
+
+        <div className="lg:flex clearance-product">
+          <div className="clearance-finger hidden lg:inline-flex">
+            <img className="clearance-finger-img" src={imgBon} alt="" />
           </div>
-          {/* slider start */}
-          <div className="cat-category">
-            <Slider {...settings}>
-              {clearanceSale.map((clearanceSaleList) => (
-                <ClearanceSaleDetail
-                  key={clearanceSaleList._id}
-                  clearanceSaleList={clearanceSaleList}
-                ></ClearanceSaleDetail>
-              ))}
-            </Slider>
+
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
+            <div>
+              <Slider {...settings}>
+                {clearanceSale.map((clearanceSaleList) => (
+                  <ClearanceSaleDetail
+                    key={clearanceSaleList._id}
+                    clearanceSaleList={clearanceSaleList}
+                  ></ClearanceSaleDetail>
+                ))}
+              </Slider>
+            </div>
             <Link to="/allProduct/clearanceSale">
               <u>
-                <p className="lg:text-end clear-see-all mt-8 pr-11">See all</p>
+                <p className="lg:text-end clearance-see-all mt-8 pr-11">
+                  See all
+                </p>
               </u>
             </Link>
           </div>
-          {/* slider end */}
-          <div className="cat-bone">
-            <img className="cat-fing1-img" src={imgFin} alt="" />
+
+          <div className="clearance-bone hidden lg:inline-flex">
+            <img className="clearance-bone-img" src={imgFin} alt="" />
           </div>
         </div>
       </section>

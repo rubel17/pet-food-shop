@@ -1,24 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./FoodDetails.css";
 import foodDetails from "../../assets/image/Food Details.png";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import HeartFD from "../../assets/image/Heart-FD.png";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import ProductsDetails from "../Products/ProductsDetails/ProductsDetails";
+import { toast } from "react-hot-toast";
+import Heart from "../../assets/image/Heart.png";
+import Love from "../../assets/image/red-love.png";
 
 const FoodDetails = () => {
+  const { user } = useContext(AuthContext);
   const productDetail = useLoaderData({});
-  const { data: relatedProducts = [] } = useQuery({
+  const { data: relatedProducts = [], refetch } = useQuery({
     queryKey: [`allProduct/category`],
     queryFn: () =>
-      fetch(`http://localhost:4000/allProduct/${productDetail?.category}`).then(
-        (res) => res.json()
-      ),
+      fetch(
+        `https://y-livid-three.vercel.app/allProduct/${productDetail?.category}`
+      ).then((res) => res.json()),
   });
+  const [wishList, setWishList] = useState(Heart);
 
   const { loading } = useContext(AuthContext);
   if (loading) {
@@ -62,10 +64,92 @@ const FoodDetails = () => {
       },
     ],
   };
+  const handleAddToCart = (id) => {
+    const email = user?.email;
+    const productId = id;
+    const Amounts = parseInt(productDetail?.Amount);
+    const name = productDetail?.name;
+    const weight = productDetail?.weight;
+    const img = productDetail?.img;
+    const value = 1;
+    const addToCartList = {
+      name,
+      email,
+      Amounts,
+      weight,
+      img,
+      productId,
+      value,
+    };
+    if (user) {
+      fetch(`https://y-livid-three.vercel.app/addToCart`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addToCartList),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            toast.success("Add To Cart Successful");
+          }
+        });
+    }
+  };
+  const handleAddToWishList = (id) => {
+    let value = wishList;
+    const email = user?.email;
+    const productId = id;
+    const name = productDetail?.name;
+    const weight = productDetail?.weight;
+    const img = productDetail?.img;
+    const Amounts = parseInt(productDetail?.Amount);
+    const AddToWishList = {
+      name,
+      email,
+      Amounts,
+      weight,
+      img,
+      productId,
+    };
+    if (user && value === Heart) {
+      setWishList(Love);
+      fetch(`https://y-livid-three.vercel.app/addToWishList`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(AddToWishList),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            toast.success("Add To WishList Successful");
+          }
+        });
+    } else {
+      setWishList(Heart);
+      console.log(productId);
+      fetch(`https://y-livid-three.vercel.app/deleteToWishList/${productId}`, {
+        method: "DELETE",
+        // headers: {
+        //   authorization: `Bearer ${localStorage.getItem("token")}`,
+        // },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            toast.success("Removed To WishList Successful");
+            // refetch();
+          }
+        });
+    }
+  };
+  refetch();
   return (
     <>
       <div>
-        {/* banner */}
         <div className="relative mb-24">
           <div className="catFood-Banner">
             <img src={foodDetails} alt="" />
@@ -75,7 +159,6 @@ const FoodDetails = () => {
             <p>Home/{productDetail?.category}</p>
           </div>
         </div>
-        {/* product start */}
 
         <div className="product-details flex mb-32">
           <div className="product-details-body shadow-md">
@@ -96,35 +179,39 @@ const FoodDetails = () => {
             <h2 className="text-medium pb-3">
               Cat Life Stage: Adult 1 year - 5 years{" "}
             </h2>
-            <div className="flex mb-5">
-              <div className="flex mr-3 mt-1">
-                <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                <FontAwesomeIcon className="star pr-1" icon={faStar} />
-                <FontAwesomeIcon className="star pr-1" icon={faStar} />
+
+            <div className="flex">
+              <div className="product-rating">
+                <div
+                  className="Stars"
+                  style={{
+                    "--rating": productDetail?.Rating || productDetail?.rating,
+                  }}
+                ></div>
               </div>
               <h2>{productDetail?.views}</h2>
             </div>
-            <div className="flex text-lg  mb-6">
-              <button className="upAndDown px-2">-</button>
-              <p className=" px-4">1</p>
-              <button className="upAndDown px-2">+</button>
-            </div>
+
             <div className="flex">
-              <Link to="/addCart" className="btn-cart px-6 py-1">
+              <Link
+                onClick={() => handleAddToCart(productDetail?._id)}
+                className="btn-cart px-6 py-1"
+              >
                 Add To Cart
               </Link>
-              <Link className="btn-wishList" to="/wishList">
+              <Link
+                className="btn-wishList"
+                onClick={() => handleAddToWishList(productDetail?._id)}
+              >
                 <div className="flex  px-6">
-                  <img src={HeartFD} alt="" />
+                  <img src={wishList} alt="" />
                   <p>Add To Wish List</p>
                 </div>
               </Link>
             </div>
           </div>
         </div>
-        {/* reviews section */}
+
         <div className="foodDetails-border border-t-2">
           <div className="pb-10 relative border-b-2 ">
             <Link
@@ -150,13 +237,12 @@ const FoodDetails = () => {
 
           <Outlet></Outlet>
         </div>
-        {/* related product */}
+
         <div className="mb-20">
           <h1 className="RelatedProduct">Related Products</h1>
-          {/* product */}
+
           <section className="Cat-Foods relatedProFood">
             <div className="flex cat-product">
-              {/* slider start */}
               <div className="cat-category">
                 <Slider {...settings}>
                   {relatedProducts?.map((FoodList) => (

@@ -1,27 +1,40 @@
-    /* Clearance Sale */
-       
+.clearance-food-text{
+    color:#ADC178 ;
+}    
+.clearance-paragraph{
+    margin-top: 8px;
+}
 
-    .Clearance-text{
-        color:#2EC4B6;
-    }
-    .btn-cart1{
-background-color:#2EC4B6 ;
-color: white;
-    }
-    .cat-bon1-img{
-        width: 145px;
-        height: 145px;
-        margin-left: 30px;
-        margin-top: 520px;
-    }
-    .cat-fing1-img{
-        width: 183px;
-        height: 183px;
-        padding-right: 45px;
-        margin-top: 220px;
-    }
-    .clear-see-all{
-        color:#2EC4B6;
+.clearance-product{
+    margin-top: 60px;
+}
+.clearance-finger{
+    padding: 0;
+    margin: 0;
+    width: 311px;
+    color: black;
+}
+.clearance-finger-img{
+    width: 145px;
+    height: 145px;
+    margin-left: 30px;
+    margin-top: 220px;
+    color: black;
+}
+ .clearance-bone{
+    padding: 0;
+    margin: 0;
+    width: 312px;
+   }
+.clearance-bone-img{
+    width: 183px;
+    height: 183px;
+    padding-right: 15px ;
+}
+.clearance-see-all{
+    color:#ADC178  ;
+}
+/* clearance end */
 
-    }
+
     

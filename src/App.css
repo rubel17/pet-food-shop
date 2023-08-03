@@ -1,6 +1,41 @@
-.App {
-  width: 1920px;
+* {
+  box-sizing: border-box;
+  font-family: Inter;
 }
+.App {
+  margin: 0;
+  padding: 0;
+}
+.product-rating{
+  display: flex;
+  margin-bottom: 12px;
+}
+
+:root {
+  --star-size: 20px;
+  --star-color: #d6cbcb;
+  --star-background: #fc0;
+}
+
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; 
+  line-height: 1;
+}
+  
+.Stars::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+
+
 
 .App-logo {
   height: 40vmin;

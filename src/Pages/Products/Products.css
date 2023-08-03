@@ -12,34 +12,42 @@
     font-size: 20px;
     font-weight: 400;
 }
-.dog-food-text{
-    color: #EF476F;
+
+
+.product-food-text{
+    color:#ADC178 ;
 }
-.dog-product{
-    margin-left: 271px;
-    margin-right: 312px;
-    margin-top: 60px;
-}
-.dog-category{
-    padding: 0;
-    margin: 0;
-    width: 1357px;
-}
-.dog-Foods{
-    margin-top: 120px;
-}
-.dog-p{
-    font-family: 'Shantell Sans', cursive;
+
+.product-paragraph{
     margin-top: 8px;
 }
 
-.single-product-dog{
-    width: 298px;
-    height: 297px;
-    background: #FFF6F9;
-    /* margin: 0;
-    padding: 0; */
-   }
-   .dog-see-all{
-    color:#EF476F  ;
+.product-finger{
+    padding: 0;
+    margin: 0;
+    width: 311px;
+    color: black;
+}
+
+.product-finger-img{
+    width: 145px;
+    height: 145px;
+    margin-left: 30px;
+    margin-top: 220px;
+    color: black;
+}
+.product-see-all{
+    color:#7209B7  ;
+}
+
+.product-bone{
+    padding: 0;
+    margin: 0;
+    width: 312px;
+}
+
+.product-bone-img{
+    width: 183px;
+    height: 183px;
+    padding-right: 15px ;
 }

@@ -14,13 +14,13 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  // if (loading) {
-  //   return (
-  //     <div className="text-center m-56">
-  //       <button className="btn btn-square loading"></button>
-  //     </div>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <div className="text-center m-56">
+        <button className="btn btn-square loading"></button>
+      </div>
+    );
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,8 +28,9 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
     const email = form.email.value;
     const name = form.name.value;
     const password = form.password.value;
+    const number = form.number.value;
     const address = form.address.value;
-    console.log(name, email, password, address);
+    console.log(name, email, password, address, number);
     createUsers(email, password)
       .then((result) => {
         const newUser = result.user;
@@ -44,7 +45,7 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
         setError(`${err.message} Input Valid Email And Password`);
       });
   };
-  // update profile
+
   const handleUpdateUserProfile = (name) => {
     const profile = {
       displayName: name,
@@ -54,14 +55,10 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
       .catch((err) => console.error(err));
   };
 
-  // google SignIn
   const handleGoogleSignIn = () => {
     console.log("Google hi");
     googleSignIn()
       .then((res) => {
-        // const user = res.user;
-        // const { displayName, email } = user;
-        // saveUser(displayName, email);
         navigate(from, { replace: true });
       })
       .catch((err) => {
@@ -71,16 +68,6 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
   };
   const handleFacebookSignIn = () => {
     console.log("Facebook hi");
-    // googleSignIn()
-    //   .then((res) => {
-    //     const user = res.user;
-    //     const { displayName, email } = user;
-    //     saveUser(displayName, email);
-    //   })
-    //   .catch((err) => {
-    //     setLoading(false);
-    //     console.error(err);
-    //   });
   };
   return (
     <>
@@ -108,82 +95,64 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
                       </button>
                     </div>
                     <div>
-                      <label
-                        // htmlFor="email"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">
                         Name <span className="text-green-500">*</span>
                       </label>
                       <input
                         type="name"
                         name="name"
-                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                         placeholder="Your Name"
                         required
                       />
                     </div>
                     <div>
-                      <label
-                        // htmlFor="email"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">
                         Email <span className="text-green-500">*</span>
                       </label>
                       <input
                         type="email"
                         name="email"
-                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                         placeholder="name@gmail.com"
                         required
                       />
                     </div>
                     <div>
-                      <label
-                        // htmlFor="password"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">
                         Password <span className="text-green-500">*</span>
                       </label>
                       <input
                         type="password"
                         name="password"
-                        // id="password"
                         placeholder="••••••••"
-                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                         required
                       />
                     </div>
-                    {/* <div>
-                      <label
-                        // htmlFor="ConfirmPassword"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >
-                        Confirm Password
-                        <span className="text-green-500">*</span>
+                    <div>
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">
+                        Phone <span className="text-green-500">*</span>
                       </label>
                       <input
-                        type="ConfirmPassword"
-                        name="ConfirmPassword"
-                        // id="ConfirmPassword"
-                        placeholder="••••••••"
-                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        type="number"
+                        name="number"
+                        placeholder="+880123456789"
+                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                         required
                       />
-                    </div> */}
+                    </div>
+
                     <div>
-                      <label
-                        // htmlFor="password"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">
                         Address
                         <span className="text-green-500">*</span>
                       </label>
                       <input
                         type="address"
                         name="address"
-                        // id="address"
                         placeholder="Address"
-                        className="mb-8 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        className="mb-8 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                         required
                       />
                     </div>
@@ -199,7 +168,7 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
                   <div className="text-center mb-6 text-black font-medium">
                     <u>Or Login with</u>
                   </div>
-                  {/* facebook */}
+
                   <div className="relative">
                     <button
                       onClick={handleFacebookSignIn}
@@ -213,7 +182,7 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
                       alt=""
                     />
                   </div>
-                  {/* google */}
+
                   <div className="relative">
                     <button
                       onClick={handleGoogleSignIn}

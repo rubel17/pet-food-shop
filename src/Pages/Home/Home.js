@@ -13,17 +13,17 @@ import imgA from "../../assets/image/Accessories.png";
 import imgF from "../../assets/image/fish 1.png";
 import imgB from "../../assets/image/parrot 1.png";
 import imgR from "../../assets/image/rabbit 1.png";
-import imgN from "../../assets/image/new.png";
-import imgAr from "../../assets/image/Arrow_04.png";
-import imgFin from "../../assets/image/pawprint (1) 1.png";
-import imgFing from "../../assets/image/pawprint 2.png";
-import imgBon from "../../assets/image/bone 3.png";
+import imgN from "../../assets/image/new1.png";
+import imgAr from "../../assets/image/Arrow_rr.png";
+import imgFin from "../../assets/image/Group.png";
+import pawPrint from "../../assets/image/pawprint (1) 3.png";
+import imgBon from "../../assets/image/Highlight 24.png";
+import bonePic from "../../assets/image/bone 3.png";
 import imgCol from "../../assets/image/Blob Shape.png";
 import imgCol2 from "../../assets/image/Blob Shape (1).png";
 import imgCol3 from "../../assets/image/neeeeeeee.png";
 import imgCol4 from "../../assets/image/Blob Shape (3).png";
-import imgArr from "../../assets/image/Highlight_04.png";
-import imgArr2 from "../../assets/image/Highlight_05.png";
+import imgArr from "../../assets/image/Hight lightnew.png";
 import imgShed from "../../assets/image/Ellipse 4.png";
 import imgPcckA from "../../assets/image/pack-a.png";
 import imgPcckB from "../../assets/image/pack-b.png";
@@ -40,13 +40,12 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import CatFoodDetail from "../CatFoodDetail/CatFoodDetail";
 import { useQuery } from "@tanstack/react-query";
 import DogFoodDetail from "../DogFoodDetail/DogFoodDetail";
-// import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
   const { data: catFood = [] } = useQuery({
     queryKey: ["catFood"],
     queryFn: () =>
-      fetch("http://localhost:4000/allProduct/catFood").then((res) =>
+      fetch("https://y-livid-three.vercel.app/allProduct/catFood").then((res) =>
         res.json()
       ),
   });
@@ -54,16 +53,15 @@ const Home = () => {
   const { data: dogFood = [] } = useQuery({
     queryKey: ["allProduct/dogFood"],
     queryFn: () =>
-      fetch("http://localhost:4000/allproduct/dogFood").then((res) =>
+      fetch("https://y-livid-three.vercel.app/allproduct/dogFood").then((res) =>
         res.json()
       ),
   });
   const { loading } = useContext(AuthContext);
-  //   useTitle("Home");
 
   if (loading) {
     return (
-      <div className="text-center m-56">
+      <div className="text-center lg:m-56">
         <button className="btn btn-square loading"></button>
       </div>
     );
@@ -77,10 +75,19 @@ const Home = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1500,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -89,28 +96,21 @@ const Home = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 0,
+          infinite: true,
         },
       },
     ],
   };
   return (
     <>
-      {/* product category list and banner */}
-      <section className="flex justify-center">
+      <section className="lg:flex justify-center">
         <div className="category">
           <div className="Product grid grid-cols-1 divide-y">
             <Link
               to="/allProduct/catFood"
-              className="Items1 bg-emerald-100 py-5 flex justify-between"
+              className="Items1  py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgC} alt="" />
@@ -130,7 +130,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/litters"
-              className="Items1 bg-emerald-100 py-5 flex justify-between"
+              className="Items3  py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgL} alt="" />
@@ -150,7 +150,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/care&Health"
-              className="Items1 bg-emerald-100 py-5 flex justify-between"
+              className="Items3 py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgH} alt="" />
@@ -170,7 +170,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/fishFood&Accessories"
-              className="Items1 bg-emerald-100 py-5 flex justify-between"
+              className="Items3 py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgF} alt="" />
@@ -190,7 +190,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/rabitFood&Accessories"
-              className="Items1 bg-emerald-100 py-5 flex justify-between"
+              className="Items4 py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgR} alt="" />
@@ -200,7 +200,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className="banner flex bg-emerald-50">
+        <div className="banner hidden lg:inline-flex">
           <div className="banner-text">
             <img className="new" src={imgN} alt="" />
             <h1 className="text-5xl font-bold banner-h">Pet Food Shop</h1>
@@ -217,7 +217,7 @@ const Home = () => {
           </div>
           <div>
             <div className="flex">
-              <img className="finger-a" src={imgFing} alt="" />
+              <img className="finger-a" src={imgFin} alt="" />
               <img className="bone" src={imgBon} alt="" />
             </div>
             <div>
@@ -234,9 +234,8 @@ const Home = () => {
                   <img className="shed" src={imgShed} alt="" />
                 </div>
               </div>
-              <div className="absolute flex top-80 right-280">
-                <img className="arrow-l" src={imgArr} alt="" />
-                <img className="arrow-r" src={imgArr2} alt="" />
+              <div className="absolute top-80 right-280">
+                <img src={imgArr} alt="" />
               </div>
               <div>
                 <div className="flex">
@@ -253,48 +252,54 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* Cat Food */}
-      <section className="Cat-Foods">
-        <div className="md:text-center">
+      {/* cat food */}
+      <section className="mt-32">
+        <div className="text-center">
           <h1 className="text-3xl font-semibold cat-food-text">Cat Foods</h1>
-          <p className="text-2xl font-medium cat-p">Our Trending Products</p>
+          <p className="text-2xl font-medium cat-paragraph">
+            Best cat foods for your precious cat
+          </p>
         </div>
-        <div className="flex cat-product">
-          <div className="cat-finger">
-            <img className="cat-finger-img" src={imgFin} alt="" />
+        <div className="lg:flex cat-product">
+          <div className="cat-finger hidden lg:inline-flex">
+            <img className="cat-finger-img" src={pawPrint} alt="" />
           </div>
-          {/* slider start */}
-          <div className="cat-category">
-            <Slider {...settings}>
-              {catFood.map((FoodList) => (
-                <CatFoodDetail
-                  key={FoodList._id}
-                  FoodList={FoodList}
-                ></CatFoodDetail>
-              ))}
-            </Slider>
+
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
+            <div>
+              <Slider {...settings}>
+                {catFood.map((FoodList) => (
+                  <CatFoodDetail
+                    key={FoodList._id}
+                    FoodList={FoodList}
+                  ></CatFoodDetail>
+                ))}
+              </Slider>
+            </div>
             <Link to="/allProduct/catFood">
               <u>
-                <p className="lg:text-end cat-see-all mt-8 pr-11">See all</p>
+                <p className="lg:text-end cat-see-all lg:mt-8 lg:pr-11">
+                  See all
+                </p>
               </u>
             </Link>
           </div>
-          {/* slider end */}
-          <div className="cat-bone">
-            <img className="cat-bone-img" src={imgBon} alt="" />
+
+          <div className="cat-bone hidden lg:inline-flex">
+            <img className="cat-bone-img" src={bonePic} alt="" />
           </div>
         </div>
       </section>
-
-      {/* Dog Food */}
-      <section className="dog-Foods mb-40">
-        <div className="md:text-center">
+      {/* dog food */}
+      <section className="-mt-40 2xl:-mt-80">
+        <div className="text-center">
           <h1 className="text-3xl font-semibold dog-food-text">Dog Foods</h1>
-          <p className="text-2xl font-medium dog-p">Our Trending Products</p>
+          <p className="text-2xl font-medium dog-paragraph">
+            Best dog foods for your precious dog
+          </p>
         </div>
-        <div className="flex dog-product">
-          {/* slider start */}
-          <div className="dog-category">
+        <div className="lg:flex justify-center dog-product">
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
             <Slider {...settings}>
               {dogFood.map((dogFoodList) => (
                 <DogFoodDetail
@@ -305,26 +310,24 @@ const Home = () => {
             </Slider>
             <Link to="/allProduct/dogFood">
               <u>
-                <p className="lg:text-end dog-see-all mt-8 pr-11">See all</p>
+                <p className="lg:text-end dog-see-all lg:mt-8 lg:pr-11">
+                  See all
+                </p>
               </u>
             </Link>
           </div>
-          {/* slider end */}
         </div>
       </section>
 
-      {/* bannar */}
+      {/* offer section */}
       <section>
         <CatAndDog></CatAndDog>
       </section>
 
-      {/* clearance Sale */}
       <ClearanceSale></ClearanceSale>
 
-      {/* Litters */}
       <Litters></Litters>
 
-      {/* Logo */}
       <BrandLogo></BrandLogo>
     </>
   );

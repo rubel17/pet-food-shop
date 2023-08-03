@@ -13,6 +13,7 @@ import Shipping from "../Pages/FoodDetails/Shipping/Shipping";
 import DogFood from "../Pages/DogFood/DogFood";
 import Products from "../Pages/Products/Products";
 import AllProductDetail from "../Pages/AllProductDetail/AllProductDetail";
+import CheckOut from "../Pages/CheckOut/CheckOut";
 
 export const router = createBrowserRouter([
   {
@@ -51,13 +52,15 @@ export const router = createBrowserRouter([
         path: "/allProduct/:category",
         element: <Products></Products>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/allProduct/${params.category}`),
+          fetch(
+            `https://y-livid-three.vercel.app/allProduct/${params.category}`
+          ),
       },
       {
         path: "/foodDetails/:id",
         element: <FoodDetails></FoodDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/productDetails/${params.id}`),
+          fetch(`https://y-livid-three.vercel.app/productDetails/${params.id}`),
         children: [
           {
             path: "/foodDetails/:id",
@@ -71,104 +74,19 @@ export const router = createBrowserRouter([
             path: "/foodDetails/:id/additionalInfo",
             element: <AdditionalInfo></AdditionalInfo>,
             loader: ({ params }) =>
-              fetch(`http://localhost:4000/productDetails/${params.id}`),
+              fetch(
+                `https://y-livid-three.vercel.app/productDetails/${params.id}`
+              ),
           },
         ],
       },
-      // {
-      //   path: "/login",
-      //   element: <Login></Login>,
-      // },
-      // {
-      //   path: "/register",
-      //   element: <Register></Register>,
-      // },
-      //       {
-      //         path: "/allProduct",
-      //         element: <AllProduct></AllProduct>,
-      //       },
-      //       {
-      //         path: "/allProduct/:Brand",
-      //         element: (
-      //           <PrivateRoute>
-      //             <ProductCategoriesDetails></ProductCategoriesDetails>
-      //           </PrivateRoute>
-      //         ),
-      //         loader: ({ params }) =>
-      //           fetch(`${process.env.REACT_APP_API}/AllProduct/${params.Brand}`),
-      //       },
-      //       {
-      //         path: "/ProductBooking/:id",
-      //         element: (
-      //           <PrivateRoute>
-      //             <ProductBooking></ProductBooking>
-      //           </PrivateRoute>
-      //         ),
-      //         loader: ({ params }) =>
-      //           fetch(`${process.env.REACT_APP_API}/ProductBooking/${params.id}`),
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     path: "/dashBoard",
-      //     element: (
-      //       <PrivateRoute>
-      //         <DashBoardLayout></DashBoardLayout>
-      //       </PrivateRoute>
-      //     ),
-      //     children: [
-      //       {
-      //         path: "/dashBoard",
-      //         element: (
-      //           <PrivateRoute>
-      //             <DashBoard></DashBoard>
-      //           </PrivateRoute>
-      //         ),
-      //       },
-      //       {
-      //         path: "/dashBoard/myOrder",
-      //         element: <MyBookings></MyBookings>,
-      //       },
-      //       {
-      //         path: "/dashBoard/allUser/Buyer",
-      //         element: (
-      //           <AdminRoute>
-      //             <AllUser></AllUser>
-      //           </AdminRoute>
-      //         ),
-      //       },
-      //       {
-      //         path: "/dashBoard/allUser/Seller",
-      //         element: (
-      //           <AdminRoute>
-      //             <AllSeller></AllSeller>
-      //           </AdminRoute>
-      //         ),
-      //       },
-      //       {
-      //         path: "/dashBoard/addProduct",
-      //         element: <AddProduct></AddProduct>,
-      //       },
-      //       {
-      //         path: "/dashBoard/myProduct",
-      //         element: <MyProduct></MyProduct>,
-      //       },
-      //       {
-      //         path: "/dashBoard/reportItem",
-      //         element: (
-      //           <AdminRoute>
-      //             <ReportItems></ReportItems>
-      //           </AdminRoute>
-      //         ),
-      //       },
-      //       {
-      //         path: "/dashBoard/payment/:id",
-      //         element: <Payment></Payment>,
-      //         loader: ({ params }) =>
-      //           fetch(`${process.env.REACT_APP_API}/bookingData/${params.id}`),
-      //       },
+      {
+        path: "/checkOut",
+        element: <CheckOut></CheckOut>,
+      },
     ],
   },
+
   {
     path: "*",
     element: <ErrorPage></ErrorPage>,

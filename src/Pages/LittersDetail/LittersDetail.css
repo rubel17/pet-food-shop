@@ -1,15 +1,12 @@
-.single-product-litters{
-    width: 298px;
-    height: 297px;
+.single-products-litters{
+    height: 460px;
+   }
+.single-product-body-litters{
     background-color:#FFF5EC;
-}
-.litters-text{
-    color:#EAA367 ;
-}
-.btn-litter{
-    background-color: #EAA367;
+   }
+   .btn-cart-litters{
+    border-radius: 8px;
+    background: var(--theme-colors-primary, #7209B7);
     color: white;
-}
-.litter-see-all{
-    color:#EAA367 ;
-}
+   
+   }

@@ -45,16 +45,16 @@ const BrandLogo = () => {
     ],
   };
   return (
-    <div>
-      <section className="dog-Foods mb-40">
-        <div className="md:text-center mb-12">
+    <div className="hidden">
+      <section className="mb-40 ">
+        <div className="text-center mb-12">
           <h1 className="text-3xl font-semibold brand-text">Our Brand</h1>
-          <p className="text-2xl font-medium dog-p">
+          <p className="text-2xl font-medium brand-p">
             The best place for all your pet needs trusted by pet lovers
             everywhere.
           </p>
         </div>
-        {/* logo */}
+
         <div className="relative">
           <img src={brandLogo} alt="" />
           <img className="brandLogo2" src={brandLogo2} alt="" />

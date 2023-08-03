@@ -1,28 +1,13 @@
-.single-product{
-    width: 298px;
-    height: 457px;
+.single-products-dog{
+    height: 460px;
    }
-.single-product-body-dog{
-    width: 298px;
-    height: 297px;
+.single-product-body-dogs{
+    /* background-color: #F9FCEA; */
     background-color: #FFF6F9;
-    ;
-    /* margin: 0;
-    padding: 0; */
    }
-   .single-product-body-img{
-   padding: 37px;
-   }
-
-
    .btn-cart-dog{
-    background-color: #EF476F;
+    border-radius: 8px;
+    background: var(--theme-colors-primary, #7209B7);
     color: white;
    
    }
-   .star{
-    color:orange ;
-   }
-.star1{
-    color: grey;
-}
