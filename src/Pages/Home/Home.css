@@ -1,5 +1,4 @@
 .category{
-    padding-left: 10px;
     margin-top: 26px;
     height: 603px;
 }
@@ -171,10 +170,6 @@ margin-left: -120px;
         .cat-paragraph{
             margin-top: 8px;
         }
-
-        .cat-product{
-            margin-top: 60px;
-        }
         .cat-finger{
             padding: 0;
             margin: 0;
@@ -240,10 +235,6 @@ margin-left: -120px;
         .dog-paragraph{
             margin-top: 8px;
         }
-
-        .dog-product{
-            margin-top: 60px;
-        }
         .dog-finger{
             padding: 0;
             margin: 0;
@@ -274,11 +265,6 @@ margin-left: -120px;
 
 
         /* banner cat and dog */
-        .cat-banner{
-            margin-left: 147px;
-            margin-right: 38px; 
-            margin-bottom: 119px;
-        }
         .cat-offer{
             font-size:xx-large;
             font-weight: 800;

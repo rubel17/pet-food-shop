@@ -3,7 +3,7 @@ import CatAndDog from "../Home/CatAndDog/CatAndDog";
 
 const Offer = () => {
   return (
-    <div className="mt-40">
+    <div className="my-32">
       <CatAndDog></CatAndDog>
     </div>
   );

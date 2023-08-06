@@ -4,9 +4,3 @@
 .single-product-body-product{
     background-color: #F9FCEA;
    }
-   .btn-cart-product{
-    border-radius: 8px;
-    background: var(--theme-colors-primary, #7209B7);
-    color: white;
-   
-   }

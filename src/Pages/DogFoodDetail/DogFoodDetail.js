@@ -122,12 +122,12 @@ const DogFoodDetail = ({ dogFoodList }) => {
                 <div className="product-rating">
                   <div className="Stars" style={{ "--rating": Rating }}></div>
                 </div>
-                <h2 className="-mt-2 md:-mt-0">{views}</h2>
+                <h2 className="-mt-2 md:-mt-0 mb-3">{views}</h2>
               </div>
 
               <Link
                 onClick={() => handleAddToCart(_id)}
-                className="btn-cart-dog px-1 py-1 text-xs md:text-lg md:px-2 md:py-2"
+                className="addToCart-btn text-lg "
               >
                 Add To Cart
               </Link>

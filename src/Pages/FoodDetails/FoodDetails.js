@@ -39,10 +39,19 @@ const FoodDetails = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1500,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -51,15 +60,9 @@ const FoodDetails = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 0,
+          infinite: true,
         },
       },
     ],
@@ -238,31 +241,30 @@ const FoodDetails = () => {
           <Outlet></Outlet>
         </div>
 
-        <div className="mb-20">
-          <h1 className="RelatedProduct">Related Products</h1>
+        {/* Related Products */}
 
-          <section className="Cat-Foods relatedProFood">
-            <div className="flex cat-product">
-              <div className="cat-category">
-                <Slider {...settings}>
-                  {relatedProducts?.map((FoodList) => (
-                    <ProductsDetails
-                      key={FoodList._id}
-                      FoodList={FoodList}
-                    ></ProductsDetails>
-                  ))}
-                </Slider>
-                <Link to={`/allProduct/${productDetail?.category}`}>
-                  <u>
-                    <p className="lg:text-end cat-see-all mt-8 pr-11">
-                      See all
-                    </p>
-                  </u>
-                </Link>
-              </div>
+        <h1 className="RelatedProduct border-b-2 w-1/6">Related Products</h1>
+        <section className="lg:flex justify-center lg:mt-24 mt-8">
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
+            <div>
+              <Slider {...settings}>
+                {relatedProducts?.map((FoodList) => (
+                  <ProductsDetails
+                    key={FoodList._id}
+                    FoodList={FoodList}
+                  ></ProductsDetails>
+                ))}
+              </Slider>
             </div>
-          </section>
-        </div>
+            <Link to={`/allProduct/${productDetail?.category}`}>
+              <u>
+                <p className="lg:text-end cat-see-all lg:mt-8 lg:pr-11">
+                  See all
+                </p>
+              </u>
+            </Link>
+          </div>
+        </section>
       </div>
     </>
   );

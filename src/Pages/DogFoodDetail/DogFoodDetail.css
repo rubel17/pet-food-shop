@@ -5,9 +5,3 @@
     /* background-color: #F9FCEA; */
     background-color: #FFF6F9;
    }
-   .btn-cart-dog{
-    border-radius: 8px;
-    background: var(--theme-colors-primary, #7209B7);
-    color: white;
-   
-   }

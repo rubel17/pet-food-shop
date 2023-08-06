@@ -59,7 +59,7 @@ const Litters = () => {
           </p>
         </div>
 
-        <div className="lg:flex justify-center mt-16">
+        <div className="lg:flex justify-center lg:mt-16 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
             <div>
               <Slider {...settings}>
@@ -73,7 +73,9 @@ const Litters = () => {
             </div>
             <Link to="/allProduct/litters">
               <u>
-                <p className="lg:text-end litter-see-all mt-8 pr-11">See all</p>
+                <p className="lg:text-end dog-see-all -mt-6 lg:mt-8 lg:pr-11">
+                  See all
+                </p>
               </u>
             </Link>
           </div>

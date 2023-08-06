@@ -4,9 +4,3 @@
 .single-product-body-clearance{
     background-color: #F9FCEA;
    }
-   .btn-cart-clearance{
-    border-radius: 8px;
-    background: var(--theme-colors-primary, #7209B7);
-    color: white;
-   
-   }

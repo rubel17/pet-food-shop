@@ -21,11 +21,15 @@ import { Link } from "react-router-dom";
 const CatAndDog = () => {
   return (
     <div>
-      <div className="hidden md:flex">
-        <div className="cat-banner">
-          <div className="cat-bg relative">
+      <div className="hidden md:flex justify-center">
+        <div className="px-5">
+          <div className="relative">
             <img src={catBg} alt="" />
-            <img className="absolute top-2 left-10 z-10" src={cat} alt="" />
+            <img
+              className="absolute 2xl:top-20 xl:top-16 left-10 z-10 w-1/3"
+              src={cat}
+              alt=""
+            />
             <img className="absolute top-0 left-0" src={catLV} alt="" />
             <img className="absolute bottom-0 right-0" src={catRV} alt="" />
             <img className="absolute top-12 left-60 z-10" src={catM} alt="" />
@@ -45,16 +49,22 @@ const CatAndDog = () => {
               <p className="cat-banner-p py-4 -ml-16">
                 The Best Place for All Your Pet Needs
               </p>
-              <Link className="btn-banner-shop px-5 py-2 ml-9">Shop Now</Link>
+              <Link to="/shop" className="btn-banner-shop px-5 py-2 ml-9">
+                Shop Now
+              </Link>
               <img className="-ml-10" src={catP} alt="" />
             </div>
           </div>
         </div>
 
-        <div className="dog-banner">
-          <div className="dog-bg relative">
+        <div className="px-5">
+          <div className="relative">
             <img src={dogBg} alt="" />
-            <img className="absolute top-6 right-14 z-10" src={dog} alt="" />
+            <img
+              className="absolute right-14 z-10 2xl:top-24 xl:top-20 w-1/4"
+              src={dog}
+              alt=""
+            />
             <img className="absolute top-0 left-0" src={dogLV} alt="" />
             <img className="absolute bottom-0 right-0" src={dogRV} alt="" />
             <img className="absolute top-6 left-16 z-10" src={dogP} alt="" />
@@ -66,7 +76,7 @@ const CatAndDog = () => {
                 Get <p className="cat15 px-4"> 20%</p> Off
               </h1>
 
-              <p className="cat-banner-p py-4 -ml-16">
+              <p className="cat-banner-p 2xl:py-4 xl:py-1 -ml-16">
                 Quality Products for Happy Pets
               </p>
               <Link className="btn-banner-shop2 px-5 py-2 ml-9">Shop Now</Link>

@@ -103,11 +103,12 @@ const Home = () => {
       },
     ],
   };
+
   return (
     <>
       <section className="lg:flex justify-center">
-        <div className="category">
-          <div className="Product grid grid-cols-1 divide-y">
+        <div className="category px-2">
+          <div className="lg:w-96 grid grid-cols-1 divide-y">
             <Link
               to="/allProduct/catFood"
               className="Items1  py-5 flex justify-between"
@@ -253,14 +254,14 @@ const Home = () => {
         </div>
       </section>
       {/* cat food */}
-      <section className="mt-32">
+      <section className="lg:mt-32 mt-12">
         <div className="text-center">
           <h1 className="text-3xl font-semibold cat-food-text">Cat Foods</h1>
           <p className="text-2xl font-medium cat-paragraph">
             Best cat foods for your precious cat
           </p>
         </div>
-        <div className="lg:flex cat-product">
+        <div className="lg:flex lg:mt-16 mt-8">
           <div className="cat-finger hidden lg:inline-flex">
             <img className="cat-finger-img" src={pawPrint} alt="" />
           </div>
@@ -291,14 +292,14 @@ const Home = () => {
         </div>
       </section>
       {/* dog food */}
-      <section className="-mt-40 2xl:-mt-80">
+      <section className="-mt-32 2xl:-mt-80">
         <div className="text-center">
           <h1 className="text-3xl font-semibold dog-food-text">Dog Foods</h1>
           <p className="text-2xl font-medium dog-paragraph">
             Best dog foods for your precious dog
           </p>
         </div>
-        <div className="lg:flex justify-center dog-product">
+        <div className="lg:flex justify-center lg:mt-16 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
             <Slider {...settings}>
               {dogFood.map((dogFoodList) => (
@@ -320,13 +321,17 @@ const Home = () => {
       </section>
 
       {/* offer section */}
-      <section>
+      <section className="-mt-32 2xl:-mt-80">
         <CatAndDog></CatAndDog>
       </section>
 
-      <ClearanceSale></ClearanceSale>
+      <section className="-mt-32 xl:mt-32">
+        <ClearanceSale></ClearanceSale>
+      </section>
 
-      <Litters></Litters>
+      <section className="mt-60">
+        <Litters></Litters>
+      </section>
 
       <BrandLogo></BrandLogo>
     </>

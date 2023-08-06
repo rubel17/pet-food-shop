@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="mt-32">
       <div className="lg:flex">
         <div className="w-1/2 ml-5 lg:ml-80">
           <img className="footer-img" src={footers} alt="" />

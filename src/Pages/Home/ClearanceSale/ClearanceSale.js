@@ -55,7 +55,7 @@ const ClearanceSale = () => {
   };
   return (
     <div>
-      <section className="mb-40">
+      <section>
         <div className="text-center">
           <h1 className="text-3xl font-semibold clearance-food-text">
             Clearance Sale
@@ -65,7 +65,7 @@ const ClearanceSale = () => {
           </p>
         </div>
 
-        <div className="lg:flex clearance-product">
+        <div className="lg:flex justify-center lg:mt-16 mt-8">
           <div className="clearance-finger hidden lg:inline-flex">
             <img className="clearance-finger-img" src={imgBon} alt="" />
           </div>
@@ -83,7 +83,7 @@ const ClearanceSale = () => {
             </div>
             <Link to="/allProduct/clearanceSale">
               <u>
-                <p className="lg:text-end clearance-see-all mt-8 pr-11">
+                <p className="lg:text-end dog-see-all lg:mt-8 lg:pr-11">
                   See all
                 </p>
               </u>

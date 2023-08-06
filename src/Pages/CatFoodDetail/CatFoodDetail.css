@@ -4,9 +4,4 @@
 .single-product-body-cat{
     background-color: #F9FCEA;
    }
-   .btn-cart-cat{
-    border-radius: 8px;
-    background: var(--theme-colors-primary, #7209B7);
-    color: white;
-   
-   }
+
