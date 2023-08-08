@@ -111,7 +111,7 @@ const Home = () => {
           <div className="lg:w-96 grid grid-cols-1 divide-y">
             <Link
               to="/allProduct/catFood"
-              className="Items1  py-5 flex justify-between"
+              className="Items1 category-animation  py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgC} alt="" />
@@ -121,7 +121,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/dogFood"
-              className="Items2 py-5 flex justify-between"
+              className="Items2 category-animation2 py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgD} alt="" />
@@ -131,7 +131,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/litters"
-              className="Items3  py-5 flex justify-between"
+              className="Items3 category-animation  py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgL} alt="" />
@@ -141,7 +141,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/toys"
-              className="Items2 py-5 flex justify-between"
+              className="Items2 category-animation2 py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgT} alt="" />
@@ -151,7 +151,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/care&Health"
-              className="Items3 py-5 flex justify-between"
+              className="Items3 category-animation py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgH} alt="" />
@@ -161,7 +161,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/accessories"
-              className="Items2 py-5 flex justify-between"
+              className="Items2 category-animation2 py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgA} alt="" />
@@ -171,7 +171,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/fishFood&Accessories"
-              className="Items3 py-5 flex justify-between"
+              className="Items3 category-animation py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgF} alt="" />
@@ -181,7 +181,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/birdFood&Accessories"
-              className="Items2 py-5 flex justify-between"
+              className="Items2 category-animation2 py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgB} alt="" />
@@ -191,7 +191,7 @@ const Home = () => {
             </Link>
             <Link
               to="/allProduct/rabitFood&Accessories"
-              className="Items4 py-5 flex justify-between"
+              className="Items4 category-animation py-5 flex justify-between"
             >
               <div className="flex">
                 <img src={imgR} alt="" />
@@ -207,14 +207,33 @@ const Home = () => {
             <h1 className="text-5xl font-bold banner-h">Pet Food Shop</h1>
             <p className="banner-p">Keeping Your Pets Healthy and Happy</p>
             <div className="flex">
-              <Link to="">
-                <button className="btn-shop text-2xl font-semibold">
-                  Shop Now
-                </button>
+              <Link to="/shop">
+                <div class="Shop-container 2xl:mt-12 lg:mt-72">
+                  <div class="Shop-center">
+                    <button class="Shop-btn text-2xl font-semibold">
+                      <svg
+                        width="180px"
+                        height="60px"
+                        viewBox="0 0 180 60"
+                        class="border shop-s"
+                      >
+                        <polyline
+                          points="179,1 179,59 1,59 1,1 179,1"
+                          class="bg-line"
+                        />
+                        <polyline
+                          points="179,1 179,59 1,59 1,1 179,1"
+                          class="hl-line"
+                        />
+                      </svg>
+                      Shop Now
+                    </button>
+                  </div>
+                </div>
               </Link>
               <img className="btn-arrow" src={imgAr} alt="" />
             </div>
-            <img className="finger" src={imgFin} alt="" />
+            <img className="finger 2xl:mt-20" src={imgFin} alt="" />
           </div>
           <div>
             <div className="flex">
@@ -256,7 +275,18 @@ const Home = () => {
       {/* cat food */}
       <section className="lg:mt-32 mt-12">
         <div className="text-center">
-          <h1 className="text-3xl font-semibold cat-food-text">Cat Foods</h1>
+          <h1 className="text-3xl font-semibold cat-food-text">
+            Cat Foods
+            <p className="flex justify-center -mt-6 ml-40">
+              <svg
+                className="arrow-animate animate-bounce w-6 h-6 border-2 rounded-xl text-center"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+              >
+                <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+              </svg>
+            </p>
+          </h1>
           <p className="text-2xl font-medium cat-paragraph">
             Best cat foods for your precious cat
           </p>
@@ -295,6 +325,15 @@ const Home = () => {
       <section className="-mt-32 2xl:-mt-80">
         <div className="text-center">
           <h1 className="text-3xl font-semibold dog-food-text">Dog Foods</h1>
+          <p className="flex justify-center -mt-6 ml-40">
+            <svg
+              className="arrow-animate animate-bounce w-6 h-6 border-2 rounded-xl text-center"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+            >
+              <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+            </svg>
+          </p>
           <p className="text-2xl font-medium dog-paragraph">
             Best dog foods for your precious dog
           </p>
@@ -329,7 +368,7 @@ const Home = () => {
         <ClearanceSale></ClearanceSale>
       </section>
 
-      <section className="mt-60">
+      <section className="mt-52 lg:mt-80 2xl:mt-60">
         <Litters></Litters>
       </section>
 

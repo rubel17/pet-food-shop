@@ -87,6 +87,8 @@ const LittersDetail = ({ littersList }) => {
           if (data.deletedCount > 0) {
             toast.success("Removed To WishList Successful");
             // refetch();
+          } else {
+            toast.error("Login please");
           }
         });
     }
@@ -137,7 +139,7 @@ const LittersDetail = ({ littersList }) => {
           </div>
         </object>
       </Link>
-      <Toaster position="top-center"></Toaster>
+      <Toaster position="top-start"></Toaster>
     </div>
   );
 };

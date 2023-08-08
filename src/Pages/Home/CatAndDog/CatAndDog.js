@@ -17,6 +17,7 @@ import dogB from "../../../assets/image/bone 5.png";
 import dogE from "../../../assets/image/dog-Ellipse.png";
 import dogH from "../../../assets/image/Highlight_05 (1).png";
 import { Link } from "react-router-dom";
+import "./CatAndDog.css";
 
 const CatAndDog = () => {
   return (
@@ -49,7 +50,7 @@ const CatAndDog = () => {
               <p className="cat-banner-p py-4 -ml-16">
                 The Best Place for All Your Pet Needs
               </p>
-              <Link to="/shop" className="btn-banner-shop px-5 py-2 ml-9">
+              <Link to="/shop" className="btn-banner-shop px-7 py-4 ml-9">
                 Shop Now
               </Link>
               <img className="-ml-10" src={catP} alt="" />
@@ -79,7 +80,7 @@ const CatAndDog = () => {
               <p className="cat-banner-p 2xl:py-4 xl:py-1 -ml-16">
                 Quality Products for Happy Pets
               </p>
-              <Link className="btn-banner-shop2 px-5 py-2 ml-9">Shop Now</Link>
+              <Link className="btn-banner-shop2 px-7 py-4 ml-9">Shop Now</Link>
               <img src={dogH} alt="" />
             </div>
           </div>

@@ -1,19 +1,6 @@
-.product-banner-text{
-    position: absolute;
-    top: 40%;
-    left: 45%;
-    color: white;
+.banner-height{
+    height: 448px;
 }
-.product-banner-text h1{
-    font-size: 60px;
-    font-weight: 600;
-}
-.product-banner-text p{
-    font-size: 20px;
-    font-weight: 400;
-}
-
-
 .product-food-text{
     color:#ADC178 ;
 }

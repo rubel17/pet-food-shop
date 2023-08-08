@@ -83,8 +83,10 @@ const ProductsDetails = ({ FoodList }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            toast.success("Removed To WishList Successful");
+            toast.error("Removed To WishList Successful");
             // refetch();
+          } else {
+            toast.error("Login please");
           }
         });
     }

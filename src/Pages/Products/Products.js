@@ -51,20 +51,35 @@ const Products = () => {
   return (
     <>
       <div className="relative">
-        <div className="catFood-Banner">
-          <img src={allProductDetails[0]?.BannerImg} alt="" />
+        <div className="catFood-Banners">
+          <img
+            className="banner-height"
+            src={allProductDetails[0]?.BannerImg}
+            alt=""
+          />
         </div>
-        <div className="product-banner-text">
-          <h1>{allProductDetails[0]?.category}</h1>
+        <div className="catFood-banner-texts text-center mt-12 lg:mt-36 lg:ml-96 absolute top-0 left-0   text-white">
+          <h1 className="font-semibold lg:text-6xl">
+            {allProductDetails[0]?.category}
+          </h1>
           <p>Home/{allProductDetails[0]?.category}</p>
         </div>
       </div>
 
-      <section className="my-40">
+      <section className="mt-12 lg:mt-20 lg:mb-96 2xl:mb-32">
         <div className="text-center">
           <h1 className="text-3xl font-semibold product-food-text">
             {allProductDetails[0]?.category}
           </h1>
+          <p className="flex justify-center mt-6">
+            <svg
+              className="arrow-animate animate-bounce w-6 h-6 border-2 rounded-xl text-center"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+            >
+              <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+            </svg>
+          </p>
           <p className="text-2xl font-medium product-paragraph">
             Our Trending Products
           </p>
@@ -97,7 +112,10 @@ const Products = () => {
           </div>
         </div>
       </section>
-      <CatAndDog></CatAndDog>
+
+      <section className="pt-20">
+        <CatAndDog></CatAndDog>
+      </section>
     </>
   );
 };

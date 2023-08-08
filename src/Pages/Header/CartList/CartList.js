@@ -59,7 +59,7 @@ const CartList = ({ cartModal, setCartModal }) => {
     }
   };
   const decNum = (value, id) => {
-    if (value > 0) {
+    if (value > 1) {
       const data = value - 1;
       const jsonStr = JSON.stringify({ quantity: data });
       fetch(`https://y-livid-three.vercel.app/updateCartListValue/${id}`, {
@@ -169,7 +169,7 @@ const CartList = ({ cartModal, setCartModal }) => {
                     </section>
                   ))}
                   <p className="ps-5 border-red-400 border-t text-stat text-orange-400	 font-semibold mt-5">
-                    Total : {i}
+                    SubTotal : {i}
                   </p>
                 </div>
               </div>

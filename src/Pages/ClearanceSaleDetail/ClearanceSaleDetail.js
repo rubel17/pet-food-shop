@@ -86,6 +86,8 @@ const ClearanceSaleDetail = ({ clearanceSaleList }) => {
         .then((data) => {
           if (data.deletedCount > 0) {
             toast.success("Removed To WishList Successful");
+          } else {
+            toast.error("Login please");
           }
         });
     }
@@ -95,6 +97,7 @@ const ClearanceSaleDetail = ({ clearanceSaleList }) => {
       <div className="md:mx-5 mb-5 lg:mb-10">
         <Link to={`/foodDetails/${_id}`}>
           <object>
+            <Toaster position="top-start"></Toaster>
             <div className="single-products-clearance w-32 lg:w-72 -mb-40 md:-mb-0">
               <div className=" single-product-body-clearance h-28 lg:h-72 lg:w-72	">
                 <div className="pt-5 lg:pt-12 pl-4 lg:pl-12 relative">
@@ -136,7 +139,6 @@ const ClearanceSaleDetail = ({ clearanceSaleList }) => {
             </div>
           </object>
         </Link>
-        <Toaster position="top-center"></Toaster>
       </div>
     </>
   );

@@ -4,3 +4,10 @@
 .single-product-body-litters{
     background-color:#FFF5EC;
    }
+.single-product-body-litters:hover{
+    border-radius: 8px;
+    background: var(--neutral-01, #FFF);
+    box-shadow: 0px 8px 48px 0px rgba(0, 0, 0, 0.08);
+   }
+
+   

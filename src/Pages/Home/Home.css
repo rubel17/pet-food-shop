@@ -1,3 +1,58 @@
+.Shop-container {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 46%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+  }
+  .Shop-center {
+    width: 180px;
+    height: 60px;
+    position: absolute;
+  }
+  
+  .Shop-btn {
+    border-radius: 8px;
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #7209B7;
+    outline: none;
+    transition: 1s ease-in-out;
+  }
+  
+  .shop-s {
+    border-radius: 8px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+  }
+  
+  .Shop-btn:hover {
+    transition: 1s ease-in-out;
+    background: #7209B7;
+    color: white;
+  }
+  
+  .Shop-btn:hover .shop-s {
+    stroke-dashoffset: -480;
+  }
+  
+  
+  
+
+
+
+
+
+
 .category{
     margin-top: 26px;
     height: 603px;
@@ -70,22 +125,13 @@
     line-height: 27px;
     margin-top: 17px;
 }
-.btn-shop{
-    border-radius: 8px;
-    background: var(--theme-colors-primary, #7209B7);
-    color: white;
-    width: 145px;
-    height: 64px;
-    margin-top: 46px;
-}
 .btn-arrow{
     margin-top: 14px;
-    margin-left: 43px;
+    margin-left: 200px;
 }
 .finger{
     width: 74px;
     height: 74px;
-    margin-top: 85px;
     margin-left: 169px;
 }
 .finger-a{
@@ -164,6 +210,9 @@ margin-left: -120px;
 
 
        /* cat food */
+       .arrow-animate{
+        fill: #7209B7;
+       }
         .cat-food-text{
             color:#ADC178 ;
         }    

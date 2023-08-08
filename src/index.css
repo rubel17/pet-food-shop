@@ -9,6 +9,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* add To Cart btn animation */
+
+
 .addToCart-btn{
   padding: 12px 14px;
   color: black;
@@ -19,6 +23,134 @@ body {
  .addToCart-btn:hover{
   background: var(--theme-colors-primary, #7209B7);
   color: white;
-
  }
 
+ .addToCart-btn {
+  background-color: white;
+  position: relative;
+  z-index: 0;
+}
+.addToCart-btn:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -1px;
+  left:-1px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+.addToCart-btn:hover:before {
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* category animation */
+
+.category-animation {
+  
+  transition: all 0.3s;
+  position: relative;
+}
+.category-animation div {
+  transition: all 0.3s;
+}
+.category-animation::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255,255,255,0.5);
+  border-bottom-color: rgba(255,255,255,0.5);
+  transform: scale(0.1, 1);
+}
+.category-animation:hover div {
+  letter-spacing: 3px;
+}
+.category-animation:hover::before {
+  opacity: 1; 
+  transform: scale(1, 1); 
+}
+.category-animation::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: var(--theme-colors-primary, #7209B720);
+}
+.category-animation:hover::after {
+  opacity: 0; 
+  transform: scale(0.1, 1);
+}
+.category-animation2 {
+  
+  transition: all 0.3s;
+  position: relative;
+}
+.category-animation2 div {
+  transition: all 0.3s;
+}
+.category-animation2::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255,255,255,0.5);
+  border-bottom-color: rgba(255,255,255,0.5);
+  transform: scale(0.1, 1);
+}
+.category-animation2:hover div {
+  letter-spacing: 3px;
+}
+.category-animation2:hover::before {
+  opacity: 1; 
+  transform: scale(1, 1); 
+}
+.category-animation2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: var(--theme-colors-primary, #7209B710);
+}
+.category-animation2:hover::after {
+  opacity: 0; 
+  transform: scale(0.1, 1);
+}

@@ -2,6 +2,12 @@
     height: 460px;
    }
 .single-product-body-dogs{
-    /* background-color: #F9FCEA; */
     background-color: #FFF6F9;
+   }
+
+
+   .single-product-body-dogs:hover{
+    border-radius: 8px;
+    background: var(--neutral-01, #FFF);
+    box-shadow: 0px 8px 48px 0px rgba(0, 0, 0, 0.08);
    }
