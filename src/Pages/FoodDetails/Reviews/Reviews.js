@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Reviews = () => {
   return (
-    <div className="flex">
+    <div className="hidden lg:inline-flex">
       <div className="w-4/12">
         <div className="reviews flex justify-center">
           <img className="mask mask-circle" src={imgRk} alt="" />

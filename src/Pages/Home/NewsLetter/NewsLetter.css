@@ -1,0 +1,20 @@
+.newsletter{
+    /* font-family: inter; */
+line-height: 115%; 
+    
+}
+.newsletter-email{
+/* font-family: Inter; */
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%;
+}
+.newsletter-btn{
+    border-radius: 8px;
+    background: var(--theme-colors-primary, #7209B7);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

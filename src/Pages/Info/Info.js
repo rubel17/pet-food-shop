@@ -1,5 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faPhoneVolume,
+  faClock,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faInstagram,
@@ -43,17 +47,28 @@ const Info = () => {
             </div>
           </div>
           <div className="mr-5 md:ml-6 md:h-8 mt-5 md:border border-t"></div>
-          <div className="flex mt-3 lg:mt-6 ml-6">
-            <div className="ml-1">
-              <p>Time: 9AM - 10PM</p>
+
+          <div className="flex mt-2  md:mt-3 md:ml-5">
+            <FontAwesomeIcon className="mt-5" icon={faClock} />
+            <div className="ml-3">
+              <p>Time</p>
+              <p>9AM - 10PM</p>
             </div>
           </div>
           <div className="mr-5 md:mr-0 md:ml-6 h-8 mt-5 md:border border-t"></div>
-          <div className="flex md:mt-3 ml-8">
-            <FontAwesomeIcon className="md:mt-5" icon={faFacebookF} />
-            <FontAwesomeIcon className="md:mt-5 ml-5" icon={faLinkedinIn} />
-            <FontAwesomeIcon className="md:mt-5 ml-5" icon={faTwitter} />
-            <FontAwesomeIcon className="md:mt-5 ml-5" icon={faInstagram} />
+          <div className="flex md:mt-3 lg:ml-8 ml-1">
+            <Link to="https://www.facebook.com/" target="_blank">
+              <FontAwesomeIcon className="md:mt-5" icon={faFacebookF} />
+            </Link>
+            <Link to="https://www.linkedin.com/" target="_blank">
+              <FontAwesomeIcon className="md:mt-5 ml-5" icon={faLinkedinIn} />
+            </Link>
+            <Link to="https://twitter.com/" target="_blank">
+              <FontAwesomeIcon className="md:mt-5 ml-5" icon={faTwitter} />
+            </Link>
+            <Link to="https://www.instagram.com/" target="_blank">
+              <FontAwesomeIcon className="md:mt-5 ml-5" icon={faInstagram} />
+            </Link>
           </div>
         </div>
 
@@ -62,7 +77,7 @@ const Info = () => {
             <span className="ml-5 pe-3 text-teal-300">{user.displayName}</span>
           ) : (
             <button
-              className="sm:ml-8"
+              className="ml-1 lg:ml-8"
               type="button"
               onClick={() => setShowModalR(true)}
             >

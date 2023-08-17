@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import "./ProductsDetails.css";
 import { Link } from "react-router-dom";
 import Heart from "../../../assets/image/Heart.png";
-import { Toaster, toast } from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import Love from "../../../assets/image/red-love.png";
+import { ToastContainer, toast } from "react-toastify";
 
 const ProductsDetails = ({ FoodList }) => {
   const { name, img, views, weight, Amount, _id, Rating, rating } = FoodList;
@@ -40,6 +40,8 @@ const ProductsDetails = ({ FoodList }) => {
             toast.success("Add To Cart Successful");
           }
         });
+    } else {
+      toast.error("Login please");
     }
   };
 
@@ -140,7 +142,7 @@ const ProductsDetails = ({ FoodList }) => {
           </div>
         </object>
       </Link>
-      <Toaster position="top-center"></Toaster>
+      <ToastContainer />
     </div>
   );
 };

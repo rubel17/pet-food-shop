@@ -152,20 +152,20 @@ const FoodDetails = () => {
   refetch();
   return (
     <>
-      <div>
-        <div className="relative mb-24">
-          <div className="catFood-Banner">
+      <div className="2xl:-mb-96 lg:-mb-52">
+        <div className="relative mb-8 lg:mb-24">
+          <div className="catFood-Banners">
             <img src={foodDetails} alt="" />
           </div>
-          <div className="catFood-banner-text">
-            <h1>Food Details</h1>
-            <p>Home/{productDetail?.category}</p>
+          <div className="catFood-banner-texts text-center mt-12 lg:mt-36 lg:ml-96 absolute top-0 left-0   text-white">
+            <h1 className="font-semibold lg:text-6xl">Food Details</h1>
+            <p className="text-2xl">Home/{productDetail?.category}</p>
           </div>
         </div>
 
-        <div className="product-details flex mb-32">
-          <div className="product-details-body shadow-md">
-            <div className="product-body-img">
+        <div className="product-details lg:flex -mb-52 lg:mb-32 mx-5 lg:mx-0">
+          <div className="product-details-body lg:ml-80 lg:w-96 lg:h-96 mb-10 lg:mb-0 shadow-md">
+            <div className="product-body-img lg:w-96 lg:h-96">
               <img src={productDetail?.img} alt="" />
             </div>
           </div>
@@ -216,7 +216,7 @@ const FoodDetails = () => {
         </div>
 
         <div className="foodDetails-border border-t-2">
-          <div className="pb-10 relative border-b-2 ">
+          <div className="pb-10 relative border-b-2 hidden lg:block ">
             <Link
               to={`/foodDetails/${productDetail?._id}`}
               className="food-btn hover:pb-3    hover:border-b-2 hover:border-b-indigo-500 absolute top-1 left-10 px-32 border-r-2"
@@ -243,7 +243,9 @@ const FoodDetails = () => {
 
         {/* Related Products */}
 
-        <h1 className="RelatedProduct border-b-2 w-1/6">Related Products</h1>
+        <h1 className="RelatedProduct ml-5 2xl:ml-72 lg:ml-64 border-b-2 2xl:w-1/6 lg:w-1/4">
+          Related Products
+        </h1>
         <section className="lg:flex justify-center lg:mt-24 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
             <div>

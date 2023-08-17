@@ -1,93 +1,103 @@
 import React from "react";
 import "./Footer.css";
+import {
+  faEnvelope,
+  faPhoneVolume,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedinIn,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+
 import footers from "../../assets/image/Brand-Icon.png";
-import fb from "../../assets/image/fb.png";
-import linkedin from "../../assets/image/lindin.png";
-import twitter from "../../assets/image/twi.png";
-import instagram from "../../assets/image/inesta.png";
+import footerLine from "../../assets/image/footer-line.png";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
   return (
-    <div className="mt-32">
-      <div className="lg:flex">
-        <div className="w-1/2 ml-5 lg:ml-80">
-          <img className="footer-img" src={footers} alt="" />
-          <p className="footerLeft-p">
-            Lorem Ipsum is simply dummy text of the printing and
-            <br />
-            typesetting industry. Lorem Ipsum has been the industry's
-            <br />
-            standard dummy text
-          </p>
-          <div className="flex">
-            <Link to="www.facebook.com" target="_blank">
-              <img className="facebook px-3 py-2 mr-4" src={fb} alt="" />
-            </Link>
-            <Link>
-              <img className="linkedin px-2 py-2 mr-4" src={linkedin} alt="" />
-            </Link>
-            <Link>
-              <img className="twitter px-2 py-2 mr-4" src={twitter} alt="" />
-            </Link>
-            <Link>
-              <img
-                className="instagram px-2 py-2 mr-4"
-                src={instagram}
-                alt=""
-              />
-            </Link>
+    <>
+      <div className="flex justify-center pl-5 mb-12">
+        <div className="main-footer lg:flex">
+          <div className="mb-10 lg:ml-32  lg:w-1/3">
+            <div className="flex">
+              <img className="w-10 h-10" src={footers} alt="" />
+              <p className="text-2xl font-semibold mt-2 pl-2">Petopia</p>
+            </div>
+            <p className="mt-6">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout.
+            </p>
+            <div className="mt-2">
+              <Link to="https://www.facebook.com/" target="_blank">
+                <FontAwesomeIcon className="md:mt-5" icon={faFacebookF} />
+              </Link>
+              <Link to="https://www.linkedin.com/" target="_blank">
+                <FontAwesomeIcon className="md:mt-5 ml-5" icon={faLinkedinIn} />
+              </Link>
+              <Link to="https://twitter.com/" target="_blank">
+                <FontAwesomeIcon className="md:mt-5 ml-5" icon={faTwitter} />
+              </Link>
+              <Link to="https://www.instagram.com/" target="_blank">
+                <FontAwesomeIcon className="md:mt-5 ml-5" icon={faInstagram} />
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="lg:w-1/2">
-          <div className="lg:flex ml-5 md:ml-0">
-            <div className="w-1/2">
-              <p className="footerR-Quick mb-2 mt-10 md:mt-0">Quick Link</p>
-              <p className="mb-3">
-                <Link to="/">Home</Link>
+          <div className="lg:ml-52 lg:flex lg:w-2/3">
+            <div className="lg:w-1/3">
+              <h1 className="font-semibold mb-8">Quick Link</h1>
+              <p>
+                <Link>Home</Link>
               </p>
-              <p className="mb-3">
-                <Link to="/shop">Shop</Link>
-              </p>
-              <p className="mb-3">
-                <Link to="/blog">Blog</Link>
-              </p>
-              <p className="mb-3">
-                <Link to="/clearanceSale">Clearance Sale</Link>
+              <p className="py-4">
+                <Link>Shop</Link>
               </p>
               <p>
-                <Link to="/offer">Offer</Link>
+                <Link>Blog</Link>
+              </p>
+
+              <p className="py-4">
+                <Link>Clearance Sale</Link>
+              </p>
+              <p>
+                <Link>Offer</Link>
               </p>
             </div>
-            <div className="lg:w-1/2">
-              <p className="footerR-Quick mb-4 mt-10 md:mt-0">Contact Us</p>
-              <input
-                className="footer-input py-2 px-16"
-                type="text"
-                placeholder="Full Name"
-              />
-              <input
-                className="footer-input py-2 px-16"
-                type="text"
-                placeholder="Email"
-              />
-              <input
-                className="footer-input2  py-14 px-16"
-                type="text"
-                placeholder="Write message..."
-              />
-              <br />
-              <Link className="btn-SM px-3 py-2 lg:px-7 lg:py-3">
-                Send Message
-              </Link>
+            <div className="my-10 lg:my-0 lg:-ml-16 lg:w-1/3">
+              <h1 className="font-bold mb-8">Company</h1>
+              <p>About</p>
+              <p className="py-4">Career</p>
+              <p>Contact</p>
+            </div>
+            <div className="lg:w-1/3 lg:-ml-16">
+              <h1 className="font-bold mb-8">Contact</h1>
+              <p>There are many variations simply is dummy text.</p>
+              <p className="pt-3">
+                <FontAwesomeIcon className="mr-2" icon={faEnvelope} />
+                info@example.com
+              </p>
+              <p className="py-4">
+                <FontAwesomeIcon className="mr-2" icon={faLocationDot} />
+                6391 Elgin St. Celina
+              </p>
+              <p>
+                <FontAwesomeIcon className="mr-2" icon={faPhoneVolume} />
+                (629) 555-0129
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <p className="text-center mt-32 bg-black text-white py-3">
-        Copy right 2023. all rights reserved by Paws and Claws
-      </p>
-    </div>
+      <div className="flex justify-center">
+        <img src={footerLine} alt="" />
+      </div>
+      <div className="flex justify-center pt-10 pb-6">
+        <p>Copy right 2023. all rights reserved by Petopia</p>
+      </div>
+    </>
   );
 };
 

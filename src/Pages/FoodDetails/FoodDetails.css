@@ -33,15 +33,9 @@
 
 
    .product-details-body{
-    margin-left: 312px;
     margin-right: 70px;
-    width: 496px;
-    height: 532px;
    }
-   .product-body-img img{
-    width:342px;
-    height: 417px;
-   }
+
    .product-body-img{
     padding-top: 58px;
     padding-bottom: 57px;
@@ -89,8 +83,6 @@
        border-color: #84B59F;
        }
 .RelatedProduct{
-    margin-bottom: -70px;
-margin-left: 300px;
 font-family: 'Roboto';
 font-weight: 600;
 font-size: 36px;

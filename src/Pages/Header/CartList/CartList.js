@@ -90,7 +90,7 @@ const CartList = ({ cartModal, setCartModal }) => {
             <div>
               <div className="border-0 register-pageA shadow-lg    w-full bg-white outline-none focus:outline-none">
                 <div>
-                  <div className=" px-8 pt-6 w-full">
+                  <div className="px-20 pt-20 w-full">
                     <div className="flex mb-4  justify-between">
                       <h3 className="register-text text-4xl text-black font-semibold">
                         Cart List

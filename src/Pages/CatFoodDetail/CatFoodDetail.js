@@ -4,12 +4,12 @@ import Love from "../../assets/image/red-love.png";
 import { Link } from "react-router-dom";
 import Heart from "../../assets/image/Heart.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import { Toaster, toast } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CatFoodDetail = ({ FoodList }) => {
   const { name, img, views, weight, Amount, _id, rating } = FoodList;
   const [wishList, setWishList] = useState(Heart);
-  // const [cartList, setCartList] = useState(Heart);
 
   const { user } = useContext(AuthContext);
 
@@ -42,6 +42,8 @@ const CatFoodDetail = ({ FoodList }) => {
             toast.success("Add To Cart Successful");
           }
         });
+    } else {
+      toast.error("Please Login");
     }
   };
 
@@ -88,15 +90,13 @@ const CatFoodDetail = ({ FoodList }) => {
           if (data.deletedCount > 0) {
             toast.error("Removed To WishList Successful");
           } else {
-            toast.error("Login please");
+            toast.error("Please Login");
           }
         });
     }
   };
   return (
     <>
-      <Toaster position="top-start"></Toaster>
-
       <div className="md:mx-5">
         <Link to={`/foodDetails/${_id}`}>
           <object>
@@ -104,13 +104,13 @@ const CatFoodDetail = ({ FoodList }) => {
               <div className=" single-product-body-cat h-28 lg:h-72 lg:w-72	">
                 <div className="pt-5 lg:pt-12  pl-4 lg:pl-12 relative">
                   <img
-                    className="h-3/6 w-3/6 md:w-fit md:h-fit"
+                    className="h-3/6 w-3/6 lg:w-fit lg:h-fit"
                     src={img}
                     alt=""
                   />
                   <Link onClick={() => handleAddToWishList(_id)}>
                     <img
-                      className="absolute top-0 right-0 p-2 lg:p-4"
+                      className="absolute top-0 right-0 p-4"
                       src={wishList}
                       alt=""
                     />
@@ -139,6 +139,7 @@ const CatFoodDetail = ({ FoodList }) => {
                 </Link>
               </div>
             </div>
+            <ToastContainer />
           </object>
         </Link>
       </div>

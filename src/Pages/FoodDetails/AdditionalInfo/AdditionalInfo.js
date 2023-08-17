@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 const AdditionalInfo = () => {
   const productDetail = useLoaderData({});
   return (
-    <div>
+    <div className="hidden lg:inline">
       <div className="flex justify-around additional">
         <p className="brand">Brand : </p>
         <p> {productDetail?.category}</p>

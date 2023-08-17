@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CatAndDog from "../Home/CatAndDog/CatAndDog";
 import { useQuery } from "@tanstack/react-query";
 import DogFoodDetail from "../DogFoodDetail/DogFoodDetail";
+import { ToastContainer } from "react-toastify";
 const DogFood = () => {
   const { data: dogFood = [] } = useQuery({
     queryKey: ["dogFood"],
@@ -66,15 +67,7 @@ const DogFood = () => {
       <section className="mt-20">
         <div className="text-center">
           <h1 className="text-3xl font-semibold dog-food-text">Dog Foods</h1>
-          <p className="flex justify-center -mt-6 ml-40">
-            <svg
-              className="arrow-animate animate-bounce w-6 h-6 border-2 rounded-xl text-center"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-            >
-              <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-            </svg>
-          </p>
+
           <p className="text-2xl font-medium dog-paragraph">
             Best dog foods for your precious dog
           </p>
@@ -99,8 +92,8 @@ const DogFood = () => {
           </div>
         </div>
       </section>
-
-      <section className="-mt-32 2xl:-mt-80">
+      <ToastContainer />
+      <section className="-mt-32 2xl:-mt-80 mb-32">
         <CatAndDog></CatAndDog>
       </section>
     </>

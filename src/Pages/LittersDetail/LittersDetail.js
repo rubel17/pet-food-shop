@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./LittersDetail.css";
 import { Link } from "react-router-dom";
 import Heart from "../../assets/image/Heart.png";
-import { Toaster, toast } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import Love from "../../assets/image/red-love.png";
 
@@ -41,6 +41,8 @@ const LittersDetail = ({ littersList }) => {
             toast.success("Add To Cart Successful");
           }
         });
+    } else {
+      toast.error("Login please");
     }
   };
 
@@ -139,7 +141,7 @@ const LittersDetail = ({ littersList }) => {
           </div>
         </object>
       </Link>
-      <Toaster position="top-start"></Toaster>
+      <ToastContainer />
     </div>
   );
 };

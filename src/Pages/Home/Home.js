@@ -18,18 +18,14 @@ import imgAr from "../../assets/image/Arrow_rr.png";
 import imgFin from "../../assets/image/Group.png";
 import pawPrint from "../../assets/image/pawprint (1) 3.png";
 import imgBon from "../../assets/image/Highlight 24.png";
+import bannerShed from "../../assets/image/Banner-shed.png";
 import bonePic from "../../assets/image/bone 3.png";
 import imgCol from "../../assets/image/Blob Shape.png";
 import imgCol2 from "../../assets/image/Blob Shape (1).png";
 import imgCol3 from "../../assets/image/neeeeeeee.png";
 import imgCol4 from "../../assets/image/Blob Shape (3).png";
 import imgArr from "../../assets/image/Hight lightnew.png";
-import imgShed from "../../assets/image/Ellipse 4.png";
-import imgPcckA from "../../assets/image/pack-a.png";
-import imgPcckB from "../../assets/image/pack-b.png";
-import imgPcckC from "../../assets/image/pack-c.png";
-import imgPcckD from "../../assets/image/pack-d.png";
-import imgPcckE from "../../assets/image/pack-e.png";
+import BannerImg from "../../assets/image/BannarFull Image.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -40,6 +36,9 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import CatFoodDetail from "../CatFoodDetail/CatFoodDetail";
 import { useQuery } from "@tanstack/react-query";
 import DogFoodDetail from "../DogFoodDetail/DogFoodDetail";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import NewsLetter from "./NewsLetter/NewsLetter";
 
 const Home = () => {
   const { data: catFood = [] } = useQuery({
@@ -201,29 +200,24 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className="banner hidden lg:inline-flex">
+        <div className="banner relative hidden lg:inline-flex">
           <div className="banner-text">
             <img className="new" src={imgN} alt="" />
             <h1 className="text-5xl font-bold banner-h">Pet Food Shop</h1>
             <p className="banner-p">Keeping Your Pets Healthy and Happy</p>
             <div className="flex">
               <Link to="/shop">
-                <div class="Shop-container 2xl:mt-12 lg:mt-72">
-                  <div class="Shop-center">
-                    <button class="Shop-btn text-2xl font-semibold">
-                      <svg
-                        width="180px"
-                        height="60px"
-                        viewBox="0 0 180 60"
-                        class="border shop-s"
-                      >
+                <div className=" 2xl:mt-8 lg:mt-4">
+                  <div className="Shop-btn-center">
+                    <button className="Shop-btn py-4">
+                      <svg viewBox="0 0 180 70" className="border btn-svg">
                         <polyline
-                          points="179,1 179,59 1,59 1,1 179,1"
-                          class="bg-line"
+                          points="179,1 179,69 1,69 1,1 179,1"
+                          className="bg-line"
                         />
                         <polyline
-                          points="179,1 179,59 1,59 1,1 179,1"
-                          class="hl-line"
+                          points="179,1 179,69 1,69 1,1 179,1"
+                          className="hl-line"
                         />
                       </svg>
                       Shop Now
@@ -231,42 +225,34 @@ const Home = () => {
                   </div>
                 </div>
               </Link>
-              <img className="btn-arrow" src={imgAr} alt="" />
+
+              <img className="lg:ml-48" src={imgAr} alt="" />
             </div>
             <img className="finger 2xl:mt-20" src={imgFin} alt="" />
           </div>
           <div>
             <div className="flex">
-              <img className="finger-a" src={imgFin} alt="" />
+              <img className="finger-up" src={imgFin} alt="" />
               <img className="bone" src={imgBon} alt="" />
+              <img className="absolute top-0 right-0" src={bannerShed} alt="" />
             </div>
             <div>
-              <div className="relative">
-                <div className="flex">
-                  <img className="color-b1" src={imgCol2} alt="" />
-                  <img className="color-b2" src={imgCol3} alt="" />
-                </div>
-                <div className="flex justify-between">
-                  <img className="color-b3" src={imgCol} alt="" />
-                  <img className="color-b4" src={imgCol4} alt="" />
-                </div>
-                <div>
-                  <img className="shed" src={imgShed} alt="" />
-                </div>
+              <div className="flex">
+                <img className="color-b1" src={imgCol2} alt="" />
+                <img className="color-b2" src={imgCol3} alt="" />
               </div>
-              <div className="absolute top-80 right-280">
-                <img src={imgArr} alt="" />
+              <div className="flex justify-between">
+                <img
+                  className="absolute top-28 bannerArro"
+                  src={imgArr}
+                  alt=""
+                />
+                <img className="color-b3" src={imgCol} alt="" />
+                <img className="color-b4" src={imgCol4} alt="" />
               </div>
-              <div>
-                <div className="flex">
-                  <img className="pack-a z-20" src={imgPcckA} alt="" />
-                  <img className="pack-b z-10" src={imgPcckB} alt="" />
-                </div>
-                <div className="flex">
-                  <img className="pack-c z-40" src={imgPcckC} alt="" />
-                  <img className="pack-d z-30" src={imgPcckD} alt="" />
-                  <img className="pack-e z-40" src={imgPcckE} alt="" />
-                </div>
+
+              <div className="absolute top-40 right-24">
+                <img src={BannerImg} alt="" />
               </div>
             </div>
           </div>
@@ -275,18 +261,7 @@ const Home = () => {
       {/* cat food */}
       <section className="lg:mt-32 mt-12">
         <div className="text-center">
-          <h1 className="text-3xl font-semibold cat-food-text">
-            Cat Foods
-            <p className="flex justify-center -mt-6 ml-40">
-              <svg
-                className="arrow-animate animate-bounce w-6 h-6 border-2 rounded-xl text-center"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 384 512"
-              >
-                <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-              </svg>
-            </p>
-          </h1>
+          <h1 className="text-3xl font-semibold cat-food-text">Cat Foods</h1>
           <p className="text-2xl font-medium cat-paragraph">
             Best cat foods for your precious cat
           </p>
@@ -325,15 +300,6 @@ const Home = () => {
       <section className="-mt-32 2xl:-mt-80">
         <div className="text-center">
           <h1 className="text-3xl font-semibold dog-food-text">Dog Foods</h1>
-          <p className="flex justify-center -mt-6 ml-40">
-            <svg
-              className="arrow-animate animate-bounce w-6 h-6 border-2 rounded-xl text-center"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-            >
-              <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-            </svg>
-          </p>
           <p className="text-2xl font-medium dog-paragraph">
             Best dog foods for your precious dog
           </p>
@@ -372,7 +338,13 @@ const Home = () => {
         <Litters></Litters>
       </section>
 
-      <BrandLogo></BrandLogo>
+      <section className="2xl:-mt-80 lg:-mt-40">
+        <BrandLogo></BrandLogo>
+      </section>
+      <section className="mt-80">
+        <NewsLetter></NewsLetter>
+      </section>
+      <ToastContainer />
     </>
   );
 };

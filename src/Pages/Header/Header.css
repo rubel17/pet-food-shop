@@ -1,0 +1,6 @@
+.product-length{
+    width: 16px;
+    height: 16px;
+    background-color: var(--theme-colors-primary, #7209B7);
+
+}
