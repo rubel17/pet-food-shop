@@ -1,92 +1,33 @@
-.catFood-Banner img{
-    width: 100%;
-    height: 448px;
+.brightness { filter: brightness(0.90); }
+.brightness:hover { filter: brightness(1.100); }
+.inStock{
+    color: var(--theme-colors-state-info, #4255F9);
 }
-.catFood-Banner{
-    position: relative;
-}
-.catFood-Banner:before{
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    background: rgba(29, 29, 29, 0.7);
-    height: 100%;
-    width: 100%;
-}
-.catFood-banner-text{
-    position: absolute;
-    top: 0;
-    left: 0;
+    .btn-cart{
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: var(--neutral-07, #0B0112);
     color: white;
-    margin-top: 149px;
-    margin-left:824px ;
-}
-.catFood-banner-text h1{
-    font-size: xxx-large;
-    font-weight: 600;
-}
-.catFood-banner-text p{
-    margin-left: 70px;
-    margin-top: 10px;
-}
-
-
-   .product-details-body{
-    margin-right: 70px;
-   }
-
-   .product-body-img{
-    padding-top: 58px;
-    padding-bottom: 57px;
-    padding-left: 77px;
-    padding-right: 77px;
-   }
-   .star{
-    color:orange ;
-   }
-   .upAndDown{
-    background: #F4FBF8;
-    color: #84B59F;
-   }
-   .btn-cart{
-    background-color:#84B59F ;
-    color: white;
-    margin-right: 45px;
+    margin-right: 25px;
    }
    .btn-wishList{
-    border: 1px solid #84B59F;
-    color: #84B59F;
+    color: black;
    }
-   .btn-wishList:hover{
-    border: 1px solid #84B59F;
-    color: #84B59F;
-   }
-   .btn-wishList img{
-    margin-top: 12px;
-    margin-right: 5px;
-    width: 10px;
-    height: 8px;
-       }
-   .btn-wishList p{
-    font-size: 10px;
-    margin-top:9px;
-    color: #84B59F;
-       }
-       .foodDetails-border{
+
+    .foodDetails-border{
         margin-left: 312px;
         margin-right: 312px;
         height: 420px;
        }
-       .food-btn:hover{
+    .food-btn:hover{
        color: red;
        border-color: #84B59F;
        }
-.RelatedProduct{
-font-family: 'Roboto';
-font-weight: 600;
-font-size: 36px;
-}
-.relatedProFood{
-    margin-left: 212px;
-}
+    .RelatedProduct{
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 36px;
+    }
+    .relatedProFood{
+        margin-left: 212px;
+    }

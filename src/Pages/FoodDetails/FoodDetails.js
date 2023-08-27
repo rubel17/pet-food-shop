@@ -9,6 +9,15 @@ import ProductsDetails from "../Products/ProductsDetails/ProductsDetails";
 import { toast } from "react-hot-toast";
 import Heart from "../../assets/image/Heart.png";
 import Love from "../../assets/image/red-love.png";
+import productBg from "../../assets/image/product-bg.png";
+import checkCircle from "../../assets/image/check-circle.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedinIn,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const FoodDetails = () => {
   const { user } = useContext(AuthContext);
@@ -152,7 +161,7 @@ const FoodDetails = () => {
   refetch();
   return (
     <>
-      <div className="2xl:-mb-96 lg:-mb-52">
+      <div className="lg:-mb-48">
         <div className="relative mb-8 lg:mb-24">
           <div className="catFood-Banners">
             <img src={foodDetails} alt="" />
@@ -163,52 +172,90 @@ const FoodDetails = () => {
           </div>
         </div>
 
-        <div className="product-details lg:flex -mb-52 lg:mb-32 mx-5 lg:mx-0">
-          <div className="product-details-body lg:ml-80 lg:w-96 lg:h-96 mb-10 lg:mb-0 shadow-md">
-            <div className="product-body-img lg:w-96 lg:h-96">
-              <img src={productDetail?.img} alt="" />
-            </div>
+        <div className="lg:flex -mb-52 lg:mb-32 ">
+          <div className="relative 2xl:ml-72 xl:ml-60 lg:ml-40 md:ml-20">
+            <img className="-mt-8 brightness " src={productBg} alt="" />
+            <img
+              className="absolute lg:top-1/4 top-32 left-20 lg:left-1/4 w-1/2"
+              src={productDetail?.img}
+              alt=""
+            />
           </div>
-          <div className="product-text">
-            <h1 className="text-xl font-semibold pb-3">
+          <div className="product-text ml-3">
+            <h1 className="text-4xl font-semibold pb-3">
               {productDetail?.name}
             </h1>
             <h3 className="text-medium font-semibold pb-3">
               {productDetail?.Amount}
             </h3>
-            <h2 className="text-medium pb-3">
-              Flavor: {productDetail?.weight}{" "}
+            <h2 className="text-xl font-bold pb-3">
+              Brit Adult Cat Food Delicious chunks with chicken for adult cat
             </h2>
-            <h2 className="text-medium pb-3">
-              Cat Life Stage: Adult 1 year - 5 years{" "}
-            </h2>
-
-            <div className="flex">
-              <div className="product-rating">
-                <div
-                  className="Stars"
-                  style={{
-                    "--rating": productDetail?.Rating || productDetail?.rating,
-                  }}
-                ></div>
-              </div>
-              <h2>{productDetail?.views}</h2>
+            <div className="flex text-medium pb-3">
+              <img className="w-4 h-4 mr-2 mt-1" src={checkCircle} alt="" />
+              <h2>
+                With Brit Adult’s crispy chunks, your naughty Senior will
+                visibly enjoy the <br /> delicious flavour of chicken.
+              </h2>
+            </div>
+            <div className="flex text-medium pb-3">
+              <img className="w-4 h-4 mr-2 mt-1" src={checkCircle} alt="" />
+              <h2>
+                With Brit Adult’s crispy chunks, your naughty Senior will
+                visibly enjoy the <br /> delicious flavour of chicken.
+              </h2>
+            </div>
+            <div className="flex text-medium pb-3">
+              <img className="w-4 h-4 mr-2 mt-1" src={checkCircle} alt="" />
+              <h2>
+                With Brit Adult’s crispy chunks, your naughty Senior will
+                visibly enjoy the <br /> delicious flavour of chicken.
+              </h2>
+            </div>
+            <div className="flex text-medium pb-3">
+              <img className="w-4 h-4 mr-2 mt-1" src={checkCircle} alt="" />
+              <h2>
+                With Brit Adult’s crispy chunks, your naughty Senior will
+                visibly enjoy the <br /> delicious flavour of chicken.
+              </h2>
             </div>
 
+            <h1 className="pb-3">
+              <span className="text-xl font-semibold">Categories: </span>
+              Cat dry food, Adult food
+            </h1>
+
+            <div className="pb-3 flex">
+              <span className="text-xl font-semibold mr-5">Share: </span>
+              <Link to="https://www.facebook.com/" target="_blank">
+                <FontAwesomeIcon className="md:mt-2" icon={faFacebookF} />
+              </Link>
+              <Link to="https://www.linkedin.com/" target="_blank">
+                <FontAwesomeIcon className="md:mt-2 ml-5" icon={faLinkedinIn} />
+              </Link>
+              <Link to="https://twitter.com/" target="_blank">
+                <FontAwesomeIcon className="md:mt-2 ml-5" icon={faTwitter} />
+              </Link>
+              <Link to="https://www.instagram.com/" target="_blank">
+                <FontAwesomeIcon className="md:mt-2 ml-5" icon={faInstagram} />
+              </Link>
+            </div>
+            <p className="inStock font-semibold text-xl pb-3">In Stock</p>
             <div className="flex">
               <Link
                 onClick={() => handleAddToCart(productDetail?._id)}
-                className="btn-cart px-6 py-1"
+                // className="btn-cart "
+                className="btn-cart addToCart-btn glow-on-hover text-lg"
               >
                 Add To Cart
               </Link>
+
               <Link
                 className="btn-wishList"
                 onClick={() => handleAddToWishList(productDetail?._id)}
               >
-                <div className="flex  px-6">
-                  <img src={wishList} alt="" />
-                  <p>Add To Wish List</p>
+                <div className="flex  px-2 rounded-lg border-black py-2.5 text-center mr-2 addToCart-btn glow-on-hover">
+                  <p className="font-semibold text-xl">Add To Wish List</p>
                 </div>
               </Link>
             </div>

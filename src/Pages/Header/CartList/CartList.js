@@ -88,18 +88,18 @@ const CartList = ({ cartModal, setCartModal }) => {
         <>
           <div className="flex justify-center items-center lg:justify-end lg:items-start overflow-x-auto overflow-y-auto  fixed inset-0 z-50 outline-none focus:outline-none">
             <div>
-              <div className="border-0 register-pageA shadow-lg    w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 register-pageA shadow-lg    lg:w-full bg-white outline-none focus:outline-none">
                 <div>
-                  <div className="px-20 pt-20 w-full">
-                    <div className="flex mb-4  justify-between">
-                      <h3 className="register-text text-4xl text-black font-semibold">
+                  <div className="lg:px-8  pt-20 lg:pt-5 lg:w-full">
+                    <div className="flex justify-start lg:justify-between mb-4">
+                      <h3 className="register-text text-lg lg:text-4xl text-black font-semibold">
                         Cart List
                       </h3>
                       <button
                         className="bg-transparent border-0 text-black float-right"
                         onClick={() => setCartModal(false)}
                       >
-                        <span className="text-black opacity-7 h-6 w-6 text-xl block  py-0 rounded-full">
+                        <span className="text-black opacity-7 h-6 w-6 text-xl block  py-0 rounded-full ml-20 lg:ml-0">
                           x
                         </span>
                       </button>

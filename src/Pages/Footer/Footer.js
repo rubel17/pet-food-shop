@@ -50,20 +50,20 @@ const Footer = () => {
             <div className="lg:w-1/3">
               <h1 className="font-semibold mb-8">Quick Link</h1>
               <p>
-                <Link>Home</Link>
+                <Link to="/">Home</Link>
               </p>
               <p className="py-4">
-                <Link>Shop</Link>
+                <Link to="/shop">Shop</Link>
               </p>
               <p>
-                <Link>Blog</Link>
+                <Link to="/blog">Blog</Link>
               </p>
 
               <p className="py-4">
-                <Link>Clearance Sale</Link>
+                <Link to="/allProduct/clearanceSale">Clearance Sale</Link>
               </p>
               <p>
-                <Link>Offer</Link>
+                <Link to="/offer">Offer</Link>
               </p>
             </div>
             <div className="my-10 lg:my-0 lg:-ml-16 lg:w-1/3">

@@ -12,13 +12,13 @@ const NewsLetter = () => {
         <div className="flex justify-center relative ">
           <img src={NewsBanner} alt="" />
           <img className="absolute" src={NewsShed} alt="" />
-          <div className="absolute top-3 lg:top-32 ">
-            <p className="text-white lg:text-5xl font-semibold newsletter lg:tracking-tighter">
+          <div className="absolute top-3 2xl:top-32 lg:top-20 ">
+            <p className="hidden md:flex text-white lg:text-4xl 2xl:text-5xl font-semibold newsletter lg:tracking-tighter">
               For any update information
               <br />
               Subscribe our Newsletter
             </p>
-            <div className="lg:flex text-white lg:mt-12">
+            <div className="lg:flex text-white 2xl:mt-12 lg:mt-10">
               <div>
                 <p className="newsletter-email lg:mt-6">Enter Your Email</p>
                 <svg
