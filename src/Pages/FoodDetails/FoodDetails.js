@@ -168,15 +168,17 @@ const FoodDetails = () => {
           </div>
           <div className="catFood-banner-texts text-center mt-12 lg:mt-36 lg:ml-96 absolute top-0 left-0   text-white">
             <h1 className="font-semibold lg:text-6xl">Food Details</h1>
-            <p className="text-2xl">Home/{productDetail?.category}</p>
+            <p className="text-2xl">
+              Home/ <span className="uppercase">{productDetail?.category}</span>
+            </p>
           </div>
         </div>
 
-        <div className="lg:flex -mb-52 lg:mb-32 ">
+        <div className="lg:flex mb-32">
           <div className="relative 2xl:ml-72 xl:ml-60 lg:ml-40 md:ml-20">
             <img className="-mt-8 brightness " src={productBg} alt="" />
             <img
-              className="absolute lg:top-1/4 top-32 left-20 lg:left-1/4 w-1/2"
+              className="absolute top-1/4 left-1/4 md:left-40 md:top-20 w-1/3 lg:w-1/2"
               src={productDetail?.img}
               alt=""
             />
@@ -262,27 +264,43 @@ const FoodDetails = () => {
           </div>
         </div>
 
-        <div className="foodDetails-border border-t-2">
-          <div className="pb-10 relative border-b-2 hidden lg:block ">
-            <Link
-              to={`/foodDetails/${productDetail?._id}`}
-              className="food-btn hover:pb-3    hover:border-b-2 hover:border-b-indigo-500 absolute top-1 left-10 px-32 border-r-2"
-            >
-              Reviews
-            </Link>
+        <div className="mb-28">
+          <div className="lg:border-b-2 2xl:mx-80 xl:mx-40 lg:mx-20">
+            <div className="lg:flex justify-center mb-2  ml-5 lg:ml-0">
+              <p className="mb-3 lg:mb-0">
+                <Link
+                  to={`/foodDetails/${productDetail?._id}`}
+                  className=" mr-28 pr-2 hover:border-b-2 hover:border-b-indigo-500 border-b-2 lg:border-b-0"
+                >
+                  Description
+                </Link>
+              </p>
+              <p className="mb-3 lg:mb-0">
+                <Link
+                  to={`/foodDetails/${productDetail?._id}/additionalInfo`}
+                  className="mr-28 pr-2 hover:border-b-2 hover:border-b-indigo-500 border-b-2 lg:border-b-0"
+                >
+                  Additional Information
+                </Link>
+              </p>
+              <p className="mb-3 lg:mb-0">
+                <Link
+                  to={`/foodDetails/${productDetail?._id}/reviews`}
+                  className="mr-28 pr-2 hover:border-b-2 hover:border-b-indigo-500 border-b-2 lg:border-b-0"
+                >
+                  Reviews
+                </Link>
+              </p>
 
-            <Link
-              to={`/foodDetails/${productDetail?._id}/shipping`}
-              className="food-btn hover:pb-3    hover:border-b-2 hover:border-b-indigo-500 absolute top-1 left-96 px-32 border-r-2"
-            >
-              Shipping and Delivery
-            </Link>
-            <Link
-              to={`/foodDetails/${productDetail?._id}/additionalInfo`}
-              className="food-btn hover:pb-3    hover:border-b-2 hover:border-b-indigo-500 absolute top-1 right-10 px-32"
-            >
-              Additional Information
-            </Link>
+              <p>
+                <Link
+                  to={`/foodDetails/${productDetail?._id}/shipping`}
+                  className="hover:border-b-2 hover:border-b-indigo-500 border-b-2 lg:border-b-0"
+                >
+                  Shipping & Delivery
+                </Link>
+              </p>
+            </div>
           </div>
 
           <Outlet></Outlet>
@@ -290,10 +308,10 @@ const FoodDetails = () => {
 
         {/* Related Products */}
 
-        <h1 className="RelatedProduct ml-5 2xl:ml-72 lg:ml-64 border-b-2 2xl:w-1/6 lg:w-1/4">
+        <h1 className="RelatedProduct ml-5 2xl:ml-80 lg:ml-64">
           Related Products
         </h1>
-        <section className="lg:flex justify-center lg:mt-24 mt-8">
+        <section className="lg:flex justify-center lg:mt-20 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
             <div>
               <Slider {...settings}>

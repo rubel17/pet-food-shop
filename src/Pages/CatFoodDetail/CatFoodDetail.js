@@ -6,6 +6,7 @@ import Heart from "../../assets/image/Heart.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import productBg from "../../assets/image/product-bg.png";
 
 const CatFoodDetail = ({ FoodList }) => {
   const { name, img, views, weight, Amount, _id, rating } = FoodList;
@@ -100,24 +101,26 @@ const CatFoodDetail = ({ FoodList }) => {
       <div className="md:mx-5">
         <Link to={`/foodDetails/${_id}`}>
           <object>
-            <div className="single-products-cat w-32 lg:w-72 -mb-40 md:-mb-0">
-              <div className=" single-product-body-cat h-28 lg:h-72 lg:w-72	">
-                <div className="pt-5 lg:pt-12  pl-4 lg:pl-12 relative">
+            <div className="single-products-cat -mb-40 md:-mb-0">
+              <div className="">
+                <div className="relative">
+                  <img className=" brightness " src={productBg} alt="" />
+
                   <img
-                    className="h-3/6 w-3/6 lg:w-fit lg:h-fit"
+                    className="absolute  top-14 left-20 lg:left-1/4"
                     src={img}
                     alt=""
                   />
                   <Link onClick={() => handleAddToWishList(_id)}>
                     <img
-                      className="absolute top-0 right-0 p-4"
+                      className="absolute top-8 right-8"
                       src={wishList}
                       alt=""
                     />
                   </Link>
                 </div>
               </div>
-              <div>
+              <div className="ml-5">
                 <h1 className="md:text-xl font-normal md:font-bold md:py-1">
                   {name}
                 </h1>

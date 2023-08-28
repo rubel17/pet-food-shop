@@ -14,6 +14,7 @@ import DogFood from "../Pages/DogFood/DogFood";
 import Products from "../Pages/Products/Products";
 import AllProductDetail from "../Pages/AllProductDetail/AllProductDetail";
 import CheckOut from "../Pages/CheckOut/CheckOut";
+import Description from "../Pages/FoodDetails/Description/Description";
 
 export const router = createBrowserRouter([
   {
@@ -64,7 +65,19 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "/foodDetails/:id",
+            element: <Description></Description>,
+            loader: ({ params }) =>
+              fetch(
+                `https://y-livid-three.vercel.app/productDetails/${params.id}`
+              ),
+          },
+          {
+            path: "/foodDetails/:id/reviews",
             element: <Reviews></Reviews>,
+            loader: ({ params }) =>
+              fetch(
+                `https://y-livid-three.vercel.app/productDetails/${params.id}`
+              ),
           },
           {
             path: "/foodDetails/:id/shipping",

@@ -1,5 +1,6 @@
 .brightness { filter: brightness(0.90); }
 .brightness:hover { filter: brightness(1.100); }
+
 .inStock{
     color: var(--theme-colors-state-info, #4255F9);
 }
@@ -10,19 +11,7 @@
     color: white;
     margin-right: 25px;
    }
-   .btn-wishList{
-    color: black;
-   }
 
-    .foodDetails-border{
-        margin-left: 312px;
-        margin-right: 312px;
-        height: 420px;
-       }
-    .food-btn:hover{
-       color: red;
-       border-color: #84B59F;
-       }
     .RelatedProduct{
     font-family: 'Roboto';
     font-weight: 600;
@@ -31,3 +20,4 @@
     .relatedProFood{
         margin-left: 212px;
     }
+

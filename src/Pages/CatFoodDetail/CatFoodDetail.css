@@ -1,7 +1,7 @@
 .single-products-cat{
-    height: 460px;
+    height: 500px;
    }
-.single-product-body-cat{
+/* .single-product-body-cat{
     border-radius: 8px;
     background: var(--neutral-02, #F8F8F9);
    }
@@ -10,4 +10,4 @@
     border-radius: 8px;
     background: var(--neutral-01, #FFF);
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.08);
-   }
+   } */
