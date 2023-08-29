@@ -155,8 +155,8 @@ const Header = () => {
             className=" align-top"
           />
         </Link>
-        <span className="font-semibold ml-2">Petopia</span>
-        <ul className="text-black menu menu-horizontal ml-20 p-0">
+        <span className="font-semibold ml-2 capitalize">petopia</span>
+        <ul className="text-black text-base font-medium menu menu-horizontal ml-20 p-0">
           <li className="m-2">
             <Link to="/">Home</Link>
           </li>
@@ -221,7 +221,7 @@ const Header = () => {
             </svg>
           </button>
           <p className="absolute -top-2 -right-2 product-length rounded-full">
-            <span className="text-white absolute -top-1 right-1">
+            <span className="text-white absolute -top-1 left-1">
               {userCartList.length}
             </span>
           </p>
@@ -244,7 +244,7 @@ const Header = () => {
           </button>
 
           <p className="absolute -top-2 -right-2 product-length rounded-full">
-            <span className="text-white absolute -top-1 right-1">
+            <span className="text-white absolute -top-1 left-1">
               {userWishList.length}
             </span>
           </p>

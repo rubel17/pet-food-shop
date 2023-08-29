@@ -20,81 +20,78 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footer = () => {
   return (
     <>
-      <div className="flex justify-center pl-5 mb-12">
-        <div className="main-footer lg:flex">
-          <div className="mb-10 lg:ml-32  lg:w-1/3">
-            <div className="flex">
-              <img className="w-10 h-10" src={footers} alt="" />
-              <p className="text-2xl font-semibold mt-2 pl-2">Petopia</p>
-            </div>
-            <p className="mt-6">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
-            </p>
-            <div className="mt-2">
-              <Link to="https://www.facebook.com/" target="_blank">
-                <FontAwesomeIcon className="md:mt-5" icon={faFacebookF} />
-              </Link>
-              <Link to="https://www.linkedin.com/" target="_blank">
-                <FontAwesomeIcon className="md:mt-5 ml-5" icon={faLinkedinIn} />
-              </Link>
-              <Link to="https://twitter.com/" target="_blank">
-                <FontAwesomeIcon className="md:mt-5 ml-5" icon={faTwitter} />
-              </Link>
-              <Link to="https://www.instagram.com/" target="_blank">
-                <FontAwesomeIcon className="md:mt-5 ml-5" icon={faInstagram} />
-              </Link>
-            </div>
+      <footer className="footer xl:px-60 lg:px-20 px-10 mb-10">
+        <div>
+          <div className="flex">
+            <img className="w-10 h-10" src={footers} alt="" />
+            <p className="text-2xl font-semibold mt-2 pl-2">Petopia</p>
           </div>
-          <div className="lg:ml-52 lg:flex lg:w-2/3">
-            <div className="lg:w-1/3">
-              <h1 className="font-semibold mb-8">Quick Link</h1>
-              <p>
-                <Link to="/">Home</Link>
-              </p>
-              <p className="py-4">
-                <Link to="/shop">Shop</Link>
-              </p>
-              <p>
-                <Link to="/blog">Blog</Link>
-              </p>
-
-              <p className="py-4">
-                <Link to="/allProduct/clearanceSale">Clearance Sale</Link>
-              </p>
-              <p>
-                <Link to="/offer">Offer</Link>
-              </p>
-            </div>
-            <div className="my-10 lg:my-0 lg:-ml-16 lg:w-1/3">
-              <h1 className="font-bold mb-8">Company</h1>
-              <p>About</p>
-              <p className="py-4">Career</p>
-              <p>Contact</p>
-            </div>
-            <div className="lg:w-1/3 lg:-ml-16">
-              <h1 className="font-bold mb-8">Contact</h1>
-              <p>There are many variations simply is dummy text.</p>
-              <p className="pt-3">
-                <FontAwesomeIcon className="mr-2" icon={faEnvelope} />
-                info@example.com
-              </p>
-              <p className="py-4">
-                <FontAwesomeIcon className="mr-2" icon={faLocationDot} />
-                6391 Elgin St. Celina
-              </p>
-              <p>
-                <FontAwesomeIcon className="mr-2" icon={faPhoneVolume} />
-                (629) 555-0129
-              </p>
-            </div>
+          <p className="mt-6">
+            It is a long established fact that a reader will <br /> be
+            distracted by the readable content of a <br /> page when looking at
+            its layout.
+          </p>
+          <div className="mt-2">
+            <Link to="https://www.facebook.com/" target="_blank">
+              <FontAwesomeIcon className="md:mt-5" icon={faFacebookF} />
+            </Link>
+            <Link to="https://www.linkedin.com/" target="_blank">
+              <FontAwesomeIcon className="md:mt-5 ml-5" icon={faLinkedinIn} />
+            </Link>
+            <Link to="https://twitter.com/" target="_blank">
+              <FontAwesomeIcon className="md:mt-5 ml-5" icon={faTwitter} />
+            </Link>
+            <Link to="https://www.instagram.com/" target="_blank">
+              <FontAwesomeIcon className="md:mt-5 ml-5" icon={faInstagram} />
+            </Link>
           </div>
         </div>
-      </div>
+        <div>
+          <span className="text-lg font-bold">Quick Link</span>
+          <p>
+            <Link to="/">Home</Link>
+          </p>
+          <p className="py-3">
+            <Link to="/shop">Shop</Link>
+          </p>
+          <p>
+            <Link to="/blog">Blog</Link>
+          </p>
+
+          <p className="py-3">
+            <Link to="/allProduct/clearanceSale">Clearance Sale</Link>
+          </p>
+          <p>
+            <Link to="/offer">Offer</Link>
+          </p>
+        </div>
+        <div>
+          <span className="text-lg font-bold">Company</span>
+          <p>About</p>
+          <p className="py-4">Career</p>
+          <p>Contact</p>
+        </div>
+        <div>
+          <span className="text-lg font-bold">Contact</span>
+          <p>There are many variations simply is dummy text.</p>
+          <p type="email" className="pt-3">
+            <FontAwesomeIcon className="mr-2" icon={faEnvelope} />
+            Rubelrk377@gmail.com
+          </p>
+          <p className="py-4">
+            <FontAwesomeIcon className="mr-2" icon={faLocationDot} />
+            Orion IT,Khulna-9000.
+          </p>
+          <p>
+            <FontAwesomeIcon className="mr-2" icon={faPhoneVolume} />
+            +8801725207525
+          </p>
+        </div>
+      </footer>
       <div className="flex justify-center">
         <img src={footerLine} alt="" />
       </div>
-      <div className="flex justify-center pt-10 pb-6">
+      <div className="flex justify-center pt-5 pb-6">
         <p>Copy right 2023. all rights reserved by Petopia</p>
       </div>
     </>

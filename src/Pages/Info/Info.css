@@ -20,11 +20,11 @@
   }
 @media only screen and (max-width: 1440px) and (min-width: 1081px) {
     .info-responsive{
-        margin-left: 45px;
+        margin-left: -15px;
     }
   }
 @media only screen and (max-width: 1920px) and (min-width: 1441px) {
     .info-responsive{
-        margin-left: 155px;
+        margin-left: -25px;
     }
   }

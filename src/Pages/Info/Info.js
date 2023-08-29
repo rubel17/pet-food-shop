@@ -30,12 +30,12 @@ const Info = () => {
   return (
     <div className="md:flex md:justify-center bg-colors md:h-20">
       <div className="info-responsive md:flex md:justify-around w-screen">
-        <div className="md:flex">
+        <div className="md:flex 2xl:-mr-40 xl:-mr-0">
           <div className="flex md:ml-5 pt-3">
             <FontAwesomeIcon className="mt-5" icon={faPhoneVolume} />
             <div className="ml-3">
               <p>Contact Us</p>
-              <p>+880123456789</p>
+              <p>+8801923064377</p>
             </div>
           </div>
           <div className="mr-5 md:ml-6 md:h-8 mt-5 md:border border-t"></div>
@@ -43,12 +43,12 @@ const Info = () => {
             <FontAwesomeIcon className="mt-5" icon={faEnvelope} />
             <div className="ml-3">
               <p>Email</p>
-              <p>xyz@gmail.com</p>
+              <p>Rubelrk377@gmail.com</p>
             </div>
           </div>
-          <div className="mr-5 md:ml-6 md:h-8 mt-5 md:border border-t"></div>
+          <div className="mr-5 md:ml-6 md:h-8 mt-5 md:border border-t md:hidden lg:flex"></div>
 
-          <div className="flex mt-2  md:mt-3 md:ml-5">
+          <div className="flex md:hidden lg:flex mt-2  md:mt-3 md:ml-5 ">
             <FontAwesomeIcon className="mt-5" icon={faClock} />
             <div className="ml-3">
               <p>Time</p>
@@ -72,7 +72,7 @@ const Info = () => {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-5">
+        <div className="mt-10 md:mt-5 2xl:-ml-96 xl:-ml-20">
           {user ? (
             <span className="ml-5 pe-3 text-teal-300">{user.displayName}</span>
           ) : (

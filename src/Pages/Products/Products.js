@@ -60,16 +60,19 @@ const Products = () => {
           />
         </div>
         <div className="catFood-banner-texts text-center mt-12 lg:mt-36 lg:ml-96 absolute top-0 left-0   text-white">
-          <h1 className="uppercase font-semibold lg:text-6xl">
+          <h1 className="capitalize font-semibold lg:text-6xl">
             {allProductDetails[0]?.category}
           </h1>
-          <p>Home/{allProductDetails[0]?.category}</p>
+          <p>
+            Home/
+            <span className="capitalize">{allProductDetails[0]?.category}</span>
+          </p>
         </div>
       </div>
 
       <section className="mb-72 mt-12 lg:mt-20 lg:mb-96 2xl:mb-32">
         <div className="text-center">
-          <h1 className="uppercase text-3xl font-semibold product-food-text">
+          <h1 className="capitalize text-3xl font-semibold product-food-text">
             {allProductDetails[0]?.category}
           </h1>
 

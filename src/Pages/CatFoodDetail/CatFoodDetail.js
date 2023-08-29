@@ -102,7 +102,7 @@ const CatFoodDetail = ({ FoodList }) => {
         <Link to={`/foodDetails/${_id}`}>
           <object>
             <div className="single-products-cat -mb-40 md:-mb-0">
-              <div className="">
+              <div>
                 <div className="relative">
                   <img className=" brightness " src={productBg} alt="" />
 
