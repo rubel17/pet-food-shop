@@ -74,7 +74,7 @@ const Home = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1536,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -105,6 +105,7 @@ const Home = () => {
 
   return (
     <>
+      {/* banner and link */}
       <section className="lg:flex justify-center">
         <div className="category px-2">
           <div className="lg:w-96 grid grid-cols-1 divide-y">
@@ -259,10 +260,10 @@ const Home = () => {
         </div>
       </section>
       {/* cat food */}
-      <section className="lg:mt-32 mt-12">
+      <section className="lg:mt-24 mt-12">
         <div className="text-center">
-          <h1 className="text-3xl font-semibold cat-food-text">Cat Foods</h1>
-          <p className="text-2xl font-medium cat-paragraph">
+          <h1 className="text-5xl font-semibold">Cat Foods</h1>
+          <p className="text-base font-normal mt-1">
             Best cat foods for your precious cat
           </p>
         </div>
@@ -297,13 +298,14 @@ const Home = () => {
         </div>
       </section>
       {/* dog food */}
-      <section className="-mt-32 2xl:-mt-80">
+      <section className="-mt-52 2xl:-mt-64">
         <div className="text-center">
-          <h1 className="text-3xl font-semibold dog-food-text">Dog Foods</h1>
-          <p className="text-2xl font-medium dog-paragraph">
+          <h1 className="text-5xl font-semibold">Dog Foods</h1>
+          <p className="text-base font-normal mt-2">
             Best dog foods for your precious dog
           </p>
         </div>
+
         <div className="lg:flex justify-center lg:mt-16 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
             <Slider {...settings}>
@@ -326,7 +328,7 @@ const Home = () => {
       </section>
 
       {/* offer section */}
-      <section className="-mt-32 2xl:-mt-80">
+      <section className="2xl:-mt-64">
         <CatAndDog></CatAndDog>
       </section>
 
@@ -338,10 +340,10 @@ const Home = () => {
         <Litters></Litters>
       </section>
 
-      <section className="2xl:-mt-80 lg:-mt-40">
+      <section className="2xl:-mt-64 lg:-mt-40">
         <BrandLogo></BrandLogo>
       </section>
-      <section className="mt-80">
+      <section className="2xl:mt-64 mt-10">
         <NewsLetter></NewsLetter>
       </section>
       <ToastContainer />

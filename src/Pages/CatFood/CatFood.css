@@ -20,15 +20,21 @@
 .catFood-banner-texts{
     margin-left:824px ;
 }
+@media only screen and (max-width: 2500px) and (min-width: 1441px)  {
+    .catFood-banner-texts{
+        margin-left:45% ;
+    }
+    
+}
 @media only screen and (max-width: 1440px) and (min-width: 769px)  {
     .catFood-banner-texts{
-        margin-left:624px ;
+        margin-left:40% ;
     }
     
 }
 @media only screen and (max-width: 768px) and (min-width: 350px)  {
     .catFood-banner-texts{
-        margin-left:100px ;
+        margin-left:40% ;
     }
     .catFood-Banners img{
        height: 150px;

@@ -5,6 +5,7 @@ import Heart from "../../assets/image/Heart.png";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import Love from "../../assets/image/red-love.png";
+import productBg from "../../assets/image/product-bg.png";
 
 const LittersDetail = ({ littersList }) => {
   const { name, img, views, weight, Amount, _id, Rating } = littersList;
@@ -97,27 +98,28 @@ const LittersDetail = ({ littersList }) => {
   };
 
   return (
-    <div className="md:mx-5">
+    <div className="md:mx-5 lg:-mb-10 xl:-mb-6 2xl:-mb-20">
       <Link to={`/foodDetails/${_id}`}>
         <object>
-          <div className="single-products-litters w-32 lg:w-72 -mb-40 md:-mb-0">
-            <div className=" single-product-body-litters h-28 lg:h-72 lg:w-72	">
-              <div className="pt-5 lg:pt-12 pl-4 lg:pl-12 relative">
+          <div className="single-products-cat">
+            <div>
+              <div className="relative">
+                <img className="brightness-cat" src={productBg} alt="" />
                 <img
-                  className="h-3/6 w-3/6 md:w-fit md:h-fit"
+                  className="absolute w-24 h-24 top-10 left-8  md:w-44 md:h-48 md:left-16 md:top-16 lg:h-40 lg:left-12 lg:top-14 xl:top-12 xl:left-14 2xl:w-1/2 2xl:top-20 2xl:left-20 "
                   src={img}
                   alt=""
                 />
                 <Link onClick={() => handleAddToWishList(_id)}>
                   <img
-                    className="absolute top-0 right-0 p-2 lg:p-4"
+                    className="absolute top-4 right-4 w-5 md:top-8 md:right-8 md:w-6 xl:w-6 xl:top-7 xl:right-7 2xl:w-7 2xl:top-10 2xl:right-10"
                     src={wishList}
                     alt=""
                   />
                 </Link>
               </div>
             </div>
-            <div>
+            <div className="ml-3 md:ml-5">
               <h1 className="md:text-xl font-normal md:font-bold md:py-1">
                 {name}
               </h1>
@@ -133,15 +135,15 @@ const LittersDetail = ({ littersList }) => {
 
               <Link
                 onClick={() => handleAddToCart(_id)}
-                className="addToCart-btn text-lg "
+                className="addToCart-btn glow-on-hover text-lg"
               >
                 Add To Cart
               </Link>
             </div>
           </div>
+          <ToastContainer />
         </object>
       </Link>
-      <ToastContainer />
     </div>
   );
 };

@@ -8,7 +8,7 @@
 }
 
 
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
     .info-responsive{
         margin-left: 10px;
     }
@@ -22,9 +22,9 @@
     .info-responsive{
         margin-left: -15px;
     }
-  }
+  } */
 @media only screen and (max-width: 1920px) and (min-width: 1441px) {
     .info-responsive{
-        margin-left: -25px;
+        margin-left: -12px;
     }
   }

@@ -28,7 +28,7 @@ const NewsLetter = () => {
                   viewBox="0 0 343 2"
                   fill="none"
                 >
-                  <path d="M1 1H342" stroke="white" stroke-linecap="round" />
+                  <path d="M1 1H342" stroke="white" strokeLinecap="round" />
                 </svg>
               </div>
 

@@ -10,21 +10,11 @@
 color:#84B59F;
 }
 .btn-login{
-background-color: #84B59F;
+background-color: #7209B7;
 font-weight: 700;
-margin-bottom: 54px;
-}
-.btn-facebook{
-    width: 388px;
-    background-color: #485A96;
-    margin-bottom: 26px;
 }
 .btn-google{
     width: 388px;
     background-color: #79ACFF;
     margin-bottom: 61px;
-}
-.register-page{
-    font-size: 20px;
-    font-weight: 500;
 }

@@ -57,13 +57,8 @@ const ClearanceSale = () => {
     <div>
       <section>
         <div className="text-center">
-          <h1 className="text-3xl font-semibold clearance-food-text">
-            Clearance Sale
-          </h1>
-
-          <p className="text-2xl font-medium clearance-paragraph">
-            Our Trending Products
-          </p>
+          <h1 className="text-5xl font-semibold">Clearance Sale</h1>
+          <p className="text-base font-normal mt-2">Our Trending Products</p>
         </div>
 
         <div className="lg:flex justify-center lg:mt-16 mt-8">

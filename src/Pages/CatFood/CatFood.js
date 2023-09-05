@@ -28,7 +28,7 @@ const CatFood = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1600,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -39,7 +39,7 @@ const CatFood = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -62,7 +62,7 @@ const CatFood = () => {
         <div className="catFood-Banners">
           <img src={catFoods} alt="" />
         </div>
-        <div className="catFood-banner-texts text-center mt-12 lg:mt-36 lg:ml-96 absolute top-0 left-0   text-white">
+        <div className="catFood-banner-texts text-center mt-12 lg:mt-20 xl:mt-40 absolute top-0 left-0   text-white">
           <h1 className="font-semibold lg:text-6xl">Cat Foods</h1>
           <p>Home/Cat Foods</p>
         </div>
@@ -77,6 +77,7 @@ const CatFood = () => {
             Best cat foods for your precious cat
           </p>
         </div>
+        {/* product */}
         <div className="lg:flex lg:mt-16 mt-8">
           <div className="cat-finger hidden lg:inline-flex">
             <img className="cat-finger-img" src={imgFin} alt="" />

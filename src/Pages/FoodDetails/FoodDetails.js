@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./FoodDetails.css";
 import foodDetails from "../../assets/image/Food Details.png";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
@@ -6,9 +6,7 @@ import Slider from "react-slick";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import ProductsDetails from "../Products/ProductsDetails/ProductsDetails";
-import { toast } from "react-hot-toast";
-import Heart from "../../assets/image/Heart.png";
-import Love from "../../assets/image/red-love.png";
+
 import productBg from "../../assets/image/product-bg.png";
 import checkCircle from "../../assets/image/check-circle.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,6 +16,7 @@ import {
   faLinkedinIn,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { ToastContainer, toast } from "react-toastify";
 
 const FoodDetails = () => {
   const { user } = useContext(AuthContext);
@@ -29,7 +28,6 @@ const FoodDetails = () => {
         `https://y-livid-three.vercel.app/allProduct/${productDetail?.category}`
       ).then((res) => res.json()),
   });
-  const [wishList, setWishList] = useState(Heart);
 
   const { loading } = useContext(AuthContext);
   if (loading) {
@@ -107,10 +105,11 @@ const FoodDetails = () => {
             toast.success("Add To Cart Successful");
           }
         });
+    } else {
+      toast.error("Please Login");
     }
   };
   const handleAddToWishList = (id) => {
-    let value = wishList;
     const email = user?.email;
     const productId = id;
     const name = productDetail?.name;
@@ -125,8 +124,7 @@ const FoodDetails = () => {
       img,
       productId,
     };
-    if (user && value === Heart) {
-      setWishList(Love);
+    if (user) {
       fetch(`https://y-livid-three.vercel.app/addToWishList`, {
         method: "POST",
         headers: {
@@ -141,21 +139,7 @@ const FoodDetails = () => {
           }
         });
     } else {
-      setWishList(Heart);
-      console.log(productId);
-      fetch(`https://y-livid-three.vercel.app/deleteToWishList/${productId}`, {
-        method: "DELETE",
-        // headers: {
-        //   authorization: `Bearer ${localStorage.getItem("token")}`,
-        // },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            toast.success("Removed To WishList Successful");
-            // refetch();
-          }
-        });
+      toast.error("Please Login");
     }
   };
   refetch();
@@ -333,6 +317,7 @@ const FoodDetails = () => {
           </div>
         </section>
       </div>
+      <ToastContainer />
     </>
   );
 };

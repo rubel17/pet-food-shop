@@ -251,7 +251,6 @@ const Header = () => {
         </div>
         <WishList wishModal={wishModal} setWishModal={setWishModal}></WishList>
       </div>
-
       <div className="lg:mr-12 text-base-100 navbar-end">
         <label
           htmlFor="dashboard-drawer"

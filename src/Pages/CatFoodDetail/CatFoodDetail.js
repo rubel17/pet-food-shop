@@ -98,29 +98,28 @@ const CatFoodDetail = ({ FoodList }) => {
   };
   return (
     <>
-      <div className="md:mx-5">
+      <div className="md:mx-5 lg:-mb-10 xl:-mb-6 2xl:-mb-20">
         <Link to={`/foodDetails/${_id}`}>
           <object>
-            <div className="single-products-cat -mb-40 md:-mb-0">
+            <div className="single-products-cat">
               <div>
                 <div className="relative">
-                  <img className=" brightness " src={productBg} alt="" />
-
+                  <img className="brightness-cat" src={productBg} alt="" />
                   <img
-                    className="absolute  top-14 left-20 lg:left-1/4"
+                    className="absolute w-24 h-24 top-10 left-8  md:w-44 md:h-48 md:left-16 md:top-16 lg:h-40 lg:left-12 lg:top-14 xl:top-12 xl:left-14 2xl:w-1/2 2xl:top-20 2xl:left-20 "
                     src={img}
                     alt=""
                   />
                   <Link onClick={() => handleAddToWishList(_id)}>
                     <img
-                      className="absolute top-8 right-8"
+                      className="absolute top-4 right-4 w-5 md:top-8 md:right-8 md:w-6 xl:w-6 xl:top-7 xl:right-7 2xl:w-7 2xl:top-10 2xl:right-10"
                       src={wishList}
                       alt=""
                     />
                   </Link>
                 </div>
               </div>
-              <div className="ml-5">
+              <div className="ml-3 md:ml-5">
                 <h1 className="md:text-xl font-normal md:font-bold md:py-1">
                   {name}
                 </h1>

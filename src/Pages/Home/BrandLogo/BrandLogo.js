@@ -47,8 +47,8 @@ const BrandLogo = () => {
     <div className="hidden lg:inline">
       <section>
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-semibold brand-text">Our Brand</h1>
-          <p className="text-2xl font-medium brand-p">
+          <h1 className="text-5xl font-semibold">Our Brand</h1>
+          <p className="text-base font-normal mt-1">
             The best place for all your pet needs trusted by pet lovers
             everywhere.
           </p>

@@ -1,13 +1,28 @@
-.single-products-dog{
-    height: 460px;
-   }
-.single-product-body-dogs{
-    background-color: #FFF6F9;
+.brightness-dog { filter: brightness(0.90); }
+.brightness-dog:hover { filter: brightness(1.100); }
+
+   @media only screen and (max-width: 767px) and (min-width: 375px) 
+    {
+        .single-products-dog{
+            height: 400px;
+           }
    }
 
-
-   .single-product-body-dogs:hover{
-    border-radius: 8px;
-    background: var(--neutral-01, #FFF);
-    box-shadow: 0px 8px 48px 0px rgba(0, 0, 0, 0.08);
+   @media only screen and (max-width: 1023px) and (min-width: 768px) 
+    {
+        .single-products-dog{
+            height: 500px;
+           }
+   }
+   @media only screen and (max-width: 1535px) and (min-width: 1024px) 
+    {
+        .single-products-dog{
+            height: 500px;
+           }
+   }
+   @media only screen and (max-width: 2560px) and (min-width: 1536px) 
+    {
+        .single-products-dog{
+            height: 600px;
+           }
    }
