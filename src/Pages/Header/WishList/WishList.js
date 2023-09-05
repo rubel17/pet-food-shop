@@ -69,80 +69,81 @@ const WishList = ({ wishModal, setWishModal }) => {
 
   return (
     <>
-      {wishModal ? (
-        <>
-          <div className="flex justify-center items-center lg:justify-end lg:items-start overflow-x-auto overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div>
-              <div className="border-0 register-pageA shadow-lg    w-full bg-white outline-none focus:outline-none">
-                <div>
-                  <div className=" px-8 pt-6 w-full">
-                    <div className="flex mb-4  justify-between">
-                      <h3 className="register-text text-4xl text-black font-semibold">
-                        Wish List
-                      </h3>
-                      <button
-                        className="bg-transparent border-0 text-black float-right"
-                        onClick={() => setWishModal(false)}
-                      >
-                        <span className="text-black opacity-7 h-6 w-6 text-xl block  py-0 rounded-full">
-                          x
-                        </span>
-                      </button>
-                    </div>
-                  </div>
+      <div>
+        <div className="drawer drawer-end z-50">
+          <input id="my-drawer-5" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content flex flex-col items-center justify-center">
+            {/* Page content here */}
+          </div>
+          <div className="drawer-side">
+            <label htmlFor="my-drawer-5" className="drawer-overlay"></label>
+            <ul className="menu ml-9  2xl:w-1/4 min-h-full bg-white text-black">
+              <div className=" px-8 pt-6 w-full">
+                <div className="flex mb-4  justify-between">
+                  <h3 className="register-text text-3xl text-black font-semibold">
+                    Wish List
+                  </h3>
+                  <button
+                    className="bg-transparent border-0 text-black float-right"
+                    onClick={() => setWishModal(false)}
+                  >
+                    <span className="text-black opacity-7 h-6 w-6 text-xl block  py-0 rounded-full">
+                      x
+                    </span>
+                  </button>
+                </div>
+              </div>
 
-                  {userWishList.map((wishList) => (
-                    <section key={wishList._id}>
-                      <div className="mb-5">
-                        <div className="flex justify-between me-3 wish-shadow bg-white outline-none focus:outline-none wish-product">
-                          <div>
-                            <div className="flex">
-                              <div className="wish-product-body">
-                                <div className=" wish-product-body-img">
-                                  <img src={wishList.img} alt="" />
-                                </div>
-                              </div>
-                              <div className="wish-product-text">
-                                <h1 className="text-xl font-semibold py-1">
-                                  {wishList.name}
-                                </h1>
-                                <h3 className="text-medium font-semibold">
-                                  {wishList.Amounts} Tk.
-                                </h3>
-                                <h2 className="text-medium">
-                                  Flavor:{wishList.weight}
-                                </h2>
-                                <div
-                                  onClick={() => handleAddToCart(wishList)}
-                                  className=" text-lg  mt-2"
-                                >
-                                  <button className="btn-addToCart px-2 py-1">
-                                    Add To Cart
-                                  </button>
-                                </div>
-                              </div>
+              {userWishList.map((wishList) => (
+                <section key={wishList._id}>
+                  <div className="mb-5">
+                    <div className="flex justify-between me-3 wish-shadow bg-white outline-none focus:outline-none wish-product">
+                      <div>
+                        <div className="flex">
+                          <div className="wish-product-body">
+                            <div className=" wish-product-body-img">
+                              <img src={wishList.img} alt="" />
                             </div>
                           </div>
-                          <div className="p-3">
-                            <p>
-                              <img src={Love} alt="" />
-                            </p>
-                            <button
-                              onClick={() => handleDeleteWishList(wishList._id)}
+                          <div className="wish-product-text">
+                            <h1 className="text-xl font-semibold py-1">
+                              {wishList.name}
+                            </h1>
+                            <h3 className="text-medium font-semibold">
+                              {wishList.Amounts} Tk.
+                            </h3>
+                            <h2 className="text-medium">
+                              Flavor:{wishList.weight}
+                            </h2>
+                            <div
+                              onClick={() => handleAddToCart(wishList)}
+                              className="text-base md:text-lg  mt-2"
                             >
-                              <img className="mt-14" src={Delete} alt="" />
-                            </button>
+                              <button className="btn-addToCart px-2 py-1">
+                                Add To Cart
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </section>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      <div className="md:p-3">
+                        <p>
+                          <img src={Love} alt="" />
+                        </p>
+                        <button
+                          onClick={() => handleDeleteWishList(wishList._id)}
+                        >
+                          <img className="mt-20 md:mt-14" src={Delete} alt="" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              ))}
+            </ul>
           </div>
-        </>
-      ) : null}
+        </div>
+      </div>
     </>
   );
 };

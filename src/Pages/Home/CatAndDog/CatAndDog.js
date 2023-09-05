@@ -22,12 +22,12 @@ import "./CatAndDog.css";
 const CatAndDog = () => {
   return (
     <div>
-      <div className="hidden md:flex justify-center">
-        <div className="px-5">
+      <div className="hidden lg:flex lg:flex-col xl:flex-row justify-center">
+        <div className="px-5 mb-20 xl:mb-0 mx-24 xl:mx-0">
           <div className="relative">
             <img src={catBg} alt="" />
             <img
-              className="absolute 2xl:top-20 xl:top-16 left-10 z-10 w-1/3"
+              className="absolute 2xl:top-20 xl:top-16 lg:top-3 left-10 z-10 w-1/3"
               src={cat}
               alt=""
             />
@@ -58,11 +58,11 @@ const CatAndDog = () => {
           </div>
         </div>
 
-        <div className="px-5">
+        <div className="px-5 mx-24 xl:mx-0 lg:mb-64 xl:mb-0">
           <div className="relative">
             <img src={dogBg} alt="" />
             <img
-              className="absolute right-14 z-10 2xl:top-24 xl:top-20 w-1/4"
+              className="absolute right-14 z-10 2xl:top-24 lg:top-20  w-1/4"
               src={dog}
               alt=""
             />

@@ -84,96 +84,93 @@ const CartList = ({ cartModal, setCartModal }) => {
   let i = 0;
   return (
     <>
-      {cartModal ? (
-        <>
-          <div className="flex justify-center items-center lg:justify-end lg:items-start overflow-x-auto overflow-y-auto  fixed inset-0 z-50 outline-none focus:outline-none">
-            <div>
-              <div className="border-0 register-pageA shadow-lg    lg:w-full bg-white outline-none focus:outline-none">
-                <div>
-                  <div className="lg:px-8  pt-20 lg:pt-5 lg:w-full">
-                    <div className="flex justify-start lg:justify-between mb-4">
-                      <h3 className="register-text text-lg lg:text-4xl text-black font-semibold">
-                        Cart List
-                      </h3>
-                      <button
-                        className="bg-transparent border-0 text-black float-right"
-                        onClick={() => setCartModal(false)}
-                      >
-                        <span className="text-black opacity-7 h-6 w-6 text-xl block  py-0 rounded-full ml-20 lg:ml-0">
-                          x
-                        </span>
-                      </button>
-                    </div>
-                  </div>
+      <div>
+        <div className="drawer drawer-end z-50">
+          <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content flex flex-col items-center justify-center">
+            {/* Page content here */}
+          </div>
+          <div className="drawer-side">
+            <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
+            <ul className="menu ml-9  2xl:w-1/4 min-h-full bg-white text-black">
+              <div className="lg:px-8  pt-10 lg:pt-2">
+                <div className="mb-4">
+                  <h3 className=" text-lg lg:text-3xl text-black font-bold">
+                    Cart List
+                  </h3>
+                </div>
+              </div>
 
-                  {userCartList.map((CartList) => (
-                    <section key={CartList._id}>
-                      <div className="mb-5">
-                        <div className="flex justify-between me-3 cart-shadow bg-white outline-none focus:outline-none cart-product">
-                          <div>
-                            <div className="flex">
-                              <div className="cart-product-body">
-                                <div className=" cart-product-body-img">
-                                  <img src={CartList?.img} alt="" />
-                                </div>
-                              </div>
-                              <div className="cart-product-text">
-                                <h1 className="text-xl font-semibold py-1">
-                                  {CartList?.name}
-                                </h1>
-                                <h3 className="text-medium font-semibold">
-                                  {CartList?.Amounts} Tk.
-                                </h3>
-                                <h2 className="text-medium">
-                                  Flavor: {CartList?.weight}
-                                </h2>
-                                <div className="flex justify-between">
-                                  <div className="flex text-lg  mt-2">
-                                    <button
-                                      onClick={() =>
-                                        decNum(CartList?.value, CartList?._id)
-                                      }
-                                      className="cart-upAndDown px-2"
-                                    >
-                                      -
-                                    </button>
-                                    <p className=" px-4">{CartList?.value}</p>
-                                    <button
-                                      onClick={() =>
-                                        incNum(CartList?.value, CartList?._id)
-                                      }
-                                      className="cart-upAndDown px-2"
-                                    >
-                                      +
-                                    </button>
-                                  </div>
-                                  <p className="ml-32 mt-2">
-                                    Total: {CartList?.Amounts * CartList?.value}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
+              {userCartList.map((CartList) => (
+                <section key={CartList._id}>
+                  <div className="mb-5">
+                    <div className="rounded-lg flex justify-between me-2 md:me-3 cart-shadow bg-white outline-none focus:outline-none md:ml-3">
+                      <div className="flex">
+                        <div>
+                          <div className="rounded-l-lg cart-product-body-img w-28 h-28 md:h-24 mr-2 lg:mr-4">
+                            <img
+                              className="px-7 py-4"
+                              src={CartList?.img}
+                              alt=""
+                            />
                           </div>
-                          <div className="p-3">
-                            <button
-                              onClick={() => handleDeleteCartList(CartList._id)}
-                            >
-                              <img src={Delete} alt="" />
-                            </button>
+                        </div>
+                        <div className="cart-product-text">
+                          <h1 className="text-base font-bold pb-1">
+                            {CartList?.name}
+                          </h1>
+                          <h3 className="text-medium font-semibold">
+                            {CartList?.Amounts} Tk.
+                          </h3>
+                          <h2 className="text-medium">
+                            Flavor: {CartList?.weight}
+                          </h2>
+                          <div className="flex justify-between">
+                            <div className="flex text-lg  mt-1">
+                              <button
+                                onClick={() =>
+                                  decNum(CartList?.value, CartList?._id)
+                                }
+                                className="cart-upAndDown px-2"
+                              >
+                                -
+                              </button>
+                              <p className=" px-4">{CartList?.value}</p>
+                              <button
+                                onClick={() =>
+                                  incNum(CartList?.value, CartList?._id)
+                                }
+                                className="cart-upAndDown px-2"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <p className="ml-24 mt-2">
+                              Total: {CartList?.Amounts * CartList?.value}
+                            </p>
                           </div>
                         </div>
                       </div>
-                      <p className="hidden">
-                        {(i += CartList?.Amounts * CartList?.value)}
-                      </p>
-                    </section>
-                  ))}
-                  <p className="ps-5 border-red-400 border-t text-stat text-orange-400	 font-semibold mt-5">
-                    SubTotal : {i}
+
+                      <div className="p-1">
+                        <button
+                          onClick={() => handleDeleteCartList(CartList._id)}
+                        >
+                          <img src={Delete} alt="" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="hidden">
+                    {(i += CartList?.Amounts * CartList?.value)}
                   </p>
-                </div>
-              </div>
-              <div className="flex z-50 -mt-32 justify-center">
+                </section>
+              ))}
+              <p className="border-red-400 border-t-2 text-lg text-orange-400	 font-bold mt-10">
+                SubTotal : {i}
+              </p>
+
+              <div className="flex justify-center 2xl:mt-80 xl:mt-60 md:mt-52 mt-32">
                 <Link
                   to="/checkOut"
                   onClick={() => setCartModal(false)}
@@ -182,10 +179,10 @@ const CartList = ({ cartModal, setCartModal }) => {
                   Place order
                 </Link>
               </div>
-            </div>
+            </ul>
           </div>
-        </>
-      ) : null}
+        </div>
+      </div>
     </>
   );
 };

@@ -3,18 +3,12 @@
 
 }
 .cart-product{
-    margin-left: 11px;
     display: flex;
 }
 .cart-product-body-img{
-    margin-right:16px ;
-    width: 115px;
-    height: 122px;
     background-color: #E6F9FA;
 }
-.cart-product-body-img img{
-    padding: 20px;
-}
+
 .cart-upAndDown{
     background: #F4FBF8;
     color: #84B59F;

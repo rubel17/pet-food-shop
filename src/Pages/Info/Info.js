@@ -46,9 +46,9 @@ const Info = () => {
               <p>Rubelrk377@gmail.com</p>
             </div>
           </div>
-          <div className="mr-5 md:ml-3 lg:ml-8 md:h-8 mt-5 md:border border-t md:hidden lg:flex"></div>
+          <div className="mr-5 md:ml-3 lg:ml-8 md:h-8 mt-5 md:border border-t md:hidden xl:flex"></div>
 
-          <div className="flex md:hidden lg:flex mt-2  md:mt-3 md:ml-5">
+          <div className="flex md:hidden xl:flex mt-2  md:mt-3 md:ml-5">
             <FontAwesomeIcon className="mt-5" icon={faClock} />
             <div className="ml-3">
               <p>Time</p>
@@ -74,26 +74,29 @@ const Info = () => {
 
         <div className="xl:ml-40 mt-10 md:mt-5 flex">
           {user ? (
-            <span className="ml-5 pe-3 text-teal-300">{user.displayName}</span>
+            <span className="lg:ml-3 xl:-ml-16 mt-3 text-teal-300">
+              {user.displayName}
+            </span>
           ) : (
-            <button
-              className="ml-1 lg:ml-8"
-              type="button"
-              onClick={() => setShowModalR(true)}
-            >
-              Signup
+            <button>
+              <label htmlFor="my-drawer-3" className="drawer-button lg:ml-8">
+                Sign Up
+              </label>
             </button>
           )}
 
           {user ? (
-            <Link onClick={handleSignOut} className="normal-case btn btn-ghost">
+            <Link
+              onClick={handleSignOut}
+              className="normal-case text-lg btn btn-ghost"
+            >
               Logout
             </Link>
           ) : (
             <button>
               <label
                 htmlFor="my-drawer-2"
-                className="drawer-button login-btn mb-10 py-1.5 px-4 rounded-md text-xl font-semibold active:bg-blue-500 active:text-white  outline-none focus:outline-none  bg-white ml-5"
+                className="drawer-button login-btn py-1.5 px-4 rounded-md text-xl font-semibold active:bg-blue-500 active:text-white  outline-none focus:outline-none  bg-white ml-5"
               >
                 Login
               </label>

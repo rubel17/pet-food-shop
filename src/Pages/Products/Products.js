@@ -59,8 +59,8 @@ const Products = () => {
             alt=""
           />
         </div>
-        <div className="catFood-banner-texts text-center mt-12 lg:mt-36 lg:ml-96 absolute top-0 left-0   text-white">
-          <h1 className="capitalize font-semibold lg:text-6xl">
+        <div className="text-center absolute top-1/3 right-1/3 lg:right-1/4 xl:right-1/3   2xl:right-0 2xl:left-0  text-white">
+          <h1 className="capitalize font-semibold text-xl lg:text-6xl">
             {allProductDetails[0]?.category}
           </h1>
           <p>

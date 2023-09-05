@@ -252,8 +252,8 @@ const Home = () => {
                 <img className="color-b4" src={imgCol4} alt="" />
               </div>
 
-              <div className="absolute top-40 right-24">
-                <img src={BannerImg} alt="" />
+              <div className="absolute xl:top-40 xl:right-24 lg:top-60 lg:right-0">
+                <img className="lg:w-72 xl:w-full" src={BannerImg} alt="" />
               </div>
             </div>
           </div>
