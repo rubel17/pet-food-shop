@@ -105,7 +105,7 @@ const DogFoodDetail = ({ dogFoodList }) => {
                 <div className="relative">
                   <img className="brightness-dog" src={productBg} alt="" />
                   <img
-                    className="absolute w-24 h-24 top-10 left-8  md:w-44 md:h-48 md:left-16 md:top-16 lg:h-40 lg:left-12 lg:top-14 xl:top-12 xl:left-14 2xl:w-1/2 2xl:top-20 2xl:left-20 "
+                    className="absolute w-20 h-20 top-10 left-8  md:w-44 md:h-48 md:left-16 md:top-16 lg:h-40 lg:left-12 lg:top-14 xl:top-12 xl:left-14 2xl:w-1/2 2xl:top-20 2xl:left-20 "
                     src={img}
                     alt=""
                   />
@@ -122,7 +122,7 @@ const DogFoodDetail = ({ dogFoodList }) => {
                 <h1 className="md:text-xl font-normal md:font-bold md:py-1">
                   {name}
                 </h1>
-                <h2 className="text-medium pb-1">{weight}</h2>
+                <h2 className="text-medium pb-1 hidden md:flex">{weight}</h2>
                 <h3 className="text-medium font-semibold">{Amount}</h3>
 
                 <div className="md:flex md:mb-1">

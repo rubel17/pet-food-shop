@@ -92,7 +92,7 @@ const CartList = ({ cartModal, setCartModal }) => {
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-            <ul className="menu ml-9  2xl:w-1/4 min-h-full bg-white text-black">
+            <ul className="menu w-80 md:w-96 lg:max-w-full 2xl:w-1/4 min-h-full bg-white text-black">
               <div className="lg:px-8  pt-10 lg:pt-2">
                 <div className="mb-4">
                   <h3 className=" text-lg lg:text-3xl text-black font-bold">
@@ -104,12 +104,12 @@ const CartList = ({ cartModal, setCartModal }) => {
               {userCartList.map((CartList) => (
                 <section key={CartList._id}>
                   <div className="mb-5">
-                    <div className="rounded-lg flex justify-between me-2 md:me-3 cart-shadow bg-white outline-none focus:outline-none md:ml-3">
+                    <div className="rounded-lg flex justify-between me-2 2xl:me-3 cart-shadow bg-white outline-none focus:outline-none 2xl:ml-3">
                       <div className="flex">
                         <div>
-                          <div className="rounded-l-lg cart-product-body-img w-28 h-28 md:h-24 mr-2 lg:mr-4">
+                          <div className="rounded-l-lg cart-product-body-img max-w-full h-28 md:h-28 md:w-24 lg:w-28 mr-2 2xl:mr-4">
                             <img
-                              className="px-7 py-4"
+                              className="md:px-6  py-6"
                               src={CartList?.img}
                               alt=""
                             />
@@ -145,7 +145,7 @@ const CartList = ({ cartModal, setCartModal }) => {
                                 +
                               </button>
                             </div>
-                            <p className="ml-24 mt-2">
+                            <p className="ml-20 xl:ml-14 2xl:ml-24 mt-2">
                               Total: {CartList?.Amounts * CartList?.value}
                             </p>
                           </div>
@@ -170,7 +170,7 @@ const CartList = ({ cartModal, setCartModal }) => {
                 SubTotal : {i}
               </p>
 
-              <div className="flex justify-center 2xl:mt-80 xl:mt-60 md:mt-52 mt-32">
+              <div className="flex justify-center mt-20">
                 <Link
                   to="/checkOut"
                   onClick={() => setCartModal(false)}

@@ -77,7 +77,7 @@ const WishList = ({ wishModal, setWishModal }) => {
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer-5" className="drawer-overlay"></label>
-            <ul className="menu ml-9  2xl:w-1/4 min-h-full bg-white text-black">
+            <ul className="menu w-80 md:w-96 lg:max-w-full 2xl:w-1/4 min-h-full bg-white text-black">
               <div className=" px-8 pt-6 w-full">
                 <div className="flex mb-4  justify-between">
                   <h3 className="register-text text-3xl text-black font-semibold">

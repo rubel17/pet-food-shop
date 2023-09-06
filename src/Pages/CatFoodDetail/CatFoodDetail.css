@@ -1,10 +1,10 @@
 .brightness-cat { filter: brightness(0.90); }
 .brightness-cat:hover { filter: brightness(1.100); }
 
-   @media only screen and (max-width: 767px) and (min-width: 375px) 
+   @media only screen and (max-width: 767px) and (min-width: 350px) 
     {
         .single-products-cat{
-            height: 400px;
+            height: 370px;
            }
    }
 

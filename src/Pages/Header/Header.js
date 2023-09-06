@@ -53,7 +53,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={1}
-            className="text-black bg-white menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-64"
+            className="text-black bg-white menu menu-compact dropdown-content p-2 shadow  rounded-box w-64 z-50"
           >
             <li className="m-2">
               <Link className="font-bold text-xl" to="/">
@@ -87,7 +87,11 @@ const Header = () => {
         </div>
       </div>
       <div className="relative lg:hidden">
-        <button className="mr-3" type="button">
+        <button
+          // onClick={() => setCartModal(true)}
+          className="mr-3"
+          type="button"
+        >
           <label htmlFor="my-drawer-4" className="drawer-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +121,7 @@ const Header = () => {
         <button
           className="mr-14"
           type="button"
-          onClick={() => setWishModal(true)}
+          // onClick={() => setWishModal(true)}
         >
           <label htmlFor="my-drawer-5" className="drawer-button">
             <svg
