@@ -34,6 +34,7 @@ const CatFoodDetail = ({ FoodList }) => {
     const cart = [...prevCartData, addToCartList];
     localStorage.setItem("cartData", JSON.stringify(cart));
     window.dispatchEvent(new Event("storage"));
+    toast.success("Add To Cart Successful");
 
     if (user) {
       fetch(`http://localhost:4000/addToCart`, {
