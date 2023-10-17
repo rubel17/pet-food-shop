@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./CartList.css";
 import { Link } from "react-router-dom";
 import Delete from "../../../assets/image/delete.png";
@@ -11,15 +11,20 @@ const CartList = ({ cartModal, setCartModal }) => {
   const { data: userCartList = [], refetch } = useQuery({
     queryKey: [`/myCartList`],
     queryFn: () =>
-      fetch(`https://y-livid-three.vercel.app/myCartList/${user?.email}`).then(
-        (res) => res.json()
+      fetch(`http://localhost:4000/myCartList/${user?.email}`).then((res) =>
+        res.json()
       ),
   });
-  refetch();
+
+  if (user?.email) {
+    localStorage.setItem("cartData", JSON.stringify(userCartList));
+  }
+  // const [cart, setCart] = useLocalStorage("cartData", []);
+
   //delete to wish List
   const handleDeleteCartList = (id) => {
     console.log("delete", id);
-    fetch(`https://y-livid-three.vercel.app/deleteToCartList/${id}`, {
+    fetch(`http://localhost:4000/deleteToCartList/${id}`, {
       method: "DELETE",
       // headers: {
       //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -29,7 +34,7 @@ const CartList = ({ cartModal, setCartModal }) => {
       .then((data) => {
         if (data.deletedCount > 0) {
           toast.success("Delete Successful");
-          refetch();
+          // refetch();
         }
       });
   };
@@ -39,7 +44,7 @@ const CartList = ({ cartModal, setCartModal }) => {
     if (value < 10) {
       const data = value + 1;
       const jsonStr = JSON.stringify({ quantity: data });
-      fetch(`https://y-livid-three.vercel.app/updateCartListValue/${id}`, {
+      fetch(`http://localhost:4000/updateCartListValue/${id}`, {
         method: "PUT",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -53,7 +58,7 @@ const CartList = ({ cartModal, setCartModal }) => {
         .then((data) => {
           if (data.modifiedCount > 0) {
             toast.success(" Successful");
-            refetch();
+            // refetch();
           }
         });
     }
@@ -62,7 +67,7 @@ const CartList = ({ cartModal, setCartModal }) => {
     if (value > 1) {
       const data = value - 1;
       const jsonStr = JSON.stringify({ quantity: data });
-      fetch(`https://y-livid-three.vercel.app/updateCartListValue/${id}`, {
+      fetch(`http://localhost:4000/updateCartListValue/${id}`, {
         method: "PUT",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -76,12 +81,30 @@ const CartList = ({ cartModal, setCartModal }) => {
         .then((data) => {
           if (data.modifiedCount > 0) {
             toast.success(" Successful");
-            refetch();
+            // refetch();
           }
         });
     }
   };
+
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cartData")) || []
+  );
+
+  useEffect(() => {
+    const handleChange = (e) => {
+      const c = JSON.parse(localStorage.getItem("cartData"));
+      setCart(c);
+    };
+    window.addEventListener("storage", handleChange);
+    return () => {
+      window.removeEventListener("storage", handleChange);
+    };
+  }, []);
+
   let i = 0;
+  refetch();
+
   return (
     <>
       <div>
@@ -93,16 +116,17 @@ const CartList = ({ cartModal, setCartModal }) => {
           <div className="drawer-side">
             <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
             <ul className="menu w-80 md:w-96 lg:max-w-full 2xl:w-1/4 min-h-full bg-white text-black">
-              <div className="lg:px-8  pt-10 lg:pt-2">
+              <div className="lg:px-8  pt-10 lg:pt-8">
                 <div className="mb-4">
                   <h3 className=" text-lg lg:text-3xl text-black font-bold">
                     Cart List
                   </h3>
+                  {/* <p>{parsedItem.name}</p> */}
                 </div>
               </div>
 
-              {userCartList.map((CartList) => (
-                <section key={CartList._id}>
+              {cart?.map((CartList, id) => (
+                <section key={id}>
                   <div className="mb-5">
                     <div className="rounded-lg flex justify-between me-2 2xl:me-3 cart-shadow bg-white outline-none focus:outline-none 2xl:ml-3">
                       <div className="flex">
@@ -182,6 +206,7 @@ const CartList = ({ cartModal, setCartModal }) => {
             </ul>
           </div>
         </div>
+        {/* <DogFoodDetail updateCart={updateCart}></DogFoodDetail> */}
       </div>
     </>
   );

@@ -7,12 +7,11 @@ import Love from "../../assets/image/red-love.png";
 import { ToastContainer, toast } from "react-toastify";
 import productBg from "../../assets/image/product-bg.png";
 
-const DogFoodDetail = ({ dogFoodList }) => {
+const DogFoodDetail = ({ dogFoodList, updateCart }) => {
   const { name, img, views, weight, Amount, _id, Rating } = dogFoodList;
   const { user } = useContext(AuthContext);
   const [wishList, setWishList] = useState(Heart);
 
-  //add to cart
   const handleAddToCart = (id) => {
     const email = user?.email;
     const productId = id;
@@ -27,8 +26,14 @@ const DogFoodDetail = ({ dogFoodList }) => {
       productId,
       value,
     };
+    // add Data to localStorage
+    const prevCartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const cart = [...prevCartData, addToCartList];
+    localStorage.setItem("cartData", JSON.stringify(cart));
+    window.dispatchEvent(new Event("storage"));
+
     if (user) {
-      fetch(`https://y-livid-three.vercel.app/addToCart`, {
+      fetch(`http://localhost:4000/addToCart`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -42,7 +47,7 @@ const DogFoodDetail = ({ dogFoodList }) => {
           }
         });
     } else {
-      toast.error("Login please");
+      // toast.error("Login please");
     }
   };
 
@@ -62,7 +67,7 @@ const DogFoodDetail = ({ dogFoodList }) => {
     };
     if (user && value === Heart) {
       setWishList(Love);
-      fetch(`https://y-livid-three.vercel.app/addToWishList`, {
+      fetch(`http://localhost:4000/addToWishList`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -78,7 +83,7 @@ const DogFoodDetail = ({ dogFoodList }) => {
     } else {
       setWishList(Heart);
       console.log(productId);
-      fetch(`https://y-livid-three.vercel.app/deleteToWishList/${productId}`, {
+      fetch(`http://localhost:4000/deleteToWishList/${productId}`, {
         method: "DELETE",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -105,13 +110,29 @@ const DogFoodDetail = ({ dogFoodList }) => {
                 <div className="relative">
                   <img className="brightness-dog" src={productBg} alt="" />
                   <img
-                    className="absolute w-20 h-20 top-10 left-8  md:w-44 md:h-48 md:left-16 md:top-16 lg:h-40 lg:left-12 lg:top-14 xl:top-12 xl:left-14 2xl:w-1/2 2xl:top-20 2xl:left-20 "
+                    style={{
+                      position: "absolute",
+                      top: "20%",
+                      left: "20%",
+                      display: "block",
+                      height: "60%",
+                      margin: "auto",
+                      width: "60%",
+                    }}
                     src={img}
                     alt=""
                   />
                   <Link onClick={() => handleAddToWishList(_id)}>
                     <img
-                      className="absolute top-4 right-4 w-5 md:top-8 md:right-8 md:w-6 xl:w-6 xl:top-7 xl:right-7 2xl:w-7 2xl:top-10 2xl:right-10"
+                      style={{
+                        position: "absolute",
+                        top: "10%",
+                        right: "10%",
+                        display: "block",
+                        height: "8%",
+                        margin: "auto",
+                        width: "8%",
+                      }}
                       src={wishList}
                       alt=""
                     />
@@ -134,7 +155,7 @@ const DogFoodDetail = ({ dogFoodList }) => {
 
                 <Link
                   onClick={() => handleAddToCart(_id)}
-                  className="addToCart-btn glow-on-hover text-lg"
+                  className="addToCart-btn glow-on-hover text-xs md:text-lg"
                 >
                   Add To Cart
                 </Link>

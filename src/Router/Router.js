@@ -53,31 +53,25 @@ export const router = createBrowserRouter([
         path: "/allProduct/:category",
         element: <Products></Products>,
         loader: ({ params }) =>
-          fetch(
-            `https://y-livid-three.vercel.app/allProduct/${params.category}`
-          ),
+          fetch(`http://localhost:4000/allProduct/${params.category}`),
       },
       {
         path: "/foodDetails/:id",
         element: <FoodDetails></FoodDetails>,
         loader: ({ params }) =>
-          fetch(`https://y-livid-three.vercel.app/productDetails/${params.id}`),
+          fetch(`http://localhost:4000/productDetails/${params.id}`),
         children: [
           {
             path: "/foodDetails/:id",
             element: <Description></Description>,
             loader: ({ params }) =>
-              fetch(
-                `https://y-livid-three.vercel.app/productDetails/${params.id}`
-              ),
+              fetch(`http://localhost:4000/productDetails/${params.id}`),
           },
           {
             path: "/foodDetails/:id/reviews",
             element: <Reviews></Reviews>,
             loader: ({ params }) =>
-              fetch(
-                `https://y-livid-three.vercel.app/productDetails/${params.id}`
-              ),
+              fetch(`http://localhost:4000/productDetails/${params.id}`),
           },
           {
             path: "/foodDetails/:id/shipping",
@@ -87,9 +81,7 @@ export const router = createBrowserRouter([
             path: "/foodDetails/:id/additionalInfo",
             element: <AdditionalInfo></AdditionalInfo>,
             loader: ({ params }) =>
-              fetch(
-                `https://y-livid-three.vercel.app/productDetails/${params.id}`
-              ),
+              fetch(`http://localhost:4000/productDetails/${params.id}`),
           },
         ],
       },

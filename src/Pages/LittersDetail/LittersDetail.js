@@ -28,8 +28,14 @@ const LittersDetail = ({ littersList }) => {
       productId,
       value,
     };
+    // add Data to localStorage
+    const prevCartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const cart = [...prevCartData, addToCartList];
+    localStorage.setItem("cartData", JSON.stringify(cart));
+    window.dispatchEvent(new Event("storage"));
+
     if (user) {
-      fetch(`https://y-livid-three.vercel.app/addToCart`, {
+      fetch(`http://localhost:4000/addToCart`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -43,7 +49,7 @@ const LittersDetail = ({ littersList }) => {
           }
         });
     } else {
-      toast.error("Login please");
+      // toast.error("Login please");
     }
   };
 
@@ -63,7 +69,7 @@ const LittersDetail = ({ littersList }) => {
     };
     if (user && value === Heart) {
       setWishList(Love);
-      fetch(`https://y-livid-three.vercel.app/addToWishList`, {
+      fetch(`http://localhost:4000/addToWishList`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -79,7 +85,7 @@ const LittersDetail = ({ littersList }) => {
     } else {
       setWishList(Heart);
       console.log(productId);
-      fetch(`https://y-livid-three.vercel.app/deleteToWishList/${productId}`, {
+      fetch(`http://localhost:4000/deleteToWishList/${productId}`, {
         method: "DELETE",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -101,18 +107,34 @@ const LittersDetail = ({ littersList }) => {
     <div className="md:mx-5 lg:-mb-10 xl:-mb-6 2xl:-mb-20">
       <Link to={`/foodDetails/${_id}`}>
         <object>
-          <div className="single-products-cat">
+          <div className="single-products-litter">
             <div>
               <div className="relative">
                 <img className="brightness-cat" src={productBg} alt="" />
                 <img
-                  className="absolute w-24 h-24 top-10 left-8  md:w-44 md:h-48 md:left-16 md:top-16 lg:h-40 lg:left-12 lg:top-14 xl:top-12 xl:left-14 2xl:w-1/2 2xl:top-20 2xl:left-20 "
+                  style={{
+                    position: "absolute",
+                    top: "20%",
+                    left: "20%",
+                    display: "block",
+                    height: "60%",
+                    margin: "auto",
+                    width: "60%",
+                  }}
                   src={img}
                   alt=""
                 />
                 <Link onClick={() => handleAddToWishList(_id)}>
                   <img
-                    className="absolute top-4 right-4 w-5 md:top-8 md:right-8 md:w-6 xl:w-6 xl:top-7 xl:right-7 2xl:w-7 2xl:top-10 2xl:right-10"
+                    style={{
+                      position: "absolute",
+                      top: "10%",
+                      right: "10%",
+                      display: "block",
+                      height: "8%",
+                      margin: "auto",
+                      width: "8%",
+                    }}
                     src={wishList}
                     alt=""
                   />
@@ -135,7 +157,7 @@ const LittersDetail = ({ littersList }) => {
 
               <Link
                 onClick={() => handleAddToCart(_id)}
-                className="addToCart-btn glow-on-hover text-lg"
+                className="addToCart-btn glow-on-hover text-xs md:text-lg"
               >
                 Add To Cart
               </Link>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./CheckOut.css";
 import catFoods from "../../assets/image/pets-3715733_1280.jpeg";
 import { Link } from "react-router-dom";
@@ -11,8 +11,8 @@ const CheckOut = () => {
   const { data: userCartList = [], refetch } = useQuery({
     queryKey: [`/myCartList`],
     queryFn: () =>
-      fetch(`https://y-livid-three.vercel.app/myCartList/${user?.email}`).then(
-        (res) => res.json()
+      fetch(`http://localhost:4000/myCartList/${user?.email}`).then((res) =>
+        res.json()
       ),
   });
 
@@ -20,7 +20,7 @@ const CheckOut = () => {
     if (value < 10) {
       const data = value + 1;
       const jsonStr = JSON.stringify({ quantity: data });
-      fetch(`https://y-livid-three.vercel.app/updateCartListValue/${id}`, {
+      fetch(`http://localhost:4000/updateCartListValue/${id}`, {
         method: "PUT",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -43,7 +43,7 @@ const CheckOut = () => {
     if (value > 0) {
       const data = value - 1;
       const jsonStr = JSON.stringify({ quantity: data });
-      fetch(`https://y-livid-three.vercel.app/updateCartListValue/${id}`, {
+      fetch(`http://localhost:4000/updateCartListValue/${id}`, {
         method: "PUT",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -63,26 +63,29 @@ const CheckOut = () => {
     }
   };
 
-  refetch();
-  let i = 0;
-
+  const [sub, setSub] = useState(0);
   const handleShipping = (p) => {
     if (p === 50) {
       let total = i + p;
-      console.log(total);
-      return total;
+      console.log("50", total);
+      setSub(total);
+    } else {
+      let total = i + p;
+      console.log("100", total);
+      setSub(total);
     }
   };
-
+  refetch();
+  let i = 0;
   return (
     <>
       <div className="relative">
-        <div className="catFood-Banner">
-          <img src={catFoods} alt="" />
+        <div>
+          <img className="w-full  md:h-96" src={catFoods} alt="" />
         </div>
-        <div className="catFood-banner-text">
-          <h1>Check Out</h1>
-          <p>Home/Check Out</p>
+        <div className="catFood-banner-texts text-center mt-12  md:mt-40 lg:ml-96 absolute top-0 left-0   text-white">
+          <h1 className="font-semibold lg:text-5xl">Check Out</h1>
+          <p className="font-bold lg:text-xl">Home/Check Out</p>
         </div>
       </div>
       <div className="billing-checkOut">
@@ -277,7 +280,7 @@ const CheckOut = () => {
               <div className="flex justify-between px-4 py-4">
                 <p>Total</p>
 
-                <p className="text-orange-700 font-bold">{i + 50} Tk.</p>
+                <p className="text-orange-700 font-bold">{sub || 0} Tk.</p>
               </div>
             </div>
             <p className="font-semibold ml-11 mt-5">Cash on delivery</p>

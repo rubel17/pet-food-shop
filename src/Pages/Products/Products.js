@@ -15,13 +15,22 @@ const Products = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
     rows: 2,
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1921,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1441,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -30,21 +39,12 @@ const Products = () => {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 0,
-          infinite: true,
         },
       },
     ],

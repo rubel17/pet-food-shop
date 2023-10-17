@@ -6,6 +6,7 @@ import WishList from "./WishList/WishList";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import "./Header.css";
+import { useLocalStorage } from "usehooks-ts";
 
 const Header = () => {
   const [cartModal, setCartModal] = useState(false);
@@ -16,21 +17,28 @@ const Header = () => {
   const { data: userCartList = [], refetch } = useQuery({
     queryKey: [`/myCartList`],
     queryFn: () =>
-      fetch(`https://y-livid-three.vercel.app/myCartList/${user?.email}`).then(
-        (res) => res.json()
+      fetch(`http://localhost:4000/myCartList/${user?.email}`).then((res) =>
+        res.json()
       ),
   });
-  refetch();
-
+  const [cart, setCart] = useLocalStorage("cartData", []);
+  console.log(setCart);
   //wish list length
   const { data: userWishList = [] } = useQuery({
     queryKey: [`/myWishList`],
     queryFn: () =>
-      fetch(`https://y-livid-three.vercel.app/myWishList/${user?.email}`).then(
-        (res) => res.json()
+      fetch(`http://localhost:4000/myWishList/${user?.email}`).then((res) =>
+        res.json()
       ),
   });
   refetch();
+  // const [cart, setCart] = useState(
+  //   JSON.parse(localStorage.getItem("cartData"))
+  // );
+  // useEffect(() => {
+  //   const carts = JSON.parse(localStorage.getItem("cartData"));
+  //   setCart(carts);
+  // }, [cart]);
   return (
     <div className="navbar">
       <div className="navbar-start">
@@ -224,7 +232,7 @@ const Header = () => {
           </button>
           <p className="absolute -top-2 -right-2 product-length rounded-full">
             <span className="text-white absolute -top-1 left-1">
-              {userCartList.length}
+              {cart?.length || 0}
             </span>
           </p>
         </div>

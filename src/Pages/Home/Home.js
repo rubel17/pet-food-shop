@@ -44,7 +44,7 @@ const Home = () => {
   const { data: catFood = [] } = useQuery({
     queryKey: ["catFood"],
     queryFn: () =>
-      fetch("https://y-livid-three.vercel.app/allProduct/catFood").then((res) =>
+      fetch("http://localhost:4000/allProduct/catFood").then((res) =>
         res.json()
       ),
   });
@@ -52,7 +52,7 @@ const Home = () => {
   const { data: dogFood = [] } = useQuery({
     queryKey: ["allProduct/dogFood"],
     queryFn: () =>
-      fetch("https://y-livid-three.vercel.app/allproduct/dogFood").then((res) =>
+      fetch("http://localhost:4000/allproduct/dogFood").then((res) =>
         res.json()
       ),
   });
@@ -69,12 +69,21 @@ const Home = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1536,
+        breakpoint: 1921,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1441,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -83,21 +92,12 @@ const Home = () => {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 0,
-          infinite: true,
         },
       },
     ],
@@ -285,7 +285,7 @@ const Home = () => {
             </div>
             <Link to="/allProduct/catFood">
               <u>
-                <p className="lg:text-end cat-see-all lg:mt-8 lg:pr-11">
+                <p className="lg:text-end cat-see-all mt-16 lg:mt-8 lg:pr-11">
                   See all
                 </p>
               </u>
@@ -318,7 +318,7 @@ const Home = () => {
             </Slider>
             <Link to="/allProduct/dogFood">
               <u>
-                <p className="lg:text-end dog-see-all lg:mt-8 lg:pr-11">
+                <p className="lg:text-end dog-see-all mt-16 lg:mt-8 lg:pr-11">
                   See all
                 </p>
               </u>

@@ -14,7 +14,7 @@ const CatFood = () => {
   const { data: catFood = [] } = useQuery({
     queryKey: ["catFood"],
     queryFn: () =>
-      fetch("https://y-livid-three.vercel.app/allProduct/catFood").then((res) =>
+      fetch("http://localhost:4000/allProduct/catFood").then((res) =>
         res.json()
       ),
   });
@@ -23,12 +23,21 @@ const CatFood = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1600,
+        breakpoint: 1921,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1441,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -37,21 +46,12 @@ const CatFood = () => {
         },
       },
       {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 0,
           infinite: true,
+          dots: true,
         },
       },
     ],

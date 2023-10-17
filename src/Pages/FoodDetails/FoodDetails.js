@@ -24,9 +24,9 @@ const FoodDetails = () => {
   const { data: relatedProducts = [], refetch } = useQuery({
     queryKey: [`allProduct/category`],
     queryFn: () =>
-      fetch(
-        `https://y-livid-three.vercel.app/allProduct/${productDetail?.category}`
-      ).then((res) => res.json()),
+      fetch(`http://localhost:4000/allProduct/${productDetail?.category}`).then(
+        (res) => res.json()
+      ),
   });
 
   const { loading } = useContext(AuthContext);
@@ -41,12 +41,21 @@ const FoodDetails = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1921,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1441,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -55,21 +64,12 @@ const FoodDetails = () => {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 0,
-          infinite: true,
         },
       },
     ],
@@ -91,8 +91,14 @@ const FoodDetails = () => {
       productId,
       value,
     };
+    // add Data to localStorage
+    const prevCartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const cart = [...prevCartData, addToCartList];
+    localStorage.setItem("cartData", JSON.stringify(cart));
+    window.dispatchEvent(new Event("storage"));
+
     if (user) {
-      fetch(`https://y-livid-three.vercel.app/addToCart`, {
+      fetch(`http://localhost:4000/addToCart`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -106,7 +112,7 @@ const FoodDetails = () => {
           }
         });
     } else {
-      toast.error("Please Login");
+      // toast.error("Please Login");
     }
   };
   const handleAddToWishList = (id) => {
@@ -125,7 +131,7 @@ const FoodDetails = () => {
       productId,
     };
     if (user) {
-      fetch(`https://y-livid-three.vercel.app/addToWishList`, {
+      fetch(`http://localhost:4000/addToWishList`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

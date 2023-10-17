@@ -11,7 +11,7 @@ const DogFood = () => {
   const { data: dogFood = [] } = useQuery({
     queryKey: ["dogFood"],
     queryFn: ({ params }) =>
-      fetch(`https://y-livid-three.vercel.app/allProduct/dogFood`).then((res) =>
+      fetch(`http://localhost:4000/allProduct/dogFood`).then((res) =>
         res.json()
       ),
   });
@@ -19,12 +19,21 @@ const DogFood = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1921,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1441,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -33,21 +42,12 @@ const DogFood = () => {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 0,
-          infinite: true,
         },
       },
     ],

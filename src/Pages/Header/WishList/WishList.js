@@ -11,8 +11,8 @@ const WishList = ({ wishModal, setWishModal }) => {
   const { data: userWishList = [], refetch } = useQuery({
     queryKey: [`/myWishList`],
     queryFn: () =>
-      fetch(`https://y-livid-three.vercel.app/myWishList/${user?.email}`).then(
-        (res) => res.json()
+      fetch(`http://localhost:4000/myWishList/${user?.email}`).then((res) =>
+        res.json()
       ),
   });
 
@@ -34,7 +34,7 @@ const WishList = ({ wishModal, setWishModal }) => {
       productId,
       value,
     };
-    fetch(`https://y-livid-three.vercel.app/addToCart`, {
+    fetch(`http://localhost:4000/addToCart`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -51,7 +51,7 @@ const WishList = ({ wishModal, setWishModal }) => {
   refetch();
   //delete to wish List
   const handleDeleteWishList = (id) => {
-    fetch(`https://y-livid-three.vercel.app/removeToWishList/${id}`, {
+    fetch(`http://localhost:4000/removeToWishList/${id}`, {
       method: "DELETE",
       // headers: {
       //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -94,7 +94,7 @@ const WishList = ({ wishModal, setWishModal }) => {
                 </div>
               </div>
 
-              {userWishList.map((wishList) => (
+              {userWishList?.map((wishList) => (
                 <section key={wishList._id}>
                   <div className="mb-5">
                     <div className="flex justify-between me-3 wish-shadow bg-white outline-none focus:outline-none wish-product">
