@@ -11,8 +11,8 @@ const CartList = ({ cartModal, setCartModal }) => {
   const { data: userCartList = [], refetch } = useQuery({
     queryKey: [`/myCartList`],
     queryFn: () =>
-      fetch(`http://localhost:4000/myCartList/${user?.email}`).then((res) =>
-        res.json()
+      fetch(`https://y-rubelrk.vercel.app/myCartList/${user?.email}`).then(
+        (res) => res.json()
       ),
   });
 
@@ -24,7 +24,7 @@ const CartList = ({ cartModal, setCartModal }) => {
   //delete to wish List
   const handleDeleteCartList = (id) => {
     console.log("delete", id);
-    fetch(`http://localhost:4000/deleteToCartList/${id}`, {
+    fetch(`https://y-rubelrk.vercel.app/deleteToCartList/${id}`, {
       method: "DELETE",
       // headers: {
       //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -44,7 +44,7 @@ const CartList = ({ cartModal, setCartModal }) => {
     if (value < 10) {
       const data = value + 1;
       const jsonStr = JSON.stringify({ quantity: data });
-      fetch(`http://localhost:4000/updateCartListValue/${id}`, {
+      fetch(`https://y-rubelrk.vercel.app/updateCartListValue/${id}`, {
         method: "PUT",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -67,7 +67,7 @@ const CartList = ({ cartModal, setCartModal }) => {
     if (value > 1) {
       const data = value - 1;
       const jsonStr = JSON.stringify({ quantity: data });
-      fetch(`http://localhost:4000/updateCartListValue/${id}`, {
+      fetch(`https://y-rubelrk.vercel.app/updateCartListValue/${id}`, {
         method: "PUT",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,

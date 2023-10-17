@@ -11,8 +11,8 @@ const WishList = ({ wishModal, setWishModal }) => {
   const { data: userWishList = [], refetch } = useQuery({
     queryKey: [`/myWishList`],
     queryFn: () =>
-      fetch(`http://localhost:4000/myWishList/${user?.email}`).then((res) =>
-        res.json()
+      fetch(`https://y-rubelrk.vercel.app/myWishList/${user?.email}`).then(
+        (res) => res.json()
       ),
   });
 
@@ -34,7 +34,7 @@ const WishList = ({ wishModal, setWishModal }) => {
       productId,
       value,
     };
-    fetch(`http://localhost:4000/addToCart`, {
+    fetch(`https://y-rubelrk.vercel.app/addToCart`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -51,7 +51,7 @@ const WishList = ({ wishModal, setWishModal }) => {
   refetch();
   //delete to wish List
   const handleDeleteWishList = (id) => {
-    fetch(`http://localhost:4000/removeToWishList/${id}`, {
+    fetch(`https://y-rubelrk.vercel.app/removeToWishList/${id}`, {
       method: "DELETE",
       // headers: {
       //   authorization: `Bearer ${localStorage.getItem("token")}`,

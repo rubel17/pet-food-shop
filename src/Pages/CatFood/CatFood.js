@@ -14,7 +14,7 @@ const CatFood = () => {
   const { data: catFood = [] } = useQuery({
     queryKey: ["catFood"],
     queryFn: () =>
-      fetch("http://localhost:4000/allProduct/catFood").then((res) =>
+      fetch("https://y-rubelrk.vercel.app/allProduct/catFood").then((res) =>
         res.json()
       ),
   });

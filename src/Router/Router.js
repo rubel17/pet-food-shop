@@ -53,25 +53,25 @@ export const router = createBrowserRouter([
         path: "/allProduct/:category",
         element: <Products></Products>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/allProduct/${params.category}`),
+          fetch(`https://y-rubelrk.vercel.app/allProduct/${params.category}`),
       },
       {
         path: "/foodDetails/:id",
         element: <FoodDetails></FoodDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/productDetails/${params.id}`),
+          fetch(`https://y-rubelrk.vercel.app/productDetails/${params.id}`),
         children: [
           {
             path: "/foodDetails/:id",
             element: <Description></Description>,
             loader: ({ params }) =>
-              fetch(`http://localhost:4000/productDetails/${params.id}`),
+              fetch(`https://y-rubelrk.vercel.app/productDetails/${params.id}`),
           },
           {
             path: "/foodDetails/:id/reviews",
             element: <Reviews></Reviews>,
             loader: ({ params }) =>
-              fetch(`http://localhost:4000/productDetails/${params.id}`),
+              fetch(`https://y-rubelrk.vercel.app/productDetails/${params.id}`),
           },
           {
             path: "/foodDetails/:id/shipping",
@@ -81,7 +81,7 @@ export const router = createBrowserRouter([
             path: "/foodDetails/:id/additionalInfo",
             element: <AdditionalInfo></AdditionalInfo>,
             loader: ({ params }) =>
-              fetch(`http://localhost:4000/productDetails/${params.id}`),
+              fetch(`https://y-rubelrk.vercel.app/productDetails/${params.id}`),
           },
         ],
       },

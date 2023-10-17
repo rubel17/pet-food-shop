@@ -17,8 +17,8 @@ const Header = () => {
   const { data: userCartList = [], refetch } = useQuery({
     queryKey: [`/myCartList`],
     queryFn: () =>
-      fetch(`http://localhost:4000/myCartList/${user?.email}`).then((res) =>
-        res.json()
+      fetch(`https://y-rubelrk.vercel.app/myCartList/${user?.email}`).then(
+        (res) => res.json()
       ),
   });
   const [cart, setCart] = useLocalStorage("cartData", []);
@@ -27,8 +27,8 @@ const Header = () => {
   const { data: userWishList = [] } = useQuery({
     queryKey: [`/myWishList`],
     queryFn: () =>
-      fetch(`http://localhost:4000/myWishList/${user?.email}`).then((res) =>
-        res.json()
+      fetch(`https://y-rubelrk.vercel.app/myWishList/${user?.email}`).then(
+        (res) => res.json()
       ),
   });
   refetch();

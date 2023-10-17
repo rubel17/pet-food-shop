@@ -44,7 +44,7 @@ const Home = () => {
   const { data: catFood = [] } = useQuery({
     queryKey: ["catFood"],
     queryFn: () =>
-      fetch("http://localhost:4000/allProduct/catFood").then((res) =>
+      fetch("https://y-rubelrk.vercel.app/allProduct/catFood").then((res) =>
         res.json()
       ),
   });
@@ -52,7 +52,7 @@ const Home = () => {
   const { data: dogFood = [] } = useQuery({
     queryKey: ["allProduct/dogFood"],
     queryFn: () =>
-      fetch("http://localhost:4000/allproduct/dogFood").then((res) =>
+      fetch("https://y-rubelrk.vercel.app/allproduct/dogFood").then((res) =>
         res.json()
       ),
   });

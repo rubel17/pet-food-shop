@@ -24,9 +24,9 @@ const FoodDetails = () => {
   const { data: relatedProducts = [], refetch } = useQuery({
     queryKey: [`allProduct/category`],
     queryFn: () =>
-      fetch(`http://localhost:4000/allProduct/${productDetail?.category}`).then(
-        (res) => res.json()
-      ),
+      fetch(
+        `https://y-rubelrk.vercel.app/allProduct/${productDetail?.category}`
+      ).then((res) => res.json()),
   });
 
   const { loading } = useContext(AuthContext);
@@ -99,7 +99,7 @@ const FoodDetails = () => {
     toast.success("Add To Cart Successful");
 
     if (user) {
-      fetch(`http://localhost:4000/addToCart`, {
+      fetch(`https://y-rubelrk.vercel.app/addToCart`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -132,7 +132,7 @@ const FoodDetails = () => {
       productId,
     };
     if (user) {
-      fetch(`http://localhost:4000/addToWishList`, {
+      fetch(`https://y-rubelrk.vercel.app/addToWishList`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

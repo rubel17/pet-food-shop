@@ -35,7 +35,7 @@ const ProductsDetails = ({ FoodList }) => {
     toast.success("Add To Cart Successful");
 
     if (user) {
-      fetch(`http://localhost:4000/addToCart`, {
+      fetch(`https://y-rubelrk.vercel.app/addToCart`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -68,7 +68,7 @@ const ProductsDetails = ({ FoodList }) => {
     };
     if (user && value === Heart) {
       setWishList(Love);
-      fetch(`http://localhost:4000/addToWishList`, {
+      fetch(`https://y-rubelrk.vercel.app/addToWishList`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -84,7 +84,7 @@ const ProductsDetails = ({ FoodList }) => {
     } else {
       setWishList(Heart);
       console.log(productId);
-      fetch(`http://localhost:4000/deleteToWishList/${productId}`, {
+      fetch(`https://y-rubelrk.vercel.app/deleteToWishList/${productId}`, {
         method: "DELETE",
         // headers: {
         //   authorization: `Bearer ${localStorage.getItem("token")}`,

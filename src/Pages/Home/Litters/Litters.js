@@ -8,7 +8,7 @@ const Litters = () => {
   const { data: litters = [] } = useQuery({
     queryKey: ["litters"],
     queryFn: () =>
-      fetch("http://localhost:4000/allProduct/litters").then((res) =>
+      fetch("https://y-rubelrk.vercel.app/allProduct/litters").then((res) =>
         res.json()
       ),
   });

@@ -11,8 +11,8 @@ const ClearanceSale = () => {
   const { data: clearanceSale = [] } = useQuery({
     queryKey: ["clearanceSale"],
     queryFn: () =>
-      fetch("http://localhost:4000/allProduct/clearanceSale").then((res) =>
-        res.json()
+      fetch("https://y-rubelrk.vercel.app/allProduct/clearanceSale").then(
+        (res) => res.json()
       ),
   });
   var settings = {
