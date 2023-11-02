@@ -83,14 +83,14 @@ const WishList = ({ wishModal, setWishModal }) => {
                   <h3 className="register-text text-3xl text-black font-semibold">
                     Wish List
                   </h3>
-                  <button
-                    className="bg-transparent border-0 text-black float-right"
-                    onClick={() => setWishModal(false)}
+                  <p
+                    onClick={() => {
+                      document.getElementById("my-drawer-5").click();
+                    }}
+                    className="text-2xl mt-6"
                   >
-                    <span className="text-black opacity-7 h-6 w-6 text-xl block  py-0 rounded-full">
-                      x
-                    </span>
-                  </button>
+                    x
+                  </p>
                 </div>
               </div>
 

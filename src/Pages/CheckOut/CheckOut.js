@@ -1,66 +1,45 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CheckOut.css";
 import catFoods from "../../assets/image/pets-3715733_1280.jpeg";
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import { toast } from "react-hot-toast";
 
 const CheckOut = () => {
-  const { user } = useContext(AuthContext);
-  const { data: userCartList = [], refetch } = useQuery({
-    queryKey: [`/myCartList`],
-    queryFn: () =>
-      fetch(`https://y-rubelrk.vercel.app/myCartList/${user?.email}`).then(
-        (res) => res.json()
-      ),
-  });
-
-  const incNum = (value, id) => {
-    if (value < 10) {
-      const data = value + 1;
-      const jsonStr = JSON.stringify({ quantity: data });
-      fetch(`https://y-rubelrk.vercel.app/updateCartListValue/${id}`, {
-        method: "PUT",
-        // headers: {
-        //   authorization: `Bearer ${localStorage.getItem("token")}`,
-        // },
-        headers: {
-          "content-type": "application/json",
-        },
-        body: jsonStr,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.modifiedCount > 0) {
-            toast.success(" Successful");
-            refetch();
-          }
-        });
-    }
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cartData")) || []
+  );
+  useEffect(() => {
+    const handleChange = (e) => {
+      const c = JSON.parse(localStorage.getItem("cartData"));
+      setCart(c);
+    };
+    window.addEventListener("storage", handleChange);
+    return () => {
+      window.removeEventListener("storage", handleChange);
+    };
+  }, []);
+  const incNum = (id) => {
+    const prevCartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const Data = prevCartData.filter((product) => {
+      if (product.productId === id) {
+        product.value = product.value + 1;
+      }
+      return product.value;
+    });
+    localStorage.setItem("cartData", JSON.stringify(Data));
+    window.dispatchEvent(new Event("storage"));
   };
-  const decNum = (value, id) => {
-    if (value > 0) {
-      const data = value - 1;
-      const jsonStr = JSON.stringify({ quantity: data });
-      fetch(`https://y-rubelrk.vercel.app/updateCartListValue/${id}`, {
-        method: "PUT",
-        // headers: {
-        //   authorization: `Bearer ${localStorage.getItem("token")}`,
-        // },
-        headers: {
-          "content-type": "application/json",
-        },
-        body: jsonStr,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.modifiedCount > 0) {
-            toast.success(" Successful");
-            refetch();
-          }
-        });
-    }
+  const decNum = (id) => {
+    const prevCartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const Data = prevCartData.filter((product) => {
+      if (product.productId === id) {
+        if (product.value > 1) {
+          product.value = product.value - 1;
+        }
+      }
+      return product.value;
+    });
+    localStorage.setItem("cartData", JSON.stringify(Data));
+    window.dispatchEvent(new Event("storage"));
   };
 
   const [sub, setSub] = useState(0);
@@ -75,7 +54,6 @@ const CheckOut = () => {
       setSub(total);
     }
   };
-  refetch();
   let i = 0;
   return (
     <>
@@ -220,7 +198,7 @@ const CheckOut = () => {
                 <p>Subtotal</p>
               </div>
               <hr />
-              {userCartList.map((cartList) => (
+              {cart.map((cartList) => (
                 <div
                   key={cartList?._id}
                   className="flex justify-between px-4 py-4"
@@ -228,14 +206,14 @@ const CheckOut = () => {
                   <p>
                     {cartList?.name} <br /> Quantity:{" "}
                     <button
-                      onClick={() => decNum(cartList?.value, cartList?._id)}
+                      onClick={() => decNum(cartList?.productId)}
                       className="cart-upAndDown px-2"
                     >
                       -
                     </button>
                     {cartList?.value}
                     <button
-                      onClick={() => incNum(cartList?.value, cartList?._id)}
+                      onClick={() => incNum(cartList?.productId)}
                       className="cart-upAndDown px-2"
                     >
                       +

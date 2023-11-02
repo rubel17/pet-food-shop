@@ -56,8 +56,13 @@ const Login = ({ showModal, showModalR, setShowModal, setShowModalR }) => {
   };
   return (
     <>
-      <div className="drawer drawer-end z-50">
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <div className="drawer drawer-end z-20">
+        <input
+          id="my-drawer-2"
+          type="checkbox"
+          className="drawer-toggle"
+          // checked={checked}
+        />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
         </div>
@@ -65,15 +70,18 @@ const Login = ({ showModal, showModalR, setShowModal, setShowModalR }) => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu w-80 md:w-96 lg:max-w-full 2xl:w-1/4 min-h-full bg-white text-black">
             <form onSubmit={handleSubmit} className=" px-8 pt-6 pb-8 w-full">
-              <div className="flex mb-4  justify-between">
+              <div className="flex justify-between mb-4">
                 <h3 className="login-text text-4xl text-black font-semibold">
                   Login
                 </h3>
-                <button className="bg-transparent border-0 text-black float-right">
-                  <span className="text-black opacity-7 h-6 w-6 text-xl block  py-0 rounded-full">
-                    x
-                  </span>
-                </button>
+                <p
+                  onClick={() => {
+                    document.getElementById("my-drawer-2").click();
+                  }}
+                  className="text-2xl mt-6"
+                >
+                  x
+                </p>
               </div>
               <div>
                 <label
@@ -157,14 +165,18 @@ const Login = ({ showModal, showModalR, setShowModal, setShowModalR }) => {
             </div>
             <div className="text-center font-medium text-gray-400">
               <p className="mb-2">You have no account?</p>
-              <p onClick={() => setShowModal(false)}>
-                <button
-                  onClick={() => setShowModalR(true)}
-                  className="dark:text-blue-500 text-base font-bold"
+              <button
+                onClick={() => {
+                  document.getElementById("my-drawer-2").click();
+                }}
+              >
+                <label
+                  htmlFor="my-drawer-3"
+                  className="drawer-button dark:text-blue-500 text-base font-bold"
                 >
                   Please Create An Account
-                </button>
-              </p>
+                </label>
+              </button>
             </div>
           </ul>
         </div>

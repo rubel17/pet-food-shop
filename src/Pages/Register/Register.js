@@ -71,7 +71,7 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
   };
   return (
     <>
-      <div className="drawer drawer-end z-50">
+      <div className="drawer drawer-end z-10">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
@@ -84,11 +84,14 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
                 <h3 className="register-text text-4xl text-black font-semibold">
                   Sign Up
                 </h3>
-                <button className="bg-transparent border-0 text-black float-right">
-                  <span className="text-black opacity-7 h-6 w-6 text-xl block  py-0 rounded-full">
-                    x
-                  </span>
-                </button>
+                <p
+                  onClick={() => {
+                    document.getElementById("my-drawer-3").click();
+                  }}
+                  className="text-2xl mt-6"
+                >
+                  x
+                </p>
               </div>
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">
@@ -181,14 +184,19 @@ const Register = ({ showModalR, setShowModalR, setShowModal }) => {
             </div>
             <div className="text-sm  text-center font-medium text-gray-400">
               <p className="mb-2">Have an account?</p>
-              <p onClick={() => setShowModalR(false)}>
-                <button
-                  onClick={() => setShowModal(true)}
-                  className="dark:text-blue-500"
+
+              <button
+                onClick={() => {
+                  document.getElementById("my-drawer-3").click();
+                }}
+              >
+                <label
+                  htmlFor="my-drawer-2"
+                  className="drawer-button dark:text-blue-500 text-base font-bold"
                 >
                   Please Login Your Account
-                </button>
-              </p>
+                </label>
+              </button>
             </div>
           </ul>
         </div>

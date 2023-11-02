@@ -32,3 +32,9 @@
             height: 600px;
            }
    }
+   @media only screen and (max-width: 4000px) and (min-width: 2561px) 
+   {
+    .single-products-cle{
+           height: 850px;
+          }
+  }

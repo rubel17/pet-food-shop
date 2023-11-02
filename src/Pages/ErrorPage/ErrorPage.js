@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Info from "../Info/Info";
-import Error from "../../assets/image/404-sleep-cat 1.png";
+import errorPage from "../../assets/image/Error Page.json";
+import Lottie from "lottie-react";
 
 const ErrorPage = () => {
   return (
@@ -23,8 +24,10 @@ const ErrorPage = () => {
             Go Back
           </Link>
         </div>
-        <div className="w-1/2">
-          <img className="e-img" src={Error} alt="" />
+        <div className="w-1/2 ">
+          <div className="e-img">
+            <Lottie animationData={errorPage} loop={true} />
+          </div>
         </div>
       </div>
       <hr className="mb-10" />

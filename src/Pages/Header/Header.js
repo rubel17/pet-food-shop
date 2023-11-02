@@ -14,17 +14,11 @@ const Header = () => {
   const { user } = useContext(AuthContext);
 
   //cart list length
-  const { data: userCartList = [], refetch } = useQuery({
-    queryKey: [`/myCartList`],
-    queryFn: () =>
-      fetch(`https://y-rubelrk.vercel.app/myCartList/${user?.email}`).then(
-        (res) => res.json()
-      ),
-  });
   const [cart, setCart] = useLocalStorage("cartData", []);
   console.log(setCart);
+
   //wish list length
-  const { data: userWishList = [] } = useQuery({
+  const { data: userWishList = [], refetch } = useQuery({
     queryKey: [`/myWishList`],
     queryFn: () =>
       fetch(`https://y-rubelrk.vercel.app/myWishList/${user?.email}`).then(
@@ -32,13 +26,7 @@ const Header = () => {
       ),
   });
   refetch();
-  // const [cart, setCart] = useState(
-  //   JSON.parse(localStorage.getItem("cartData"))
-  // );
-  // useEffect(() => {
-  //   const carts = JSON.parse(localStorage.getItem("cartData"));
-  //   setCart(carts);
-  // }, [cart]);
+
   return (
     <div className="navbar">
       <div className="navbar-start">
@@ -95,11 +83,7 @@ const Header = () => {
         </div>
       </div>
       <div className="relative lg:hidden">
-        <button
-          // onClick={() => setCartModal(true)}
-          className="mr-3"
-          type="button"
-        >
+        <button className="mr-3" type="button">
           <label htmlFor="my-drawer-4" className="drawer-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +104,7 @@ const Header = () => {
 
         <p className="absolute -top-1 right-3 product-length rounded-full">
           <span className="text-white absolute -top-1 right-1">
-            {userCartList.length}
+            {cart.length}
           </span>
         </p>
       </div>
@@ -156,6 +140,9 @@ const Header = () => {
           height="100px"
           className=" lg:hidden  align-top"
         />
+        <span className="font-semibold ml-2 capitalize  lg:hidden">
+          petopia
+        </span>
       </Link>
       <div className="navbar-center md:pl-8 hidden lg:flex">
         <Link to="/">
