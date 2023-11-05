@@ -105,7 +105,7 @@ const CatFoodDetail = ({ FoodList }) => {
   };
   return (
     <>
-      <div className="md:mx-5 lg:-mb-10 xl:-mb-6 2xl:-mb-20">
+      <div className="md:mx-5 -mb-0 lg:-mb-10 xl:-mb-6 2xl:-mb-20">
         <Link to={`/foodDetails/${_id}`}>
           <object>
             <div className="single-product-cat">

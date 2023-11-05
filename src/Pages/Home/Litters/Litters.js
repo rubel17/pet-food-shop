@@ -58,7 +58,7 @@ const Litters = () => {
         </div>
 
         <div className="lg:flex justify-center lg:mt-16 mt-8">
-          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <div>
               <Slider {...settings}>
                 {litters.map((littersList) => (

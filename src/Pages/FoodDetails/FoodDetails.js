@@ -303,7 +303,7 @@ const FoodDetails = () => {
           Related Products
         </h1>
         <section className="lg:flex justify-center lg:mt-20 mt-8">
-          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <div>
               <Slider {...settings}>
                 {relatedProducts?.map((FoodList) => (

@@ -42,3 +42,37 @@
    
 
    
+  @media (min-width: 10px) { 
+    .single-products-litter{
+        height: 468px;
+       }
+}
+  @media (min-width: 640px) { 
+    .single-products-litter{
+        height: 535px;
+       }
+}
+	@media (min-width: 768px) { 
+        .single-products-litter{
+        height:485px;
+       } }
+	@media (min-width: 1024px) { 
+        .single-products-litter{
+        height:515px;
+       } }
+	@media (min-width: 1280px) { 
+        .single-products-litter{
+        height:490px;
+       } }
+	@media (min-width: 1536px) { 
+        .single-products-litter{
+        height:650px;
+       } }
+	@media (min-width: 2851px) { 
+        .single-products-litter{
+        height:700px;
+       } }
+	@media (min-width: 3135px) { 
+        .single-products-litter{
+        height:750px;
+       } }

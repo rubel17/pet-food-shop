@@ -272,7 +272,7 @@ const Home = () => {
             <img className="cat-finger-img" src={pawPrint} alt="" />
           </div>
 
-          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <div>
               <Slider {...settings}>
                 {catFood.map((FoodList) => (
@@ -307,7 +307,7 @@ const Home = () => {
         </div>
 
         <div className="lg:flex justify-center lg:mt-16 mt-8">
-          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <Slider {...settings}>
               {dogFood.map((dogFoodList) => (
                 <DogFoodDetail
@@ -336,7 +336,7 @@ const Home = () => {
         <ClearanceSale></ClearanceSale>
       </section>
 
-      <section className="mt-52 lg:mt-80 2xl:mt-60">
+      <section className="mt-52 lg:mt-80">
         <Litters></Litters>
       </section>
 

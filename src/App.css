@@ -71,3 +71,31 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/*  All product view height */
+@media (min-width: 10px) { 
+  .product-height{
+  height:820px;
+ } }
+ @media (min-width: 640px) { 
+  .product-height{
+  height:870px;
+ } }
+@media (min-width: 768px) { 
+      .product-height{
+      height:850px;
+     } }
+@media (min-width: 1024px) { 
+      .product-height{
+      height:820px;
+     } }
+@media (min-width: 1280px) { 
+      .product-height{
+      height:800px;
+     } }
+@media (min-width: 1536px) { 
+      .product-height{
+      height:1000px;
+     } }
