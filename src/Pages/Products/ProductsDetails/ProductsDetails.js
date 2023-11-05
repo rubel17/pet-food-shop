@@ -1,26 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./ProductsDetails.css";
 import { Link } from "react-router-dom";
 import Heart from "../../../assets/image/Heart.png";
-import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import Love from "../../../assets/image/red-love.png";
 import { ToastContainer, toast } from "react-toastify";
 import productBg from "../../../assets/image/product-bg.png";
 
 const ProductsDetails = ({ FoodList }) => {
   const { name, img, views, weight, Amount, _id, Rating, rating } = FoodList;
-  const { user } = useContext(AuthContext);
 
   const [wishList, setWishList] = useState(Heart);
 
   const handleAddToCart = (id) => {
-    const email = user?.email;
     const productId = id;
     const Amounts = parseInt(Amount);
     const value = 1;
     const addToCartList = {
       name,
-      email,
       Amounts,
       weight,
       img,
@@ -33,72 +29,35 @@ const ProductsDetails = ({ FoodList }) => {
     localStorage.setItem("cartData", JSON.stringify(cart));
     window.dispatchEvent(new Event("storage"));
     toast.success("Add To Cart Successful");
-
-    if (user) {
-      fetch(`https://y-rubelrk.vercel.app/addToCart`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(addToCartList),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            toast.success("Add To Cart Successful");
-          }
-        });
-    } else {
-      // toast.error("Login please");
-    }
   };
 
   const handleAddToWishList = (id) => {
     let value = wishList;
-    const email = user?.email;
     const productId = id;
     const Amounts = parseInt(Amount);
     const AddToWishList = {
       name,
-      email,
       Amounts,
       weight,
       img,
       productId,
     };
-    if (user && value === Heart) {
+    if (value === Heart) {
       setWishList(Love);
-      fetch(`https://y-rubelrk.vercel.app/addToWishList`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(AddToWishList),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            toast.success("Add To WishList Successful");
-          }
-        });
+      const prevWishData = JSON.parse(localStorage.getItem("wishData")) || [];
+      const wish = [...prevWishData, AddToWishList];
+      localStorage.setItem("wishData", JSON.stringify(wish));
+      window.dispatchEvent(new Event("storage"));
+      toast.success("Add To Wish Successful");
     } else {
       setWishList(Heart);
-      console.log(productId);
-      fetch(`https://y-rubelrk.vercel.app/deleteToWishList/${productId}`, {
-        method: "DELETE",
-        // headers: {
-        //   authorization: `Bearer ${localStorage.getItem("token")}`,
-        // },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            toast.error("Removed To WishList Successful");
-            // refetch();
-          } else {
-            toast.error("Login please");
-          }
-        });
+      const prevWishData = JSON.parse(localStorage.getItem("wishData")) || [];
+      const wishData = prevWishData.filter(
+        (product) => product.productId !== id
+      );
+      localStorage.setItem("wishData", JSON.stringify(wishData));
+      window.dispatchEvent(new Event("storage"));
+      toast.error("Delete To Wish Successful");
     }
   };
 

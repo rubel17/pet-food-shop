@@ -1,24 +1,26 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import "./WishList.css";
 import Delete from "../../../assets/image/delete.png";
 import Love from "../../../assets/image/red-love.png";
-import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
 
-const WishList = ({ wishModal, setWishModal }) => {
-  const { user } = useContext(AuthContext);
-  const { data: userWishList = [], refetch } = useQuery({
-    queryKey: [`/myWishList`],
-    queryFn: () =>
-      fetch(`https://y-rubelrk.vercel.app/myWishList/${user?.email}`).then(
-        (res) => res.json()
-      ),
-  });
+const WishList = () => {
+  const [wish, setWish] = useState(
+    JSON.parse(localStorage.getItem("wishData")) || []
+  );
+  useEffect(() => {
+    const handleChange = (e) => {
+      const c = JSON.parse(localStorage.getItem("wishData"));
+      setWish(c);
+    };
+    window.addEventListener("storage", handleChange);
+    return () => {
+      window.removeEventListener("storage", handleChange);
+    };
+  }, []);
 
   //add to cart
   const handleAddToCart = (wishList) => {
-    const email = user?.email;
     const productId = wishList?._id;
     const Amounts = parseInt(wishList?.Amounts);
     const name = wishList?.name;
@@ -27,45 +29,28 @@ const WishList = ({ wishModal, setWishModal }) => {
     const value = 1;
     const addToCartList = {
       name,
-      email,
       Amounts,
       weight,
       img,
       productId,
       value,
     };
-    fetch(`https://y-rubelrk.vercel.app/addToCart`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(addToCartList),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          toast.success("Add To Cart Successful");
-        }
-      });
+    // add Data to localStorage
+    const prevCartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const cart = [...prevCartData, addToCartList];
+    localStorage.setItem("cartData", JSON.stringify(cart));
+    window.dispatchEvent(new Event("storage"));
+    toast.success("Add To Cart Successful");
   };
-  refetch();
+
   //delete to wish List
   const handleDeleteWishList = (id) => {
-    fetch(`https://y-rubelrk.vercel.app/removeToWishList/${id}`, {
-      method: "DELETE",
-      // headers: {
-      //   authorization: `Bearer ${localStorage.getItem("token")}`,
-      // },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          toast.success("Delete Successful");
-          refetch();
-        }
-      });
+    const prevWishData = JSON.parse(localStorage.getItem("wishData")) || [];
+    const wishData = prevWishData.filter((product) => product.productId !== id);
+    localStorage.setItem("wishData", JSON.stringify(wishData));
+    window.dispatchEvent(new Event("storage"));
+    toast.success("Delete To Wish Successful");
   };
-  refetch();
 
   return (
     <>
@@ -94,7 +79,7 @@ const WishList = ({ wishModal, setWishModal }) => {
                 </div>
               </div>
 
-              {userWishList?.map((wishList) => (
+              {wish?.map((wishList) => (
                 <section key={wishList._id}>
                   <div className="mb-5">
                     <div className="flex justify-between me-3 wish-shadow bg-white outline-none focus:outline-none wish-product">
@@ -131,7 +116,9 @@ const WishList = ({ wishModal, setWishModal }) => {
                           <img src={Love} alt="" />
                         </p>
                         <button
-                          onClick={() => handleDeleteWishList(wishList._id)}
+                          onClick={() =>
+                            handleDeleteWishList(wishList.productId)
+                          }
                         >
                           <img className="mt-20 md:mt-14" src={Delete} alt="" />
                         </button>

@@ -83,7 +83,7 @@ const CatFood = () => {
             <img className="cat-finger-img" src={imgFin} alt="" />
           </div>
 
-          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 h-screen">
+          <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <div>
               <Slider {...settings}>
                 {catFood.map((FoodList) => (

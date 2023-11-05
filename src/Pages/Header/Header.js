@@ -1,31 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/image/Brand-Icon.png";
 import CartList from "./CartList/CartList";
 import WishList from "./WishList/WishList";
-import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
+
 import "./Header.css";
 import { useLocalStorage } from "usehooks-ts";
 
 const Header = () => {
   const [cartModal, setCartModal] = useState(false);
   const [wishModal, setWishModal] = useState(false);
-  const { user } = useContext(AuthContext);
 
   //cart list length
   const [cart, setCart] = useLocalStorage("cartData", []);
-  console.log(setCart);
 
   //wish list length
-  const { data: userWishList = [], refetch } = useQuery({
-    queryKey: [`/myWishList`],
-    queryFn: () =>
-      fetch(`https://y-rubelrk.vercel.app/myWishList/${user?.email}`).then(
-        (res) => res.json()
-      ),
-  });
-  refetch();
+  const [wish, setWish] = useLocalStorage("wishData", []);
 
   return (
     <div className="navbar">
@@ -110,11 +100,7 @@ const Header = () => {
       </div>
       <CartList cartModal={cartModal} setCartModal={setCartModal}></CartList>
       <div className="relative lg:hidden">
-        <button
-          className="mr-14"
-          type="button"
-          // onClick={() => setWishModal(true)}
-        >
+        <button className="mr-14" type="button">
           <label htmlFor="my-drawer-5" className="drawer-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +113,7 @@ const Header = () => {
         </button>
         <p className="absolute -top-1 right-12 product-length rounded-full">
           <span className="text-white absolute -top-1 right-1">
-            {userWishList.length}
+            {wish.length}
           </span>
         </p>
       </div>
@@ -240,7 +226,7 @@ const Header = () => {
 
           <p className="absolute -top-2 -right-2 product-length rounded-full">
             <span className="text-white absolute -top-1 left-1">
-              {userWishList.length}
+              {wish.length}
             </span>
           </p>
         </div>

@@ -328,11 +328,11 @@ const Home = () => {
       </section>
 
       {/* offer section */}
-      <section className="2xl:-mt-64">
+      <section className="2xl:-mt-64 lg:-mt-40">
         <CatAndDog></CatAndDog>
       </section>
 
-      <section className="-mt-32 xl:mt-32">
+      <section className="-mt-48 xl:mt-32">
         <ClearanceSale></ClearanceSale>
       </section>
 
@@ -340,10 +340,10 @@ const Home = () => {
         <Litters></Litters>
       </section>
 
-      <section className="2xl:-mt-64 lg:-mt-40">
+      <section className="2xl:-mt-64 lg:-mt-44">
         <BrandLogo></BrandLogo>
       </section>
-      <section className="2xl:mt-64 mt-10">
+      <section className="2xl:mt-64 mt-24">
         <NewsLetter></NewsLetter>
       </section>
       <ToastContainer />

@@ -116,7 +116,7 @@ const FoodDetails = () => {
       // toast.error("Please Login");
     }
   };
-  const handleAddToWishList = (id) => {
+  const handleAddToWishListFood = (id) => {
     const email = user?.email;
     const productId = id;
     const name = productDetail?.name;
@@ -131,23 +131,11 @@ const FoodDetails = () => {
       img,
       productId,
     };
-    if (user) {
-      fetch(`https://y-rubelrk.vercel.app/addToWishList`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(AddToWishList),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            toast.success("Add To WishList Successful");
-          }
-        });
-    } else {
-      toast.error("Please Login");
-    }
+    const prevWishData = JSON.parse(localStorage.getItem("wishData")) || [];
+    const wish = [...prevWishData, AddToWishList];
+    localStorage.setItem("wishData", JSON.stringify(wish));
+    window.dispatchEvent(new Event("storage"));
+    toast.success("Add To Wish Successful");
   };
   refetch();
   return (
@@ -245,7 +233,7 @@ const FoodDetails = () => {
 
               <Link
                 className="btn-wishList"
-                onClick={() => handleAddToWishList(productDetail?._id)}
+                onClick={() => handleAddToWishListFood(productDetail?._id)}
               >
                 <div className="flex  px-2 rounded-lg border-black py-2.5 text-center mr-2 addToCart-btn glow-on-hover">
                   <p className="font-semibold text-xl">Add To Wish List</p>

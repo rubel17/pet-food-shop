@@ -1,20 +1,19 @@
 .brightness-dog { filter: brightness(0.90); }
 .brightness-dog:hover { filter: brightness(1.100); }
 
- 
-   @media (min-width: 10px) { 
-    .single-products-dog{
-        height: 468px;
-       }
-}
-  @media (min-width: 640px) { 
-    .single-products-dog{
-        height: 535px;
-       }
-}
+@media (min-width: 10px) { 
+       .single-products-dog{
+           height: 355px;
+          }
+   }
+     @media (min-width: 580px) { 
+       .single-products-dog{
+           height: 535px;
+          }
+   }
 	@media (min-width: 768px) { 
         .single-products-dog{
-        height:485px;
+        height:490px;
        } }
 	@media (min-width: 1024px) { 
         .single-products-dog{

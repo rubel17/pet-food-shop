@@ -77,15 +77,15 @@
 /*  All product view height */
 @media (min-width: 10px) { 
   .product-height{
-  height:820px;
+  height:750px;
  } }
- @media (min-width: 640px) { 
+ @media (min-width: 580px) { 
   .product-height{
   height:870px;
  } }
 @media (min-width: 768px) { 
       .product-height{
-      height:850px;
+      height:865px;
      } }
 @media (min-width: 1024px) { 
       .product-height{
