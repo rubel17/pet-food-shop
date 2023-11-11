@@ -11,11 +11,14 @@
 
 .cart-upAndDown{
     background: #F4FBF8;
-    color: #84B59F;
+    color: #7209B7;
 }
 .cart-order-btn{
     color: white;
-    background: #84B59F;
+    background: #7209B7;
     border-radius: 2px;
+}
+.totalProduct-height{
+    max-height: 640px;
 }
 

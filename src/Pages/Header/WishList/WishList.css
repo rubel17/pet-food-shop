@@ -25,5 +25,8 @@
     background: #84B59F;
     border-radius: 5px;
 }
+.totalProduct-height{
+    max-height: 570px;
+}
 
 

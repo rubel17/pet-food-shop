@@ -78,55 +78,60 @@ const WishList = () => {
                   </p>
                 </div>
               </div>
-
-              {wish?.map((wishList) => (
-                <section key={wishList._id}>
-                  <div className="mb-5">
-                    <div className="flex justify-between me-3 wish-shadow bg-white outline-none focus:outline-none wish-product">
-                      <div>
-                        <div className="flex">
-                          <div className="wish-product-body">
-                            <div className=" wish-product-body-img">
-                              <img src={wishList.img} alt="" />
+              <div className="totalProduct-height scroll overflow-y-scroll scroll-smooth">
+                {wish?.map((wishList) => (
+                  <section key={wishList._id}>
+                    <div className="mb-5">
+                      <div className="flex justify-between me-3 wish-shadow bg-white outline-none focus:outline-none wish-product">
+                        <div>
+                          <div className="flex">
+                            <div className="wish-product-body">
+                              <div className=" wish-product-body-img">
+                                <img src={wishList.img} alt="" />
+                              </div>
                             </div>
-                          </div>
-                          <div className="wish-product-text">
-                            <h1 className="text-xl font-semibold py-1">
-                              {wishList.name}
-                            </h1>
-                            <h3 className="text-medium font-semibold">
-                              {wishList.Amounts} Tk.
-                            </h3>
-                            <h2 className="text-medium">
-                              Flavor:{wishList.weight}
-                            </h2>
-                            <div
-                              onClick={() => handleAddToCart(wishList)}
-                              className="text-base md:text-lg  mt-2"
-                            >
-                              <button className="btn-addToCart px-2 py-1">
-                                Add To Cart
-                              </button>
+                            <div className="wish-product-text">
+                              <h1 className="text-xl font-semibold py-1">
+                                {wishList.name}
+                              </h1>
+                              <h3 className="text-medium font-semibold">
+                                {wishList.Amounts} Tk.
+                              </h3>
+                              <h2 className="text-medium">
+                                Flavor:{wishList.weight}
+                              </h2>
+                              <div
+                                onClick={() => handleAddToCart(wishList)}
+                                className="text-base md:text-lg  mt-2"
+                              >
+                                <button className="btn-addToCart px-2 py-1">
+                                  Add To Cart
+                                </button>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="md:p-3">
-                        <p>
-                          <img src={Love} alt="" />
-                        </p>
-                        <button
-                          onClick={() =>
-                            handleDeleteWishList(wishList.productId)
-                          }
-                        >
-                          <img className="mt-20 md:mt-14" src={Delete} alt="" />
-                        </button>
+                        <div className="md:p-3">
+                          <p>
+                            <img src={Love} alt="" />
+                          </p>
+                          <button
+                            onClick={() =>
+                              handleDeleteWishList(wishList.productId)
+                            }
+                          >
+                            <img
+                              className="mt-20 md:mt-14"
+                              src={Delete}
+                              alt=""
+                            />
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </section>
-              ))}
+                  </section>
+                ))}
+              </div>
             </ul>
           </div>
         </div>
