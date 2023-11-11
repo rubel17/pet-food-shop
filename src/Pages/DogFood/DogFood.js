@@ -8,13 +8,14 @@ import { useQuery } from "@tanstack/react-query";
 import DogFoodDetail from "../DogFoodDetail/DogFoodDetail";
 import { ToastContainer } from "react-toastify";
 const DogFood = () => {
-  const { data: dogFood = [] } = useQuery({
+  const { data: dogFood = [], refetch } = useQuery({
     queryKey: ["dogFood"],
     queryFn: ({ params }) =>
       fetch(`https://y-rubelrk.vercel.app/allProduct/dogFood`).then((res) =>
         res.json()
       ),
   });
+  refetch();
   var settings = {
     dots: true,
     infinite: false,
@@ -28,6 +29,7 @@ const DogFood = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -37,6 +39,7 @@ const DogFood = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -46,6 +49,7 @@ const DogFood = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },

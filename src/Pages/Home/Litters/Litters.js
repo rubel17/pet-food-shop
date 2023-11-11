@@ -14,17 +14,19 @@ const Litters = () => {
   });
   var settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
+    rows: 1,
     responsive: [
       {
         breakpoint: 1921,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -34,7 +36,8 @@ const Litters = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: false,
+          initialSlide: 0,
+          infinite: true,
           dots: true,
         },
       },
@@ -43,7 +46,8 @@ const Litters = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: false,
+          initialSlide: 0,
+          infinite: true,
           dots: true,
         },
       },

@@ -112,7 +112,7 @@ const CatFoodDetail = ({ FoodList }) => {
                   <div className="product-rating">
                     <div className="Stars" style={{ "--rating": rating }}></div>
                   </div>
-                  <h2 className="-mt-2 md:-mt-0 mb-3">{views}</h2>
+                  <h2 className="-mt-2  md:-mt-0 mb-3">{views}</h2>
                 </div>
 
                 <Link

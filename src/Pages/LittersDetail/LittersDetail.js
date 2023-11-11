@@ -108,7 +108,7 @@ const LittersDetail = ({ littersList }) => {
               <h2 className="text-medium pb-1">{weight}</h2>
               <h3 className="text-medium font-semibold">{Amount}</h3>
 
-              <div className="md:flex md:mb-1">
+              <div className="md:flex lg:flex-col xl:flex-row md:mb-1">
                 <div className="product-rating">
                   <div className="Stars" style={{ "--rating": Rating }}></div>
                 </div>

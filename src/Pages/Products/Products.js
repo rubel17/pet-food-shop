@@ -25,6 +25,7 @@ const Products = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -34,6 +35,7 @@ const Products = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -43,6 +45,7 @@ const Products = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },

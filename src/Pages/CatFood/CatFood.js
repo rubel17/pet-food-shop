@@ -11,14 +11,14 @@ import CatFoodDetail from "../CatFoodDetail/CatFoodDetail";
 import { ToastContainer } from "react-toastify";
 
 const CatFood = () => {
-  const { data: catFood = [] } = useQuery({
+  const { data: catFood = [], refetch } = useQuery({
     queryKey: ["catFood"],
     queryFn: () =>
       fetch("https://y-rubelrk.vercel.app/allProduct/catFood").then((res) =>
         res.json()
       ),
   });
-
+  refetch();
   var settings = {
     dots: true,
     infinite: false,
@@ -32,6 +32,7 @@ const CatFood = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -41,6 +42,7 @@ const CatFood = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -50,6 +52,7 @@ const CatFood = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },

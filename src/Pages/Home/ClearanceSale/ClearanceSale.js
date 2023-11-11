@@ -29,6 +29,7 @@ const ClearanceSale = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -38,6 +39,7 @@ const ClearanceSale = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
@@ -47,6 +49,7 @@ const ClearanceSale = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
         },
