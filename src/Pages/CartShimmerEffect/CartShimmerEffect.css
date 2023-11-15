@@ -1,0 +1,9 @@
+.addToCart-btn-shimmer{
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--neutral-06, #48414D);
+   
+   }
+   .bg{
+    background-color: gray;
+}

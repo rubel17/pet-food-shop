@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { useQuery } from "@tanstack/react-query";
 import LittersDetail from "../../LittersDetail/LittersDetail";
+import CartShimmerEffect from "../../CartShimmerEffect/CartShimmerEffect";
 const Litters = () => {
   const { data: litters = [] } = useQuery({
     queryKey: ["litters"],
@@ -14,7 +15,7 @@ const Litters = () => {
   });
   var settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -27,8 +28,6 @@ const Litters = () => {
           slidesToShow: 4,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -37,8 +36,6 @@ const Litters = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -47,8 +44,6 @@ const Litters = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
     ],
@@ -63,7 +58,13 @@ const Litters = () => {
 
         <div className="lg:flex justify-center lg:mt-16 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
-            <div>
+            {litters.length === 0 ? (
+              <Slider {...settings}>
+                {Array.from({ length: 10 }).map((data, i) => (
+                  <CartShimmerEffect key={i} />
+                ))}
+              </Slider>
+            ) : (
               <Slider {...settings}>
                 {litters.map((littersList) => (
                   <LittersDetail
@@ -72,7 +73,7 @@ const Litters = () => {
                   ></LittersDetail>
                 ))}
               </Slider>
-            </div>
+            )}
             <Link to="/allProduct/litters">
               <u>
                 <p className="lg:text-end dog-see-all -mt-6 lg:mt-8 lg:pr-11">

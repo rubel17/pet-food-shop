@@ -6,6 +6,7 @@ import imgFin from "../../../assets/image/pawprint 4.png";
 import imgBon from "../../../assets/image/bone 3.png";
 import { useQuery } from "@tanstack/react-query";
 import ClearanceSaleDetail from "../../ClearanceSaleDetail/ClearanceSaleDetail";
+import CartShimmerEffect from "../../CartShimmerEffect/CartShimmerEffect";
 
 const ClearanceSale = () => {
   const { data: clearanceSale = [] } = useQuery({
@@ -17,7 +18,7 @@ const ClearanceSale = () => {
   });
   var settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -30,8 +31,6 @@ const ClearanceSale = () => {
           slidesToShow: 4,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -40,8 +39,6 @@ const ClearanceSale = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -50,8 +47,6 @@ const ClearanceSale = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
     ],
@@ -71,14 +66,22 @@ const ClearanceSale = () => {
 
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <div>
-              <Slider {...settings}>
-                {clearanceSale.map((clearanceSaleList) => (
-                  <ClearanceSaleDetail
-                    key={clearanceSaleList._id}
-                    clearanceSaleList={clearanceSaleList}
-                  ></ClearanceSaleDetail>
-                ))}
-              </Slider>
+              {clearanceSale.length === 0 ? (
+                <Slider {...settings}>
+                  {Array.from({ length: 10 }).map((data, i) => (
+                    <CartShimmerEffect key={i} />
+                  ))}
+                </Slider>
+              ) : (
+                <Slider {...settings}>
+                  {clearanceSale.map((clearanceSaleList) => (
+                    <ClearanceSaleDetail
+                      key={clearanceSaleList._id}
+                      clearanceSaleList={clearanceSaleList}
+                    ></ClearanceSaleDetail>
+                  ))}
+                </Slider>
+              )}
             </div>
             <Link to="/allProduct/clearanceSale">
               <u>

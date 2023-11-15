@@ -3,12 +3,12 @@ import "./CatFood.css";
 import catFoods from "../../assets/image/cat food.png";
 import Slider from "react-slick";
 import imgFin from "../../assets/image/pawprint (1) 1.png";
-import { Link } from "react-router-dom";
 import imgBon from "../../assets/image/bone 3.png";
 import CatAndDog from "../Home/CatAndDog/CatAndDog";
 import { useQuery } from "@tanstack/react-query";
 import CatFoodDetail from "../CatFoodDetail/CatFoodDetail";
 import { ToastContainer } from "react-toastify";
+import CartShimmerEffect from "../CartShimmerEffect/CartShimmerEffect";
 
 const CatFood = () => {
   const { data: catFood = [], refetch } = useQuery({
@@ -26,6 +26,7 @@ const CatFood = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
+    rows: 2,
     responsive: [
       {
         breakpoint: 1921,
@@ -88,22 +89,23 @@ const CatFood = () => {
 
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <div>
-              <Slider {...settings}>
-                {catFood.map((FoodList) => (
-                  <CatFoodDetail
-                    key={FoodList._id}
-                    FoodList={FoodList}
-                  ></CatFoodDetail>
-                ))}
-              </Slider>
+              {catFood.length === 0 ? (
+                <Slider {...settings}>
+                  {Array.from({ length: 10 }).map((data, i) => (
+                    <CartShimmerEffect key={i} />
+                  ))}
+                </Slider>
+              ) : (
+                <Slider {...settings}>
+                  {catFood.map((FoodList) => (
+                    <CatFoodDetail
+                      key={FoodList._id}
+                      FoodList={FoodList}
+                    ></CatFoodDetail>
+                  ))}
+                </Slider>
+              )}
             </div>
-            <Link to="/allProduct/catFood">
-              <u>
-                <p className="lg:text-end cat-see-all lg:mt-8 lg:pr-11">
-                  See all
-                </p>
-              </u>
-            </Link>
           </div>
 
           <div className="cat-bone hidden lg:inline-flex">
@@ -112,7 +114,7 @@ const CatFood = () => {
         </div>
       </section>
       <ToastContainer />
-      <section className="-mt-32 2xl:-mt-80 mb-32">
+      <section className="mt-64 mb-20">
         <CatAndDog></CatAndDog>
       </section>
     </>

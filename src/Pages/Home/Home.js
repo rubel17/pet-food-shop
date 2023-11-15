@@ -39,6 +39,7 @@ import DogFoodDetail from "../DogFoodDetail/DogFoodDetail";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NewsLetter from "./NewsLetter/NewsLetter";
+import CartShimmerEffect from "../CartShimmerEffect/CartShimmerEffect";
 
 const Home = () => {
   const { data: catFood = [] } = useQuery({
@@ -68,7 +69,7 @@ const Home = () => {
 
   var settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -81,8 +82,6 @@ const Home = () => {
           slidesToShow: 4,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -91,8 +90,6 @@ const Home = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -101,8 +98,6 @@ const Home = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
     ],
@@ -278,14 +273,22 @@ const Home = () => {
 
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <div>
-              <Slider {...settings}>
-                {catFood.map((FoodList) => (
-                  <CatFoodDetail
-                    key={FoodList._id}
-                    FoodList={FoodList}
-                  ></CatFoodDetail>
-                ))}
-              </Slider>
+              {catFood.length === 0 ? (
+                <Slider {...settings}>
+                  {Array.from({ length: 10 }).map((data, i) => (
+                    <CartShimmerEffect key={i} />
+                  ))}
+                </Slider>
+              ) : (
+                <Slider {...settings}>
+                  {catFood.map((FoodList) => (
+                    <CatFoodDetail
+                      key={FoodList._id}
+                      FoodList={FoodList}
+                    ></CatFoodDetail>
+                  ))}
+                </Slider>
+              )}
             </div>
             <Link to="/allProduct/catFood">
               <u>
@@ -312,14 +315,22 @@ const Home = () => {
 
         <div className="lg:flex justify-center lg:mt-16 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
-            <Slider {...settings}>
-              {dogFood.map((dogFoodList) => (
-                <DogFoodDetail
-                  key={dogFoodList._id}
-                  dogFoodList={dogFoodList}
-                ></DogFoodDetail>
-              ))}
-            </Slider>
+            {dogFood.length === 0 ? (
+              <Slider {...settings}>
+                {Array.from({ length: 10 }).map((data, i) => (
+                  <CartShimmerEffect key={i} />
+                ))}
+              </Slider>
+            ) : (
+              <Slider {...settings}>
+                {dogFood.map((dogFoodList) => (
+                  <DogFoodDetail
+                    key={dogFoodList._id}
+                    dogFoodList={dogFoodList}
+                  ></DogFoodDetail>
+                ))}
+              </Slider>
+            )}
             <Link to="/allProduct/dogFood">
               <u>
                 <p className="lg:text-end dog-see-all mt-16 lg:mt-8 lg:pr-11">

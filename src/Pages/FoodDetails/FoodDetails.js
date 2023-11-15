@@ -17,6 +17,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
+import CartShimmerEffect from "../CartShimmerEffect/CartShimmerEffect";
 
 const FoodDetails = () => {
   const { user } = useContext(AuthContext);
@@ -50,8 +51,6 @@ const FoodDetails = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -59,8 +58,6 @@ const FoodDetails = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -68,8 +65,6 @@ const FoodDetails = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
         },
       },
     ],
@@ -293,14 +288,22 @@ const FoodDetails = () => {
         <section className="lg:flex justify-center lg:mt-20 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
             <div>
-              <Slider {...settings}>
-                {relatedProducts?.map((FoodList) => (
-                  <ProductsDetails
-                    key={FoodList._id}
-                    FoodList={FoodList}
-                  ></ProductsDetails>
-                ))}
-              </Slider>
+              {relatedProducts.length === 0 ? (
+                <Slider {...settings}>
+                  {Array.from({ length: 10 }).map((data, i) => (
+                    <CartShimmerEffect key={i} />
+                  ))}
+                </Slider>
+              ) : (
+                <Slider {...settings}>
+                  {relatedProducts?.map((FoodList) => (
+                    <ProductsDetails
+                      key={FoodList._id}
+                      FoodList={FoodList}
+                    ></ProductsDetails>
+                  ))}
+                </Slider>
+              )}
             </div>
             <Link to={`/allProduct/${productDetail?.category}`}>
               <u>

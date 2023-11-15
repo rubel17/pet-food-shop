@@ -2,11 +2,11 @@ import React from "react";
 import "./DogFood.css";
 import catFoods from "../../assets/image/cat food.png";
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
 import CatAndDog from "../Home/CatAndDog/CatAndDog";
 import { useQuery } from "@tanstack/react-query";
 import DogFoodDetail from "../DogFoodDetail/DogFoodDetail";
 import { ToastContainer } from "react-toastify";
+import CartShimmerEffect from "../CartShimmerEffect/CartShimmerEffect";
 const DogFood = () => {
   const { data: dogFood = [], refetch } = useQuery({
     queryKey: ["dogFood"],
@@ -23,6 +23,7 @@ const DogFood = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
+    rows: 2,
     responsive: [
       {
         breakpoint: 1921,
@@ -30,8 +31,6 @@ const DogFood = () => {
           slidesToShow: 4,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -40,8 +39,6 @@ const DogFood = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -50,8 +47,6 @@ const DogFood = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 0,
-          infinite: true,
-          dots: true,
         },
       },
     ],
@@ -78,26 +73,27 @@ const DogFood = () => {
         </div>
         <div className="lg:flex justify-center lg:mt-16 mt-8">
           <div className="pl-10 pr-7 lg:pl-28 lg:pr-28 lg:w-10/12 product-height">
-            <Slider {...settings}>
-              {dogFood.map((dogFoodList) => (
-                <DogFoodDetail
-                  key={dogFoodList._id}
-                  dogFoodList={dogFoodList}
-                ></DogFoodDetail>
-              ))}
-            </Slider>
-            <Link to="/allProduct/dogFood">
-              <u>
-                <p className="lg:text-end dog-see-all lg:mt-8 lg:pr-11">
-                  See all
-                </p>
-              </u>
-            </Link>
+            {dogFood.length === 0 ? (
+              <Slider {...settings}>
+                {Array.from({ length: 10 }).map((data, i) => (
+                  <CartShimmerEffect key={i} />
+                ))}
+              </Slider>
+            ) : (
+              <Slider {...settings}>
+                {dogFood.map((dogFoodList) => (
+                  <DogFoodDetail
+                    key={dogFoodList._id}
+                    dogFoodList={dogFoodList}
+                  ></DogFoodDetail>
+                ))}
+              </Slider>
+            )}
           </div>
         </div>
       </section>
       <ToastContainer />
-      <section className="-mt-32 2xl:-mt-80 mb-32">
+      <section className=" mt-64 mb-20">
         <CatAndDog></CatAndDog>
       </section>
     </>
