@@ -5,6 +5,7 @@ import Heart from "../../assets/image/Heart.png";
 import Love from "../../assets/image/red-love.png";
 import { ToastContainer, toast } from "react-toastify";
 import productBg from "../../assets/image/product-bg.png";
+import { Image, Shimmer } from "react-shimmer";
 
 const DogFoodDetail = ({ dogFoodList }) => {
   const { name, img, views, weight, Amount, _id, Rating } = dogFoodList;
@@ -68,8 +69,20 @@ const DogFoodDetail = ({ dogFoodList }) => {
             <div className="single-products-dog">
               <div>
                 <div className="relative">
-                  <img className="brightness-dog" src={productBg} alt="" />
-                  <img
+                  <div className="brightness-dog">
+                    <Image
+                      src={productBg}
+                      fallback={
+                        <Shimmer
+                          className="ml-5 mb-5"
+                          width={260}
+                          height={269}
+                        />
+                      }
+                    />
+                  </div>
+
+                  <div
                     style={{
                       position: "absolute",
                       top: "20%",
@@ -79,9 +92,18 @@ const DogFoodDetail = ({ dogFoodList }) => {
                       margin: "auto",
                       width: "60%",
                     }}
-                    src={img}
-                    alt=""
-                  />
+                  >
+                    <Image
+                      src={img}
+                      fallback={
+                        <Shimmer
+                          className="ml-5 mb-5"
+                          width={240}
+                          height={249}
+                        />
+                      }
+                    />
+                  </div>
                   <Link onClick={() => handleAddToWishList(_id)}>
                     <img
                       style={{

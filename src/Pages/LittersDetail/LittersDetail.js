@@ -5,6 +5,7 @@ import Heart from "../../assets/image/Heart.png";
 import { ToastContainer, toast } from "react-toastify";
 import Love from "../../assets/image/red-love.png";
 import productBg from "../../assets/image/product-bg.png";
+import { Image, Shimmer } from "react-shimmer";
 
 const LittersDetail = ({ littersList }) => {
   const { name, img, views, weight, Amount, _id, Rating } = littersList;
@@ -70,8 +71,16 @@ const LittersDetail = ({ littersList }) => {
           <div className="single-products-litter">
             <div>
               <div className="relative">
-                <img className="brightness-cat" src={productBg} alt="" />
-                <img
+                <div className="brightness-cat">
+                  <Image
+                    src={productBg}
+                    fallback={
+                      <Shimmer className="ml-5 mb-5" width={260} height={269} />
+                    }
+                  />
+                </div>
+
+                <div
                   style={{
                     position: "absolute",
                     top: "20%",
@@ -81,9 +90,14 @@ const LittersDetail = ({ littersList }) => {
                     margin: "auto",
                     width: "60%",
                   }}
-                  src={img}
-                  alt=""
-                />
+                >
+                  <Image
+                    src={img}
+                    fallback={
+                      <Shimmer className="ml-5 mb-5" width={240} height={249} />
+                    }
+                  />
+                </div>
                 <Link onClick={() => handleAddToWishList(_id)}>
                   <img
                     style={{
