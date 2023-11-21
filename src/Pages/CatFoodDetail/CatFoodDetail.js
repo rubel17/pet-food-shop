@@ -74,35 +74,13 @@ const CatFoodDetail = ({ FoodList }) => {
                   <div className="brightness-cat">
                     <Image
                       src={productBg}
-                      fallback={
-                        <Shimmer
-                          className="ml-5 mb-5"
-                          width={260}
-                          height={269}
-                        />
-                      }
+                      fallback={<Shimmer width={280} height={269} />}
                     />
                   </div>
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "20%",
-                      left: "20%",
-                      display: "block",
-                      height: "60%",
-                      margin: "auto",
-                      width: "60%",
-                    }}
-                  >
+                  <div className="product-img">
                     <Image
                       src={img}
-                      fallback={
-                        <Shimmer
-                          className="ml-5 mb-5"
-                          width={240}
-                          height={249}
-                        />
-                      }
+                      fallback={<Shimmer width={240} height={249} />}
                     />
                   </div>
                   <Link onClick={() => handleAddToWishList(_id)}>

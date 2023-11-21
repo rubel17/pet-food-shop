@@ -1,25 +1,20 @@
 import React from "react";
 import "./CartShimmerEffect.css";
-import { Image, Shimmer } from "react-shimmer";
+import { Shimmer } from "react-shimmer";
 
 const CartShimmerEffect = () => {
   return (
     <>
-      <div className="mx-1 md:mx-5 -mb-0 lg:-mb-10 xl:-mb-6 2xl:-mb-20">
+      <div className="mx-2">
         <div className="single-product-cat  w-full">
-          <div className="w-11/12 mt-5">
-            <Image
-              src="https://source.unsplash.com/random/300x299"
-              fallback={
-                <Shimmer className="rounded-lg" width={300} height={299} />
-              }
-            />
+          <div className="w-11/12 md:mt-5">
+            <Shimmer className="rounded-lg" width={300} height={299} />
           </div>
-          <div className="mt-8 w-11/12">
-            <Shimmer className="mt-5" width="95%" height={20} />
-            <Shimmer className="mt-5" width="60%" height={14} />
-            <Shimmer className="mt-5" width="45%" height={14} />
-            <Shimmer className="mt-5" width="90%" height={14} />
+          <div className="mt-2 md:mt-8 w-11/12">
+            <Shimmer className="mt-1 md:mt-5" width="95%" height={20} />
+            <Shimmer className="mt-1 md:mt-5" width="60%" height={14} />
+            <Shimmer className="mt-1 md:mt-5" width="45%" height={14} />
+            <Shimmer className="mt-1 md:mt-5" width="90%" height={14} />
             <Shimmer
               className="mt-5 addToCart-btn-shimmer"
               width="50%"

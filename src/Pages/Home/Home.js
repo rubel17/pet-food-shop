@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Home.css";
 import CatAndDog from "./CatAndDog/CatAndDog";
 import "slick-carousel/slick/slick.css";
@@ -32,7 +32,6 @@ import { Link } from "react-router-dom";
 import ClearanceSale from "./ClearanceSale/ClearanceSale";
 import Litters from "./Litters/Litters";
 import BrandLogo from "./BrandLogo/BrandLogo";
-import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import CatFoodDetail from "../CatFoodDetail/CatFoodDetail";
 import { useQuery } from "@tanstack/react-query";
 import DogFoodDetail from "../DogFoodDetail/DogFoodDetail";
@@ -57,15 +56,15 @@ const Home = () => {
         res.json()
       ),
   });
-  const { loading } = useContext(AuthContext);
+  // const { loading } = useContext(AuthContext);
 
-  if (loading) {
-    return (
-      <div className="text-center lg:m-56">
-        <button className="btn btn-square loading"></button>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="text-center lg:m-56">
+  //       <button className="btn btn-square loading"></button>
+  //     </div>
+  //   );
+  // }
 
   var settings = {
     dots: true,

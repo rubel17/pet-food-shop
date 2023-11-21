@@ -82,26 +82,10 @@ const DogFoodDetail = ({ dogFoodList }) => {
                     />
                   </div>
 
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "20%",
-                      left: "20%",
-                      display: "block",
-                      height: "60%",
-                      margin: "auto",
-                      width: "60%",
-                    }}
-                  >
+                  <div className="product-img">
                     <Image
                       src={img}
-                      fallback={
-                        <Shimmer
-                          className="ml-5 mb-5"
-                          width={240}
-                          height={249}
-                        />
-                      }
+                      fallback={<Shimmer width={240} height={230} />}
                     />
                   </div>
                   <Link onClick={() => handleAddToWishList(_id)}>

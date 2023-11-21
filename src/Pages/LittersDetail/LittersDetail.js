@@ -80,17 +80,7 @@ const LittersDetail = ({ littersList }) => {
                   />
                 </div>
 
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "20%",
-                    left: "20%",
-                    display: "block",
-                    height: "60%",
-                    margin: "auto",
-                    width: "60%",
-                  }}
-                >
+                <div className="product-img">
                   <Image
                     src={img}
                     fallback={

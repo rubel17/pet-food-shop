@@ -30,14 +30,14 @@ const FoodDetails = () => {
       ).then((res) => res.json()),
   });
 
-  const { loading } = useContext(AuthContext);
-  if (loading) {
-    return (
-      <div className="text-center m-56">
-        <button className="btn btn-square loading"></button>
-      </div>
-    );
-  }
+  // const { loading } = useContext(AuthContext);
+  // if (loading) {
+  //   return (
+  //     <div className="text-center m-56">
+  //       <button className="btn btn-square loading"></button>
+  //     </div>
+  //   );
+  // }
   var settings = {
     dots: true,
     infinite: false,

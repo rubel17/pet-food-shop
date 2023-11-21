@@ -1,31 +1,56 @@
 .brightness-dog { filter: brightness(0.90); }
 .brightness-dog:hover { filter: brightness(1.100); }
 
+.product-img{
+       position: absolute;
+       top: 20%;
+       left: 20%;
+       height: 60%;
+       width: 60%;
+}
+
+
 @media (min-width: 10px) { 
        .single-products-dog{
            height: 355px;
           }
+          .product-img{
+              top: 9%;
+       }
    }
      @media (min-width: 580px) { 
        .single-products-dog{
            height: 535px;
           }
+          .product-img{
+              top: 12%;
+           }
    }
 	@media (min-width: 768px) { 
         .single-products-dog{
         height:490px;
+       }
+       .product-img{
+              top: 14%;
        } }
 	@media (min-width: 1024px) { 
         .single-products-dog{
         height:515px;
+       }  .product-img{
+              top: 10%;
        } }
 	@media (min-width: 1280px) { 
         .single-products-dog{
         height:490px;
+       }  .product-img{
+              top: 15%;
        } }
 	@media (min-width: 1536px) { 
         .single-products-dog{
         height:650px;
+       }
+       .product-img{
+              top: 18%;
        } }
 	@media (min-width: 2851px) { 
         .single-products-dog{

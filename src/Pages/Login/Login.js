@@ -7,20 +7,19 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = ({ showModal, showModalR, setShowModal, setShowModalR }) => {
   const [error, setError] = useState("");
-  const { loading, setLoading, logInUser, googleSignIn } =
-    useContext(AuthContext);
+  const { setLoading, logInUser, googleSignIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  if (loading) {
-    return (
-      <div className="text-center m-56">
-        <button className="btn btn-square loading"></button>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="text-center m-56">
+  //       <button className="btn btn-square loading"></button>
+  //     </div>
+  //   );
+  // }
 
   const handleSubmit = (event) => {
     event.preventDefault();
